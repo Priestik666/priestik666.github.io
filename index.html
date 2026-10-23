@@ -1,11 +1,423 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Boris Golobokov</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Boris Golobokov | IT & Business Systems Leader</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b0f14;
+      color: #f4f7fa;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1180px, 88%);
+      margin: 0 auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 0;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .nav-links a {
+      color: #9ba7b4;
+      text-decoration: none;
+      margin-left: 28px;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .hero {
+      min-height: 82vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: #55a7ff;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(54px, 8vw, 105px);
+      line-height: 0.95;
+      letter-spacing: -4px;
+      max-width: 1000px;
+    }
+
+    .accent {
+      color: #55a7ff;
+    }
+
+    .lead {
+      max-width: 760px;
+      color: #aeb8c4;
+      font-size: 21px;
+      margin-top: 34px;
+    }
+
+    .buttons {
+      margin-top: 42px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 7px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .primary {
+      background: #2387f5;
+      color: #fff;
+    }
+
+    .secondary {
+      border: 1px solid #35404c;
+      color: #d9e0e7;
+    }
+
+    .stats {
+      border-top: 1px solid #252c34;
+      border-bottom: 1px solid #252c34;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 34px 0;
+      margin-bottom: 80px;
+    }
+
+    .stat {
+      padding-right: 25px;
+    }
+
+    .stat strong {
+      display: block;
+      color: #ffffff;
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .stat span {
+      color: #778391;
+      font-size: 13px;
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    h2 {
+      font-size: 42px;
+      letter-spacing: -1.5px;
+      margin-bottom: 24px;
+    }
+
+    .section-intro {
+      color: #99a5b2;
+      max-width: 720px;
+      font-size: 18px;
+      margin-bottom: 45px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: #11171e;
+      border: 1px solid #242d37;
+      border-radius: 12px;
+      padding: 34px;
+      min-height: 220px;
+    }
+
+    .card-number {
+      color: #55a7ff;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    .card h3 {
+      font-size: 23px;
+      margin-bottom: 13px;
+    }
+
+    .card p {
+      color: #8f9ba8;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+    }
+
+    .about p {
+      color: #a1acb8;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      border-top: 1px solid #252c34;
+      padding: 40px 0 60px;
+      color: #6f7b87;
+      font-size: 13px;
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        display: none;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .lead {
+        font-size: 18px;
+      }
+
+      .stats,
+      .cards,
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        gap: 25px;
+      }
+
+      .about {
+        gap: 25px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<h1>Boris Golobokov</h1>
-<p>IT Director | Business Systems | Digital Transformation</p>
+
+  <div class="container">
+
+    <nav>
+      <div class="logo">BORIS GOLOBOKOV</div>
+
+      <div class="nav-links">
+        <a href="#expertise">Expertise</a>
+        <a href="#work">Selected Work</a>
+        <a href="#about">About</a>
+      </div>
+    </nav>
+
+    <main>
+
+      <section class="hero">
+        <div>
+          <div class="eyebrow">IT Leadership · Business Systems · Transformation</div>
+
+          <h1>
+            Technology that<br>
+            <span class="accent">moves business.</span>
+          </h1>
+
+          <p class="lead">
+            IT & Business Systems leader connecting reliable operations,
+            enterprise platforms and practical digital transformation
+            across manufacturing and international business environments.
+          </p>
+
+          <div class="buttons">
+            <a class="button primary" href="#work">Selected Work</a>
+            <a class="button secondary" href="#about">About Me</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="stats">
+        <div class="stat">
+          <strong>18+ Years</strong>
+          <span>IT leadership & delivery</span>
+        </div>
+
+        <div class="stat">
+          <strong>ERP & CRM</strong>
+          <span>Business systems</span>
+        </div>
+
+        <div class="stat">
+          <strong>Manufacturing</strong>
+          <span>Operational technology</span>
+        </div>
+
+        <div class="stat">
+          <strong>Multi-country</strong>
+          <span>Regional environments</span>
+        </div>
+      </div>
+
+      <section id="expertise">
+        <h2>Where technology meets operations.</h2>
+
+        <p class="section-intro">
+          From resilient infrastructure to enterprise platforms,
+          I work at the intersection of business operations,
+          technology and transformation.
+        </p>
+
+        <div class="cards">
+          <div class="card">
+            <div class="card-number">01</div>
+            <h3>IT Leadership</h3>
+            <p>
+              Technology strategy, regional operations, service delivery,
+              governance and vendor management.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-number">02</div>
+            <h3>ERP & Business Systems</h3>
+            <p>
+              ERP, CRM, enterprise applications, integrations,
+              data and business process modernization.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-number">03</div>
+            <h3>Manufacturing IT</h3>
+            <p>
+              Greenfield environments, plant infrastructure,
+              operational resilience and production-focused IT.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-number">04</div>
+            <h3>Transformation & Governance</h3>
+            <p>
+              Turning complex initiatives into structured ownership,
+              practical processes and measurable delivery.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="work">
+        <h2>Selected work.</h2>
+
+        <p class="section-intro">
+          A selection of transformation and technology domains
+          spanning manufacturing, enterprise systems and regional IT.
+        </p>
+
+        <div class="cards">
+          <div class="card">
+            <div class="card-number">CASE 01</div>
+            <h3>Greenfield Manufacturing</h3>
+            <p>
+              Building the technology foundation for new production
+              environments, from infrastructure to business systems.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-number">CASE 02</div>
+            <h3>ERP Transformation</h3>
+            <p>
+              Connecting processes, integrations, data,
+              local requirements and user readiness.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-number">CASE 03</div>
+            <h3>Commercial Governance</h3>
+            <p>
+              Structuring ownership and traceability across customer
+              requests, opportunities and business outcomes.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-number">CASE 04</div>
+            <h3>Resilient IT Operations</h3>
+            <p>
+              Standardizing infrastructure and operational practices
+              across distributed business environments.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="about">
+          <div>
+            <div class="eyebrow">About</div>
+            <h2>Business first.<br>Technology second.</h2>
+          </div>
+
+          <div>
+            <p>
+              I build and lead technology environments where IT is not
+              an isolated support function, but part of how the business
+              operates, grows and changes.
+            </p>
+
+            <p>
+              My work spans infrastructure, enterprise systems,
+              manufacturing technology and digital transformation,
+              with a focus on turning complexity into practical,
+              sustainable operating models.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      © 2026 Boris Golobokov · IT & Business Systems
+    </footer>
+
+  </div>
+
 </body>
 </html>
