@@ -183,6 +183,28 @@
       color: #8f9ba8;
     }
 
+.tech-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 26px;
+  padding: 30px 0;
+  margin: 10px 0 40px;
+  border-top: 1px solid #252c34;
+  border-bottom: 1px solid #252c34;
+}
+
+.tech-strip span {
+  color: #778391;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  transition: color 0.2s ease;
+}
+
+.tech-strip span:hover {
+  color: #55a7ff;
+}
+    
     .case-details {
   margin-top: 26px;
   padding-top: 20px;
@@ -239,6 +261,33 @@
       margin-bottom: 20px;
     }
 
+    .contact-section {
+  padding: 110px 0 100px;
+  border-top: 1px solid #252c34;
+}
+
+.contact-section h2 {
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 1.05;
+  max-width: 850px;
+  margin-bottom: 28px;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 34px;
+  margin-top: 42px;
+}
+
+.contact-links span {
+  color: #55a7ff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  cursor: default;
+}
+    
     footer {
       border-top: 1px solid #252c34;
       padding: 40px 0 60px;
@@ -380,6 +429,19 @@
         </div>
       </section>
 
+      <div class="tech-strip">
+  <span>MICROSOFT 365</span>
+  <span>DYNAMICS 365</span>
+  <span>POWER BI</span>
+  <span>INTUNE</span>
+  <span>TEAMS</span>
+  <span>1C</span>
+  <span>ERP</span>
+  <span>CRM</span>
+  <span>ITSM</span>
+  <span>CYBERSECURITY</span>
+</div>
+      
       <section id="work">
         <h2>Selected work.</h2>
 
@@ -427,6 +489,28 @@
     data, integrations, local compliance requirements, testing,
     training and user adoption.
   </p>
+          <details class="case-details">
+  <summary>Explore case →</summary>
+
+  <div class="case-content">
+    <strong>CONTEXT</strong>
+    <p>
+      Regional enterprise transformation across multiple business
+      processes and local requirements.
+    </p>
+
+    <strong>ROLE</strong>
+    <p>
+      Regional IT and business systems leadership.
+    </p>
+
+    <strong>SCOPE</strong>
+    <p>
+      Business processes · ERP · Data · Integrations · Localization ·
+      Testing · Training · User adoption
+    </p>
+  </div>
+</details>
 </div>
 
           <div class="card">
@@ -439,6 +523,28 @@
     ownership, qualification, opportunities and business outcomes,
     bringing traceability into the commercial process.
   </p>
+            <details class="case-details">
+  <summary>Explore case →</summary>
+
+  <div class="case-content">
+    <strong>CONTEXT</strong>
+    <p>
+      Commercial processes requiring clearer ownership, qualification
+      and traceability from customer request to business outcome.
+    </p>
+
+    <strong>ROLE</strong>
+    <p>
+      Business systems leadership and governance design.
+    </p>
+
+    <strong>SCOPE</strong>
+    <p>
+      Customer requests · Ownership · Qualification · Opportunities ·
+      CRM governance · Traceability · Business outcomes
+    </p>
+  </div>
+</details>
 </div>
 
         <div class="card">
@@ -451,6 +557,29 @@
     environments, combining infrastructure resilience, modern workplace,
     service delivery and practical governance.
   </p>
+          <details class="case-details">
+  <summary>Explore case →</summary>
+
+  <div class="case-content">
+    <strong>CONTEXT</strong>
+    <p>
+      Distributed regional IT environment requiring reliable operations,
+      consistent service delivery and practical governance.
+    </p>
+
+    <strong>ROLE</strong>
+    <p>
+      Regional IT leadership across infrastructure, workplace services
+      and operational delivery.
+    </p>
+
+    <strong>SCOPE</strong>
+    <p>
+      Regional IT · Infrastructure · Modern Workplace · Service Delivery ·
+      Governance · Operational Resilience
+    </p>
+  </div>
+</details>
 </div>
 
         <div class="card">
@@ -464,6 +593,34 @@
   LAN, fiber optics, CCTV, fire detection and security systems, from
   installation through commissioning and configuration.
 </p>
+          <details class="case-details">
+  <summary>Explore case →</summary>
+
+  <div class="case-content">
+    <strong>CONTEXT</strong>
+    <p>
+      Complex technology and security infrastructure delivery
+      for a major facility.
+    </p>
+
+    <strong>ROLE</strong>
+    <p>
+      Business Owner / Project Lead with end-to-end responsibility
+      for technology delivery.
+    </p>
+
+    <strong>SCOPE</strong>
+    <p>
+      Structured Cabling · LAN · Fiber Optics · CCTV ·
+      Fire Detection · Security Systems
+    </p>
+
+    <strong>DELIVERY</strong>
+    <p>
+      Installation · Configuration · Commissioning
+    </p>
+  </div>
+</details>
 </div>
         </div>
       </section>
@@ -483,17 +640,39 @@
             </p>
 
             <p>
-              My work spans infrastructure, enterprise systems,
-              manufacturing technology and digital transformation,
-              with a focus on turning complexity into practical,
-              sustainable operating models.
-            </p>
+  My experience spans corporate IT leadership, business systems,
+  manufacturing technology, digital transformation and entrepreneurship,
+  combining the perspective of both technology leader and business owner
+  with a focus on turning complexity into practical, sustainable
+  operating models.
+</p>
           </div>
         </div>
       </section>
 
     </main>
 
+    <section id="contact" class="contact-section">
+  <div class="eyebrow">Let’s talk</div>
+
+  <h2>
+    Technology leadership.<br>
+    Transformation.<br>
+    Complex projects.
+  </h2>
+
+  <p class="section-intro">
+    Open to leadership roles, transformation initiatives
+    and selected advisory projects.
+  </p>
+
+  <div class="contact-links">
+    <span>LINKEDIN</span>
+    <span>EMAIL</span>
+    <span>DOWNLOAD CV</span>
+  </div>
+</section>
+    
     <footer>
       © 2026 Boris Golobokov · IT & Business Systems
     </footer>
