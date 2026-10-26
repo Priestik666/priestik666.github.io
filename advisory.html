@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Advisory | Boris Golobokov</title>
+  <style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b0f14;
+    color: #f4f7fa;
+    line-height: 1.6;
+  }
+
+  .container {
+    width: min(1180px, 88%);
+    margin: 0 auto;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    border-bottom: 1px solid #252c34;
+  }
+
+  .logo {
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+  }
+
+  .back-link {
+    color: #8f9ba8;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .back-link:hover {
+    color: #ffffff;
+  }
+
+  .assessment-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.75fr);
+    gap: 70px;
+    padding: 75px 0 100px;
+    align-items: start;
+  }
+
+  .eyebrow {
+    color: #55a7ff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+
+  h1 {
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1;
+    letter-spacing: -3px;
+    margin-bottom: 25px;
+  }
+
+  .intro {
+    color: #9da8b4;
+    font-size: 18px;
+    max-width: 680px;
+    margin-bottom: 50px;
+  }
+
+  .progress {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 45px;
+  }
+
+  .progress-step {
+    height: 3px;
+    flex: 1;
+    border-radius: 3px;
+    background: #26303a;
+  }
+
+  .progress-step.active {
+    background: #55a7ff;
+  }
+
+  .form-step {
+    display: none;
+  }
+
+  .form-step.active {
+    display: block;
+  }
+
+  .step-label {
+    color: #55a7ff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: 30px;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+  }
+
+  .step-description {
+    color: #8f9ba8;
+    margin-bottom: 32px;
+  }
+
+  .field {
+    margin-bottom: 24px;
+  }
+
+  .field label {
+    display: block;
+    color: #cbd3db;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 9px;
+  }
+
+  select,
+  input,
+  textarea {
+    width: 100%;
+    color: #f4f7fa;
+    background: #11171e;
+    border: 1px solid #2a3540;
+    border-radius: 8px;
+    padding: 14px 15px;
+    font: inherit;
+    outline: none;
+  }
+
+  select:focus,
+  input:focus,
+  textarea:focus {
+    border-color: #55a7ff;
+  }
+
+  textarea {
+    min-height: 130px;
+    resize: vertical;
+  }
+
+  .choices {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .choice {
+    position: relative;
+  }
+
+  .choice input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .choice label {
+    display: block;
+    padding: 14px 15px;
+    margin: 0;
+    color: #9da8b4;
+    background: #11171e;
+    border: 1px solid #2a3540;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+
+  .choice input:checked + label {
+    color: #ffffff;
+    border-color: #55a7ff;
+    background: #132234;
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 36px;
+  }
+
+  .button {
+    border: 0;
+    border-radius: 7px;
+    padding: 14px 21px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    cursor: pointer;
+  }
+
+  .button-primary {
+    color: #ffffff;
+    background: #2387f5;
+  }
+
+  .button-secondary {
+    color: #c5ced7;
+    background: transparent;
+    border: 1px solid #35404c;
+  }
+
+  .service-panel {
+    position: sticky;
+    top: 35px;
+    padding: 30px;
+    background: #11171e;
+    border: 1px solid #26303a;
+    border-radius: 12px;
+  }
+
+  .service-type {
+    color: #55a7ff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+  }
+
+  .service-panel h3 {
+    font-size: 24px;
+    line-height: 1.2;
+    margin-bottom: 18px;
+  }
+
+  .service-price {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 18px 0;
+    margin: 20px 0;
+    border-top: 1px solid #29333d;
+    border-bottom: 1px solid #29333d;
+  }
+
+  .service-benefits {
+    list-style: none;
+  }
+
+  .service-benefits li {
+    color: #98a4b0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+
+  .service-benefits li::before {
+    content: "✓";
+    color: #55a7ff;
+    margin-right: 10px;
+  }
+
+  .next-steps {
+    margin-top: 32px;
+    padding-top: 25px;
+    border-top: 1px solid #29333d;
+  }
+
+  .next-steps strong {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+
+  .next-steps p {
+    color: #7f8b97;
+    font-size: 12px;
+    margin-bottom: 7px;
+  }
+
+  footer {
+    padding: 35px 0 50px;
+    color: #687582;
+    font-size: 12px;
+    border-top: 1px solid #252c34;
+  }
+
+  @media (max-width: 800px) {
+    .assessment-layout {
+      grid-template-columns: 1fr;
+      gap: 45px;
+    }
+
+    .service-panel {
+      position: relative;
+      top: 0;
+    }
+
+    .choices {
+      grid-template-columns: 1fr;
+    }
+
+    h1 {
+      letter-spacing: -2px;
+    }
+  }
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <nav>
+    <a href="index.html">BORIS GOLOBOKOV</a>
+    <a href="index.html">← BACK TO PORTFOLIO</a>
+  </nav>
+
+  <main class="assessment-layout">
+
+    <div class="assessment-main">
+
+      <div class="eyebrow">Technology Advisory</div>
+
+      <h1>Let's understand<br>what you need.</h1>
+
+      <p class="intro">
+        A short business-focused assessment helps define your context,
+        priorities and the right engagement model before any project begins.
+      </p>
+
+      <div class="progress">
+        <div class="progress-step active"></div>
+        <div class="progress-step"></div>
+        <div class="progress-step"></div>
+        <div class="progress-step"></div>
+        <div class="progress-step"></div>
+      </div>
+
+
+      <!-- STEP 1 -->
+
+      <section class="form-step active" data-step="1">
+
+        <div class="step-label">STEP 01 · YOUR BUSINESS</div>
+
+        <h2>Tell me about your business.</h2>
+
+        <p class="step-description">
+          A little context helps frame the technology environment correctly.
+        </p>
+
+        <div class="field">
+          <label for="industry">Industry</label>
+
+          <select id="industry">
+            <option value="">Select industry</option>
+            <option>Manufacturing</option>
+            <option>Engineering</option>
+            <option>Distribution</option>
+            <option>Pharmaceutical</option>
+            <option>Logistics</option>
+            <option>Professional Services</option>
+            <option>Retail</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+
+        <div class="field">
+          <label for="company-size">Company size</label>
+
+          <select id="company-size">
+            <option value="">Select company size</option>
+            <option>Below 100 employees</option>
+            <option>100–250 employees</option>
+            <option>250–500 employees</option>
+            <option>500–1,000 employees</option>
+            <option>1,000+ employees</option>
+          </select>
+        </div>
+
+
+        <div class="field">
+          <label for="locations">Locations</label>
+
+          <select id="locations">
+            <option value="">Select operating model</option>
+            <option>Single location</option>
+            <option>Multiple locations</option>
+            <option>Multi-country operations</option>
+          </select>
+        </div>
+
+
+        <div class="field">
+          <label for="markets">Countries / markets</label>
+
+          <input
+            id="markets"
+            type="text"
+            placeholder="e.g. Kazakhstan, Uzbekistan, Central Asia"
+          >
+        </div>
+
+        <div class="form-actions">
+          <span></span>
+          <button class="button button-primary" type="button">
+            CONTINUE →
+          </button>
+        </div>
+
+      </section>
+
+
+      <!-- STEP 2 -->
+
+      <section class="form-step" data-step="2">
+
+        <div class="step-label">STEP 02 · TECHNOLOGY LANDSCAPE</div>
+
+        <h2>What does your environment look like?</h2>
+
+        <p class="step-description">
+          Select everything that currently applies.
+        </p>
+
+        <div class="choices">
+
+          <div class="choice">
+            <input type="checkbox" id="m365">
+            <label for="m365">Microsoft 365</label>
+          </div>
+
+          <div class="choice">
+            <input type="checkbox" id="onec">
+            <label for="onec">1C</label>
+          </div>
+
+          <div class="choice">
+            <input type="checkbox" id="d365">
+            <label for="d365">Dynamics 365</label>
+          </div>
+
+          <div class="choice">
+            <input type="checkbox" id="erp">
+            <label for="erp">SAP / Other ERP</label>
+          </div>
+
+          <div class="choice">
+            <input type="checkbox" id="crm">
+            <label for="crm">CRM</label>
+          </div>
+
+          <div class="choice">
+            <input type="checkbox" id="bi">
+            <label for="bi">Power BI / Analytics</label>
+          </div>
+
+          <div class="choice">
+            <input type="checkbox" id="cloud">
+            <label for="cloud">Cloud / Azure</label>
+          </div>
+
+          <div class="choice">
+            <input type="checkbox" id="onprem">
+            <label for="onprem">On-prem Infrastructure</label>
+          </div>
+
+          <div class="choice">
+            <input type="checkbox" id="manufacturing">
+            <label for="manufacturing">Manufacturing / OT</label>
+          </div>
+
+          <div class="choice">
+            <input type="checkbox" id="unknown">
+            <label for="unknown">Not sure</label>
+          </div>
+
+        </div>
+
+        <div class="form-actions">
+          <button class="button button-secondary" type="button">
+            ← BACK
+          </button>
+
+          <button class="button button-primary" type="button">
+            CONTINUE →
+          </button>
+        </div>
+
+      </section>
+
+
+      <!-- STEP 3 -->
+
+      <section class="form-step" data-step="3">
+
+        <div class="step-label">STEP 03 · YOUR PRIORITIES</div>
+
+        <h2 id="priority-title">What brought you here?</h2>
+
+        <p class="step-description" id="priority-description">
+          Select the areas where you would like experienced technology guidance.
+        </p>
+
+        <div class="choices" id="service-questions">
+
+          <div class="choice">
+            <input type="checkbox" id="strategy">
+            <label for="strategy">IT Strategy</label>
+          </div>
+
+          <div class="choice">
+            <input type="checkbox" id="costs">
+            <label for="costs">IT Costs</label>
+          </div>
+
+          <div class="choice">
+            <input type="checkbox" id="security">
+            <label for="security">Cybersecurity</label>
+          </div>
+
+          <div class="choice">
+            <input type="checkbox" id="systems">
+            <label for="systems">ERP / CRM</label>
+          </div>
+
+          <div class="choice">
+            <input type="checkbox" id="infra">
+            <label for="infra">Infrastructure</label>
+          </div>
+
+          <div class="choice">
+            <input type="checkbox" id="support">
+            <label for="support">Support Model</label>
+          </div>
+
+          <div class="choice">
+            <input type="checkbox" id="continuity">
+            <label for="continuity">Business Continuity</label>
+          </div>
+
+          <div class="choice">
+            <input type="checkbox" id="ai">
+            <label for="ai">AI / Copilot Adoption</label>
+          </div>
+
+        </div>
+
+        <div class="field" id="dynamic-extra-field"></div>
+
+        <div class="form-actions">
+          <button class="button button-secondary" type="button">
+            ← BACK
+          </button>
+
+          <button class="button button-primary" type="button">
+            CONTINUE →
+          </button>
+        </div>
+
+      </section>
+
+
+      <!-- STEP 4 -->
+
+      <section class="form-step" data-step="4">
+
+        <div class="step-label">STEP 04 · OBJECTIVE</div>
+
+        <h2>What would success look like?</h2>
+
+        <p class="step-description">
+          Briefly describe what you would like to improve, solve or build.
+        </p>
+
+        <div class="field">
+          <label for="objective">Your objective</label>
+
+          <textarea
+            id="objective"
+            placeholder="Tell me briefly what you would like to achieve..."
+          ></textarea>
+        </div>
+
+
+        <div class="field">
+          <label for="timing">Expected timing</label>
+
+          <select id="timing">
+            <option value="">Select timing</option>
+            <option>As soon as possible</option>
+            <option>Within 1–3 months</option>
+            <option>3–6 months</option>
+            <option>6+ months</option>
+            <option>Exploring options</option>
+          </select>
+        </div>
+
+        <div class="form-actions">
+          <button class="button button-secondary" type="button">
+            ← BACK
+          </button>
+
+          <button class="button button-primary" type="button">
+            CONTINUE →
+          </button>
+        </div>
+
+      </section>
+
+
+      <!-- STEP 5 -->
+
+      <section class="form-step" data-step="5">
+
+        <div class="step-label">STEP 05 · CONTACT</div>
+
+        <h2>Let's continue the conversation.</h2>
+
+        <p class="step-description">
+          No obligation. Scope, deliverables and commercial terms
+          are agreed before any engagement begins.
+        </p>
+
+
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your name">
+        </div>
+
+
+        <div class="field">
+          <label for="company">Company</label>
+          <input id="company" type="text" placeholder="Company name">
+        </div>
+
+
+        <div class="field">
+          <label for="email">Business email</label>
+          <input id="email" type="email" placeholder="name@company.com">
+        </div>
+
+
+        <div class="field">
+          <label for="phone">Phone / WhatsApp</label>
+          <input id="phone" type="tel" placeholder="+7 ...">
+        </div>
+
+
+        <div class="field">
+          <label>Preferred contact</label>
+
+          <div class="choices">
+
+            <div class="choice">
+              <input type="radio" name="contact" id="contact-email">
+              <label for="contact-email">Email</label>
+            </div>
+
+            <div class="choice">
+              <input type="radio" name="contact" id="contact-whatsapp">
+              <label for="contact-whatsapp">WhatsApp</label>
+            </div>
+
+            <div class="choice">
+              <input type="radio" name="contact" id="contact-teams">
+              <label for="contact-teams">Microsoft Teams</label>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="form-actions">
+          <button class="button button-secondary" type="button">
+            ← BACK
+          </button>
+
+          <button class="button button-primary" type="button">
+            REQUEST INITIAL REVIEW →
+          </button>
+        </div>
+
+      </section>
+
+    </div>
+
+
+    <!-- RIGHT SERVICE PANEL -->
+
+    <aside class="service-panel">
+
+      <div class="service-type" id="service-type">
+        IT & BUSINESS SYSTEMS HEALTH CHECK
+      </div>
+
+      <h3 id="service-title">
+        Understand where your IT stands.
+      </h3>
+
+      <p class="service-price" id="service-price">
+        FROM $1,500 · FIXED SCOPE
+      </p>
+
+      <ul class="service-benefits" id="service-benefits">
+        <li>Executive assessment</li>
+        <li>Current-state review</li>
+        <li>Risk map</li>
+        <li>Quick wins</li>
+        <li>Priority matrix</li>
+        <li>12-month roadmap</li>
+        <li>Executive recommendations</li>
+      </ul>
+
+
+      <div class="next-steps">
+
+        <strong>WHAT HAPPENS NEXT?</strong>
+
+        <p>01 · Your context is reviewed</p>
+        <p>02 · Short introductory conversation</p>
+        <p>03 · Scope and deliverables</p>
+        <p>04 · Fixed commercial proposal</p>
+        <p>05 · You decide whether to proceed</p>
+
+      </div>
+
+    </aside>
+
+  </main>
+
+
+  <footer>
+    © 2026 Boris Golobokov · Technology Advisory
+  </footer>
+
+</div>
+ <script>
+  const steps = Array.from(document.querySelectorAll(".form-step"));
+  const progressSteps = Array.from(document.querySelectorAll(".progress-step"));
+
+  let currentStep = 0;
+
+  const serviceConfigs = {
+    "health-check": {
+      type: "IT & BUSINESS SYSTEMS HEALTH CHECK",
+      title: "Understand where your IT stands.",
+      price: "FROM $1,500 · FIXED SCOPE",
+      priorityTitle: "What would you like reviewed?",
+      priorityDescription:
+        "Select the areas that should be included in the independent assessment.",
+      priorities: [
+        "IT Costs",
+        "Cybersecurity",
+        "Infrastructure",
+        "ERP / CRM",
+        "Support Model",
+        "Business Continuity",
+        "Vendors & Licensing",
+        "IT Governance",
+        "Full Independent Review"
+      ],
+      benefits: [
+        "Executive assessment",
+        "Current-state review",
+        "Risk map",
+        "Quick wins",
+        "Priority matrix",
+        "12-month roadmap",
+        "Executive recommendations"
+      ],
+      extraField: ""
+    },
+
+    "fractional-cio": {
+      type: "FRACTIONAL CIO",
+      title: "Executive IT leadership without the full-time overhead.",
+      price: "MONTHLY ENGAGEMENT",
+      priorityTitle: "Where do you need leadership support?",
+      priorityDescription:
+        "Select the areas where experienced executive IT leadership would help.",
+      priorities: [
+        "IT Strategy",
+        "Budget & Cost Control",
+        "Vendor Management",
+        "Internal IT Team",
+        "ERP / CRM Program",
+        "Cybersecurity",
+        "Executive Reporting",
+        "Transformation Roadmap",
+        "Interim IT Leadership"
+      ],
+      benefits: [
+        "Executive IT leadership",
+        "Technology strategy",
+        "Budget and vendor control",
+        "IT team leadership",
+        "Project governance",
+        "Executive reporting",
+        "Technology roadmap"
+      ],
+      extraField: `
+        <label for="team-size">Current IT team size</label>
+        <select id="team-size">
+          <option value="">Select team size</option>
+          <option>No internal IT team</option>
+          <option>1–3 people</option>
+          <option>4–10 people</option>
+          <option>11–25 people</option>
+          <option>25+ people</option>
+        </select>
+      `
+    },
+
+    "transformation": {
+      type: "TRANSFORMATION ADVISORY",
+      title: "Make complex transformation manageable.",
+      price: "PROJECT-BASED",
+      priorityTitle: "What are you transforming?",
+      priorityDescription:
+        "Select the platforms, processes or capabilities involved.",
+      priorities: [
+        "ERP",
+        "CRM",
+        "Microsoft 365",
+        "Power BI / Analytics",
+        "AI / Copilot",
+        "Integrations",
+        "Data",
+        "Business Processes"
+      ],
+      benefits: [
+        "ERP / CRM advisory",
+        "Microsoft 365",
+        "Power BI and analytics",
+        "AI enablement",
+        "Integration governance",
+        "Testing and readiness",
+        "Business adoption"
+      ],
+      extraField: `
+        <label for="project-stage">Current project stage</label>
+        <select id="project-stage">
+          <option value="">Select project stage</option>
+          <option>Exploring</option>
+          <option>Planning</option>
+          <option>Already started</option>
+          <option>In trouble</option>
+        </select>
+      `
+    },
+
+    "greenfield": {
+      type: "GREENFIELD & MANUFACTURING IT",
+      title: "Technology leadership from design to operation.",
+      price: "PROJECT-BASED",
+      priorityTitle: "What are you building?",
+      priorityDescription:
+        "Select the type of facility or operational environment.",
+      priorities: [
+        "Manufacturing Facility",
+        "Warehouse / Logistics",
+        "Office",
+        "Service Center",
+        "Expansion of Existing Site",
+        "Existing Site Modernization",
+        "Other"
+      ],
+      benefits: [
+        "Technology architecture",
+        "IT infrastructure",
+        "Manufacturing IT",
+        "Vendor selection",
+        "Implementation governance",
+        "Operational readiness",
+        "Commissioning support"
+      ],
+      extraField: `
+        <label for="project-stage">Current project stage</label>
+        <select id="project-stage">
+          <option value="">Select project stage</option>
+          <option>Concept</option>
+          <option>Design</option>
+          <option>Construction</option>
+          <option>Implementation</option>
+          <option>Existing site modernization</option>
+        </select>
+      `
+    }
+  };
+
+  const queryParams = new URLSearchParams(window.location.search);
+  const selectedService = queryParams.get("service") || "health-check";
+
+  const activeService =
+    serviceConfigs[selectedService] || serviceConfigs["health-check"];
+
+  function showStep(stepIndex) {
+    currentStep = Math.max(0, Math.min(stepIndex, steps.length - 1));
+
+    steps.forEach((step, index) => {
+      step.classList.toggle("active", index === currentStep);
+    });
+
+    progressSteps.forEach((progressStep, index) => {
+      progressStep.classList.toggle("active", index <= currentStep);
+    });
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
+  function buildPriorityQuestions(priorities) {
+    const container = document.getElementById("service-questions");
+
+    container.innerHTML = priorities
+      .map((priority, index) => {
+        const inputId = `priority-${index}`;
+
+        return `
+          <div class="choice">
+            <input
+              type="checkbox"
+              id="${inputId}"
+              value="${priority}"
+            >
+            <label for="${inputId}">${priority}</label>
+          </div>
+        `;
+      })
+      .join("");
+  }
+
+  function applyServiceConfiguration() {
+    document.getElementById("service-type").textContent =
+      activeService.type;
+
+    document.getElementById("service-title").textContent =
+      activeService.title;
+
+    document.getElementById("service-price").textContent =
+      activeService.price;
+
+    document.getElementById("priority-title").textContent =
+      activeService.priorityTitle;
+
+    document.getElementById("priority-description").textContent =
+      activeService.priorityDescription;
+
+    document.getElementById("service-benefits").innerHTML =
+      activeService.benefits
+        .map((benefit) => `<li>${benefit}</li>`)
+        .join("");
+
+    document.getElementById("dynamic-extra-field").innerHTML =
+      activeService.extraField;
+
+    buildPriorityQuestions(activeService.priorities);
+  }
+
+  steps.forEach((step, index) => {
+    const primaryButton = step.querySelector(".button-primary");
+    const secondaryButton = step.querySelector(".button-secondary");
+
+    if (primaryButton && index < steps.length - 1) {
+      primaryButton.addEventListener("click", () => {
+        showStep(index + 1);
+      });
+    }
+
+    if (secondaryButton) {
+      secondaryButton.addEventListener("click", () => {
+        showStep(index - 1);
+      });
+    }
+  });
+
+  const finalButton =
+    steps[steps.length - 1].querySelector(".button-primary");
+
+  finalButton.addEventListener("click", () => {
+    alert(
+      "Thank you. The request delivery mechanism will be connected before publication."
+    );
+  });
+
+  applyServiceConfiguration();
+  showStep(0);
+</script> 
+</body>
+</html>
