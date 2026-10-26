@@ -755,5 +755,259 @@
   </footer>
 
 </div>
+ <script>
+  const steps = Array.from(document.querySelectorAll(".form-step"));
+  const progressSteps = Array.from(document.querySelectorAll(".progress-step"));
+
+  let currentStep = 0;
+
+  const serviceConfigs = {
+    "health-check": {
+      type: "IT & BUSINESS SYSTEMS HEALTH CHECK",
+      title: "Understand where your IT stands.",
+      price: "FROM $1,500 · FIXED SCOPE",
+      priorityTitle: "What would you like reviewed?",
+      priorityDescription:
+        "Select the areas that should be included in the independent assessment.",
+      priorities: [
+        "IT Costs",
+        "Cybersecurity",
+        "Infrastructure",
+        "ERP / CRM",
+        "Support Model",
+        "Business Continuity",
+        "Vendors & Licensing",
+        "IT Governance",
+        "Full Independent Review"
+      ],
+      benefits: [
+        "Executive assessment",
+        "Current-state review",
+        "Risk map",
+        "Quick wins",
+        "Priority matrix",
+        "12-month roadmap",
+        "Executive recommendations"
+      ],
+      extraField: ""
+    },
+
+    "fractional-cio": {
+      type: "FRACTIONAL CIO",
+      title: "Executive IT leadership without the full-time overhead.",
+      price: "MONTHLY ENGAGEMENT",
+      priorityTitle: "Where do you need leadership support?",
+      priorityDescription:
+        "Select the areas where experienced executive IT leadership would help.",
+      priorities: [
+        "IT Strategy",
+        "Budget & Cost Control",
+        "Vendor Management",
+        "Internal IT Team",
+        "ERP / CRM Program",
+        "Cybersecurity",
+        "Executive Reporting",
+        "Transformation Roadmap",
+        "Interim IT Leadership"
+      ],
+      benefits: [
+        "Executive IT leadership",
+        "Technology strategy",
+        "Budget and vendor control",
+        "IT team leadership",
+        "Project governance",
+        "Executive reporting",
+        "Technology roadmap"
+      ],
+      extraField: `
+        <label for="team-size">Current IT team size</label>
+        <select id="team-size">
+          <option value="">Select team size</option>
+          <option>No internal IT team</option>
+          <option>1–3 people</option>
+          <option>4–10 people</option>
+          <option>11–25 people</option>
+          <option>25+ people</option>
+        </select>
+      `
+    },
+
+    "transformation": {
+      type: "TRANSFORMATION ADVISORY",
+      title: "Make complex transformation manageable.",
+      price: "PROJECT-BASED",
+      priorityTitle: "What are you transforming?",
+      priorityDescription:
+        "Select the platforms, processes or capabilities involved.",
+      priorities: [
+        "ERP",
+        "CRM",
+        "Microsoft 365",
+        "Power BI / Analytics",
+        "AI / Copilot",
+        "Integrations",
+        "Data",
+        "Business Processes"
+      ],
+      benefits: [
+        "ERP / CRM advisory",
+        "Microsoft 365",
+        "Power BI and analytics",
+        "AI enablement",
+        "Integration governance",
+        "Testing and readiness",
+        "Business adoption"
+      ],
+      extraField: `
+        <label for="project-stage">Current project stage</label>
+        <select id="project-stage">
+          <option value="">Select project stage</option>
+          <option>Exploring</option>
+          <option>Planning</option>
+          <option>Already started</option>
+          <option>In trouble</option>
+        </select>
+      `
+    },
+
+    "greenfield": {
+      type: "GREENFIELD & MANUFACTURING IT",
+      title: "Technology leadership from design to operation.",
+      price: "PROJECT-BASED",
+      priorityTitle: "What are you building?",
+      priorityDescription:
+        "Select the type of facility or operational environment.",
+      priorities: [
+        "Manufacturing Facility",
+        "Warehouse / Logistics",
+        "Office",
+        "Service Center",
+        "Expansion of Existing Site",
+        "Existing Site Modernization",
+        "Other"
+      ],
+      benefits: [
+        "Technology architecture",
+        "IT infrastructure",
+        "Manufacturing IT",
+        "Vendor selection",
+        "Implementation governance",
+        "Operational readiness",
+        "Commissioning support"
+      ],
+      extraField: `
+        <label for="project-stage">Current project stage</label>
+        <select id="project-stage">
+          <option value="">Select project stage</option>
+          <option>Concept</option>
+          <option>Design</option>
+          <option>Construction</option>
+          <option>Implementation</option>
+          <option>Existing site modernization</option>
+        </select>
+      `
+    }
+  };
+
+  const queryParams = new URLSearchParams(window.location.search);
+  const selectedService = queryParams.get("service") || "health-check";
+
+  const activeService =
+    serviceConfigs[selectedService] || serviceConfigs["health-check"];
+
+  function showStep(stepIndex) {
+    currentStep = Math.max(0, Math.min(stepIndex, steps.length - 1));
+
+    steps.forEach((step, index) => {
+      step.classList.toggle("active", index === currentStep);
+    });
+
+    progressSteps.forEach((progressStep, index) => {
+      progressStep.classList.toggle("active", index <= currentStep);
+    });
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
+  function buildPriorityQuestions(priorities) {
+    const container = document.getElementById("service-questions");
+
+    container.innerHTML = priorities
+      .map((priority, index) => {
+        const inputId = `priority-${index}`;
+
+        return `
+          <div class="choice">
+            <input
+              type="checkbox"
+              id="${inputId}"
+              value="${priority}"
+            >
+            <label for="${inputId}">${priority}</label>
+          </div>
+        `;
+      })
+      .join("");
+  }
+
+  function applyServiceConfiguration() {
+    document.getElementById("service-type").textContent =
+      activeService.type;
+
+    document.getElementById("service-title").textContent =
+      activeService.title;
+
+    document.getElementById("service-price").textContent =
+      activeService.price;
+
+    document.getElementById("priority-title").textContent =
+      activeService.priorityTitle;
+
+    document.getElementById("priority-description").textContent =
+      activeService.priorityDescription;
+
+    document.getElementById("service-benefits").innerHTML =
+      activeService.benefits
+        .map((benefit) => `<li>${benefit}</li>`)
+        .join("");
+
+    document.getElementById("dynamic-extra-field").innerHTML =
+      activeService.extraField;
+
+    buildPriorityQuestions(activeService.priorities);
+  }
+
+  steps.forEach((step, index) => {
+    const primaryButton = step.querySelector(".button-primary");
+    const secondaryButton = step.querySelector(".button-secondary");
+
+    if (primaryButton && index < steps.length - 1) {
+      primaryButton.addEventListener("click", () => {
+        showStep(index + 1);
+      });
+    }
+
+    if (secondaryButton) {
+      secondaryButton.addEventListener("click", () => {
+        showStep(index - 1);
+      });
+    }
+  });
+
+  const finalButton =
+    steps[steps.length - 1].querySelector(".button-primary");
+
+  finalButton.addEventListener("click", () => {
+    alert(
+      "Thank you. The request delivery mechanism will be connected before publication."
+    );
+  });
+
+  applyServiceConfiguration();
+  showStep(0);
+</script> 
 </body>
 </html>
