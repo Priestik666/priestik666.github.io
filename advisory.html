@@ -1016,7 +1016,7 @@ finalButton.addEventListener("click", async () => {
       .filter((input) => input.checked)
       .map((input) => {
         const label = document.querySelector(`label[for="${input.id}"]`);
-        return input.value || (label ? label.textContent.trim() : input.id);
+        return input.value && input.value !== "on" ? input.value : (label ? label.textContent.trim() : input.id);
       });
 
   const technologyLandscape = getSelectedLabels(
