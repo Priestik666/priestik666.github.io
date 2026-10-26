@@ -998,13 +998,99 @@
   });
 
   const finalButton =
-    steps[steps.length - 1].querySelector(".button-primary");
+  steps[steps.length - 1].querySelector(".button-primary");
 
-  finalButton.addEventListener("click", () => {
+finalButton.addEventListener("click", async () => {
+  const name = document.getElementById("name").value.trim();
+  const company = document.getElementById("company").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+
+  if (!name || !email) {
+    alert("Please enter your name and business email.");
+    return;
+  }
+
+  const getSelectedLabels = (selector) =>
+    Array.from(document.querySelectorAll(selector))
+      .filter((input) => input.checked)
+      .map((input) => {
+        const label = document.querySelector(`label[for="${input.id}"]`);
+        return input.value || (label ? label.textContent.trim() : input.id);
+      });
+
+  const technologyLandscape = getSelectedLabels(
+    '[data-step="2"] input[type="checkbox"]'
+  );
+
+  const priorities = getSelectedLabels(
+    '#service-questions input[type="checkbox"]'
+  );
+
+  const preferredContact = getSelectedLabels(
+    'input[name="contact"]'
+  )[0] || "Not specified";
+
+  const dynamicField =
+    document.querySelector("#dynamic-extra-field select");
+
+  const payload = {
+    _subject: `New Advisory Assessment — ${activeService.type}`,
+    service: activeService.type,
+    engagement_model: activeService.price,
+    industry: document.getElementById("industry").value,
+    company_size: document.getElementById("company-size").value,
+    locations: document.getElementById("locations").value,
+    countries_markets: document.getElementById("markets").value.trim(),
+    technology_landscape:
+      technologyLandscape.join(", ") || "Not specified",
+    priorities: priorities.join(", ") || "Not specified",
+    additional_service_context:
+      dynamicField && dynamicField.value
+        ? dynamicField.value
+        : "Not applicable",
+    objective: document.getElementById("objective").value.trim(),
+    expected_timing: document.getElementById("timing").value,
+    name,
+    company,
+    email,
+    phone,
+    preferred_contact: preferredContact,
+    source_page: window.location.href
+  };
+
+  const originalButtonText = finalButton.textContent;
+  finalButton.disabled = true;
+  finalButton.textContent = "SENDING...";
+
+  try {
+    const response = await fetch("https://formspree.io/f/xoeeejkz", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) {
+      throw new Error("Form submission failed");
+    }
+
+    finalButton.textContent = "REQUEST SENT ✓";
+
     alert(
-      "Thank you. The request delivery mechanism will be connected before publication."
+      "Thank you. Your assessment has been sent successfully. I will review your context and contact you shortly."
     );
-  });
+  } catch (error) {
+    finalButton.disabled = false;
+    finalButton.textContent = originalButtonText;
+
+    alert(
+      "The request could not be sent. Please try again or contact me directly by email."
+    );
+  }
+});
 
   applyServiceConfiguration();
   showStep(0);
