@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JYHRWRY209"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JYHRWRY209');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Greenfield Manufacturing IT | Boris Golobokov</title>
+
+  <meta name="description"
+        content="Greenfield manufacturing IT experience across infrastructure, connectivity, business systems, cybersecurity, resilience and operational readiness.">
+
+  <link rel="canonical"
+        href="https://borisgolobokov.com/greenfield-manufacturing-it.html">
+
+  <meta property="og:title"
+        content="Greenfield Manufacturing IT | Boris Golobokov">
+  <meta property="og:description"
+        content="From infrastructure and connectivity to business systems, security, resilience and operational readiness.">
+  <meta property="og:type" content="website">
+  <meta property="og:url"
+        content="https://borisgolobokov.com/greenfield-manufacturing-it.html">
+
+  <style>
+    :root{
+      --bg:#071321;
+      --bg2:#0d1c2c;
+      --panel:#102438;
+      --line:rgba(255,255,255,.12);
+      --text:#f5f8fc;
+      --muted:#aab8c8;
+      --blue:#36a9e8;
+      --blue2:#58c1f4;
+      --white:#ffffff;
+      --light:#f4f7fa;
+      --dark:#10243b;
+      --max:1180px;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    img{
+      width:100%;
+      display:block;
+    }
+
+    .container{
+      width:min(var(--max), calc(100% - 48px));
+      margin:0 auto;
+    }
+
+    /* NAV */
+
+    nav{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(7,19,33,.92);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav-inner{
+      min-height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:30px;
+    }
+
+    .brand{
+      font-size:14px;
+      letter-spacing:.22em;
+      font-weight:700;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:24px;
+      align-items:center;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .nav-links a:hover{
+      color:var(--white);
+    }
+
+    .back{
+      color:var(--blue2) !important;
+      font-weight:700;
+    }
+
+    /* HERO */
+
+    .hero{
+      padding:92px 0 78px;
+      background:
+        radial-gradient(circle at 76% 18%,rgba(54,169,232,.18),transparent 36%),
+        linear-gradient(135deg,#071321,#0d2033 68%,#08131f);
+      border-bottom:1px solid var(--line);
+    }
+
+    .eyebrow{
+      color:var(--blue2);
+      text-transform:uppercase;
+      letter-spacing:.24em;
+      font-size:12px;
+      font-weight:700;
+      margin-bottom:18px;
+    }
+
+    h1{
+      max-width:900px;
+      font-size:clamp(48px,8vw,88px);
+      line-height:.94;
+      letter-spacing:-.045em;
+      margin-bottom:28px;
+    }
+
+    .hero-copy{
+      max-width:760px;
+      color:#d1dae5;
+      font-size:clamp(18px,2.2vw,24px);
+      line-height:1.45;
+    }
+
+    .hero-tags{
+      margin-top:42px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .hero-tags span{
+      border:1px solid rgba(88,193,244,.28);
+      background:rgba(54,169,232,.08);
+      color:#d7effb;
+      padding:9px 13px;
+      border-radius:999px;
+      font-size:12px;
+      letter-spacing:.06em;
+    }
+
+    /* VISUAL */
+
+    .visual{
+      background:#091725;
+      padding:28px 0 10px;
+    }
+
+    .visual-frame{
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:20px;
+      background:#0e1e2d;
+      box-shadow:0 30px 70px rgba(0,0,0,.22);
+    }
+
+    .visual-frame img{
+      aspect-ratio:16/9;
+      object-fit:cover;
+    }
+
+    .caption{
+      color:#75869a;
+      font-size:12px;
+      margin-top:10px;
+    }
+
+    /* INTRO */
+
+    .intro{
+      padding:90px 0;
+    }
+
+    .intro-grid{
+      display:grid;
+      grid-template-columns:.8fr 1.4fr;
+      gap:80px;
+    }
+
+    .section-number{
+      color:var(--blue2);
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.18em;
+    }
+
+    h2{
+      font-size:clamp(32px,4vw,52px);
+      line-height:1.05;
+      letter-spacing:-.025em;
+      margin:12px 0 24px;
+    }
+
+    .lead{
+      font-size:21px;
+      color:#d9e1ea;
+      margin-bottom:22px;
+    }
+
+    .muted{
+      color:var(--muted);
+    }
+
+    /* CAPABILITIES */
+
+    .capabilities{
+      background:var(--light);
+      color:var(--dark);
+      padding:94px 0;
+    }
+
+    .capabilities .eyebrow{
+      color:#168bc6;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+      margin-top:46px;
+    }
+
+    .card{
+      background:white;
+      border:1px solid #dde5ed;
+      border-radius:18px;
+      padding:34px;
+      min-height:220px;
+    }
+
+    .card-no{
+      color:#168bc6;
+      font-size:14px;
+      font-weight:700;
+      letter-spacing:.12em;
+    }
+
+    .card h3{
+      font-size:23px;
+      margin:16px 0 12px;
+    }
+
+    .card p{
+      color:#5f6f80;
+    }
+
+    /* PRINCIPLE */
+
+    .principle{
+      padding:100px 0;
+      background:
+        linear-gradient(90deg,rgba(7,19,33,.98),rgba(7,19,33,.83)),
+        #071321;
+    }
+
+    .quote{
+      max-width:950px;
+      font-size:clamp(33px,5vw,64px);
+      line-height:1.08;
+      letter-spacing:-.03em;
+    }
+
+    .quote strong{
+      color:var(--blue2);
+    }
+
+    /* EXPERIENCE */
+
+    .experience{
+      padding:100px 0;
+      background:#0a1826;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+
+    .experience-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:70px;
+      align-items:start;
+    }
+
+    .experience-copy p{
+      color:#bec9d5;
+      margin-bottom:18px;
+    }
+
+    .system-list{
+      border-top:1px solid var(--line);
+    }
+
+    .system-item{
+      display:grid;
+      grid-template-columns:52px 1fr;
+      gap:20px;
+      padding:22px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .system-index{
+      color:var(--blue2);
+      font-weight:700;
+    }
+
+    .system-item h3{
+      font-size:17px;
+      margin-bottom:5px;
+    }
+
+    .system-item p{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* READINESS */
+
+    .readiness{
+      padding:96px 0;
+      background:var(--light);
+      color:var(--dark);
+    }
+
+    .readiness-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:70px;
+      align-items:center;
+    }
+
+    .readiness p{
+      color:#5d6e7f;
+      font-size:18px;
+      margin-bottom:18px;
+    }
+
+    .statement{
+      border-left:4px solid var(--blue);
+      padding-left:26px;
+      font-size:26px !important;
+      line-height:1.35;
+      color:#1b3047 !important;
+      font-weight:700;
+    }
+
+    /* INSIGHT */
+
+    .insight{
+      padding:96px 0;
+    }
+
+    .insight-box{
+      border:1px solid rgba(88,193,244,.28);
+      border-radius:20px;
+      padding:44px;
+      background:
+        linear-gradient(135deg,rgba(54,169,232,.10),rgba(255,255,255,.02));
+    }
+
+    .insight-box h2{
+      max-width:830px;
+      margin-bottom:18px;
+    }
+
+    .insight-box p{
+      max-width:780px;
+      color:var(--muted);
+    }
+
+    .pending{
+      display:inline-block;
+      margin-top:28px;
+      color:#7890a6;
+      border-bottom:1px solid #536a80;
+      padding-bottom:4px;
+      font-size:13px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    /* CTA */
+
+    .cta{
+      padding:90px 0;
+      background:#eaf4fa;
+      color:var(--dark);
+    }
+
+    .cta-inner{
+      display:flex;
+      justify-content:space-between;
+      gap:40px;
+      align-items:center;
+    }
+
+    .cta p{
+      color:#5f7182;
+      max-width:620px;
+      margin-top:10px;
+    }
+
+    .button{
+      display:inline-block;
+      background:#0d263d;
+      color:white;
+      padding:15px 22px;
+      border-radius:10px;
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.06em;
+      white-space:nowrap;
+      transition:.2s ease;
+    }
+
+    .button:hover{
+      background:#168bc6;
+      transform:translateY(-1px);
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:38px 0;
+      color:#718297;
+      font-size:12px;
+    }
+
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:800px){
+      .container{
+        width:min(100% - 30px,var(--max));
+      }
+
+      .nav-inner{
+        min-height:66px;
+      }
+
+      .nav-links{
+        gap:14px;
+      }
+
+      .nav-links .hide-mobile{
+        display:none;
+      }
+
+      .hero{
+        padding:70px 0 58px;
+      }
+
+      .intro-grid,
+      .experience-grid,
+      .readiness-grid{
+        grid-template-columns:1fr;
+        gap:35px;
+      }
+
+      .cards{
+        grid-template-columns:1fr;
+      }
+
+      .cta-inner{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .footer-inner{
+        flex-direction:column;
+      }
+
+      .visual-frame{
+        border-radius:12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">BORIS GOLOBOKOV</a>
+
+      <div class="nav-links">
+        <a href="#capabilities" class="hide-mobile">Capabilities</a>
+        <a href="#experience" class="hide-mobile">Experience</a>
+        <a href="advisory.html">Advisory</a>
+        <a class="back" href="index.html">← Portfolio</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">Manufacturing · Infrastructure · Business Systems</div>
+
+        <h1>Greenfield<br>Manufacturing IT</h1>
+
+        <p class="hero-copy">
+          From an empty site to a secure, connected and operational environment:
+          infrastructure, business systems, cybersecurity and readiness designed
+          as part of the production foundation.
+        </p>
+
+        <div class="hero-tags">
+          <span>Infrastructure & Connectivity</span>
+          <span>Business Systems</span>
+          <span>Cybersecurity</span>
+          <span>Physical Security</span>
+          <span>Operational Readiness</span>
+          <span>Resilience</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="visual">
+      <div class="container">
+        <div class="visual-frame">
+          <img
+            src="Green_Field_For_Site_1.png"
+            alt="Greenfield manufacturing IT from site construction to operational readiness">
+        </div>
+
+        <div class="caption">
+          Conceptual visualization. Technical details are intentionally generalized.
+        </div>
+      </div>
+    </section>
+
+    <section class="intro">
+      <div class="container intro-grid">
+
+        <div>
+          <div class="section-number">01 / THE CONTEXT</div>
+          <h2>IT becomes part of the production infrastructure.</h2>
+        </div>
+
+        <div>
+          <p class="lead">
+            A greenfield manufacturing project changes the role of IT very quickly.
+            Connectivity is no longer just office infrastructure. Business systems are
+            no longer isolated applications. Security, resilience and support become
+            part of operational readiness.
+          </p>
+
+          <p class="muted">
+            The challenge is to build the digital foundation alongside the physical
+            environment, production needs and operating model rather than trying to
+            retrofit technology after everything else is finished.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="capabilities" id="capabilities">
+      <div class="container">
+
+        <div class="eyebrow">What has to come together</div>
+        <h2>One environment. Multiple disciplines.</h2>
+
+        <div class="cards">
+
+          <article class="card">
+            <div class="card-no">01</div>
+            <h3>Site & Infrastructure</h3>
+            <p>
+              Structured cabling, fibre backbone, power protection,
+              equipment locations and the physical foundations needed
+              for a connected manufacturing environment.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-no">02</div>
+            <h3>Connectivity & Network</h3>
+            <p>
+              Enterprise connectivity, switching, Wi-Fi and network
+              architecture designed around reliable access for people,
+              systems and operational services.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-no">03</div>
+            <h3>Security & Access</h3>
+            <p>
+              Cybersecurity, physical access control and video surveillance
+              considered as integrated layers of the overall operating
+              environment.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-no">04</div>
+            <h3>Business Systems & Workplace</h3>
+            <p>
+              ERP, collaboration, end-user workplace and business applications
+              connected to the processes they are expected to support from day one.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-no">05</div>
+            <h3>Resilience</h3>
+            <p>
+              Power protection, redundancy, continuity planning and operational
+              dependencies considered before go-live rather than after the first outage.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-no">06</div>
+            <h3>Operational Readiness</h3>
+            <p>
+              Ownership, support, documentation, vendor coordination and handover
+              designed so that technology can remain operational after project delivery.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+<section class="visual">
+  <div class="container">
+    <div class="visual-frame">
+      <img
+        src="Green_Field_For_Site_2.png"
+        alt="Conceptual greenfield manufacturing IT infrastructure and network planning">
+    </div>
+
+    <div class="caption">
+      Conceptual visualization based on greenfield infrastructure planning.
+      Technical details are intentionally generalized.
+    </div>
+  </div>
+</section>
+    <section class="principle">
+      <div class="container">
+        <div class="eyebrow">The principle</div>
+
+        <div class="quote">
+          The real go-live test is not whether every system has been installed.
+          It is whether the <strong>business can continue operating when
+          something goes wrong.</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience" id="experience">
+      <div class="container experience-grid">
+
+        <div class="experience-copy">
+          <div class="eyebrow">Selected experience</div>
+
+          <h2>From infrastructure design to operational environment.</h2>
+
+          <p>
+            Greenfield manufacturing IT requires decisions across physical
+            infrastructure, connectivity, security, business applications and
+            support long before the first normal operating day.
+          </p>
+
+          <p>
+            My experience includes the development and delivery of the digital
+            foundation for a manufacturing and office environment in Kazakhstan,
+            covering the infrastructure layers required to connect users, systems
+            and operational services.
+          </p>
+
+          <p>
+            The focus was not on technology for its own sake, but on creating a
+            reliable environment that could support the business as the site moved
+            from project phase into everyday operation.
+          </p>
+        </div>
+
+        <div class="system-list">
+
+          <div class="system-item">
+            <div class="system-index">01</div>
+            <div>
+              <h3>Physical foundation</h3>
+              <p>
+                Fibre and structured cabling infrastructure, equipment locations,
+                workplace connectivity and supporting physical systems.
+              </p>
+            </div>
+          </div>
+
+          <div class="system-item">
+            <div class="system-index">02</div>
+            <div>
+              <h3>Connected environment</h3>
+              <p>
+                Network and wireless connectivity designed to support users,
+                workplace services and operational technology dependencies.
+              </p>
+            </div>
+          </div>
+
+          <div class="system-item">
+            <div class="system-index">03</div>
+            <div>
+              <h3>Security layers</h3>
+              <p>
+                Network security together with video surveillance and access
+                control as part of a broader operational environment.
+              </p>
+            </div>
+          </div>
+
+          <div class="system-item">
+            <div class="system-index">04</div>
+            <div>
+              <h3>Business enablement</h3>
+              <p>
+                Business systems, collaboration and workplace services aligned
+                with the operating requirements of the new site.
+              </p>
+            </div>
+          </div>
+
+          <div class="system-item">
+            <div class="system-index">05</div>
+            <div>
+              <h3>Readiness & continuity</h3>
+              <p>
+                Support model, resilience, ownership and transition from project
+                implementation into sustainable operation.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="readiness">
+      <div class="container readiness-grid">
+
+        <div>
+          <div class="eyebrow">From project to operation</div>
+          <h2>Technology is only useful when the operation is ready for it.</h2>
+
+          <p>
+            Greenfield projects create a long list of important requirements.
+            The leadership challenge is understanding which dependencies are
+            critical for safe and reliable operation from day one.
+          </p>
+
+          <p>
+            That requires architecture, delivery, vendors, support and business
+            priorities to be treated as one system rather than independent workstreams.
+          </p>
+        </div>
+
+        <div>
+          <p class="statement">
+            Infrastructure becomes resilience.
+            Systems become operations.
+            IT becomes part of the business.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="insight">
+      <div class="container">
+
+        <div class="insight-box">
+          <div class="eyebrow">Insight</div>
+
+          <h2>What Greenfield Manufacturing IT Teaches You About Priorities</h2>
+
+          <p>
+            A practical perspective on why operational readiness matters more
+            than simply completing a technology checklist before go-live.
+          </p>
+
+          <span class="pending">
+            LinkedIn insight · publishing 28 October 2026
+          </span>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container cta-inner">
+
+        <div>
+          <div class="eyebrow">Greenfield Advisory</div>
+
+          <h2>Planning a new site or production environment?</h2>
+
+          <p>
+            Explore a structured advisory approach covering IT infrastructure,
+            business systems, security, dependencies and operational readiness.
+          </p>
+        </div>
+
+        <a class="button"
+           href="advisory.html?service=greenfield#assessment">
+          EXPLORE GREENFIELD ADVISORY →
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© Boris Golobokov</div>
+
+      <div>
+        People · Systems · Infrastructure · Real Impact
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
