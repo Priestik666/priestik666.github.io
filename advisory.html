@@ -1084,7 +1084,7 @@ finalButton.addEventListener("click", async () => {
   finalButton.textContent = "SENDING...";
 
   try {
-    const response = await fetch("https://formspree.io/f/xoeeejkz", {
+    const response = await fetch("https://advisory-engine.priestik.workers.dev/stage1", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
