@@ -1056,7 +1056,7 @@ finalButton.addEventListener("click", async () => {
 
   const payload = {
     _subject: `New Advisory Assessment — ${activeService.type}`,
-    service: activeService.type,
+    service: selectedService,
     engagement_model: activeService.price,
     industry: document.getElementById("industry").value,
     company_size: document.getElementById("company-size").value,
