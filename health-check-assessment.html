@@ -1,1126 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JYHRWRY209"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-JYHRWRY209');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JYHRWRY209"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JYHRWRY209');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Health Check Scope Assessment | Boris Golobokov</title>
   <style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #0b0f14;
-    color: #f4f7fa;
-    line-height: 1.6;
-  }
-
-  .container {
-    width: min(1180px, 88%);
-    margin: 0 auto;
-  }
-
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 0;
-    border-bottom: 1px solid #252c34;
-  }
-
-  .logo {
-    color: #ffffff;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-decoration: none;
-  }
-
-  .back-link {
-    color: #8f9ba8;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  .back-link:hover {
-    color: #ffffff;
-  }
-
-  .assessment-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.75fr);
-    gap: 70px;
-    padding: 75px 0 100px;
-    align-items: start;
-  }
-
-  .eyebrow {
-    color: #55a7ff;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 12px;
-    font-weight: 700;
-    margin-bottom: 18px;
-  }
-
-  h1 {
-    font-size: clamp(42px, 6vw, 72px);
-    line-height: 1;
-    letter-spacing: -3px;
-    margin-bottom: 25px;
-  }
-
-  .intro {
-    color: #9da8b4;
-    font-size: 18px;
-    max-width: 680px;
-    margin-bottom: 50px;
-  }
-
-  .progress {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 45px;
-  }
-
-  .progress-step {
-    height: 3px;
-    flex: 1;
-    border-radius: 3px;
-    background: #26303a;
-  }
-
-  .progress-step.active {
-    background: #55a7ff;
-  }
-
-  .form-step {
-    display: none;
-  }
-
-  .form-step.active {
-    display: block;
-  }
-
-  .step-label {
-    color: #55a7ff;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    margin-bottom: 10px;
-  }
-
-  h2 {
-    font-size: 30px;
-    letter-spacing: -1px;
-    margin-bottom: 10px;
-  }
-
-  .step-description {
-    color: #8f9ba8;
-    margin-bottom: 32px;
-  }
-
-  .field {
-    margin-bottom: 24px;
-  }
-
-  .field label {
-    display: block;
-    color: #cbd3db;
-    font-size: 13px;
-    font-weight: 700;
-    margin-bottom: 9px;
-  }
-
-  select,
-  input,
-  textarea {
-    width: 100%;
-    color: #f4f7fa;
-    background: #11171e;
-    border: 1px solid #2a3540;
-    border-radius: 8px;
-    padding: 14px 15px;
-    font: inherit;
-    outline: none;
-  }
-
-  select:focus,
-  input:focus,
-  textarea:focus {
-    border-color: #55a7ff;
-  }
-
-  textarea {
-    min-height: 130px;
-    resize: vertical;
-  }
-
-  .choices {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  .choice {
-    position: relative;
-  }
-
-  .choice input {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .choice label {
-    display: block;
-    padding: 14px 15px;
-    margin: 0;
-    color: #9da8b4;
-    background: #11171e;
-    border: 1px solid #2a3540;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.2s ease;
-  }
-
-  .choice input:checked + label {
-    color: #ffffff;
-    border-color: #55a7ff;
-    background: #132234;
-  }
-
-  .form-actions {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    margin-top: 36px;
-  }
-
-  .button {
-    border: 0;
-    border-radius: 7px;
-    padding: 14px 21px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.7px;
-    cursor: pointer;
-  }
-
-  .button-primary {
-    color: #ffffff;
-    background: #2387f5;
-  }
-
-  .button-secondary {
-    color: #c5ced7;
-    background: transparent;
-    border: 1px solid #35404c;
-  }
-
-  .service-panel {
-    position: sticky;
-    top: 35px;
-    padding: 30px;
-    background: #11171e;
-    border: 1px solid #26303a;
-    border-radius: 12px;
-  }
-
-  .service-type {
-    color: #55a7ff;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    margin-bottom: 15px;
-  }
-
-  .service-panel h3 {
-    font-size: 24px;
-    line-height: 1.2;
-    margin-bottom: 18px;
-  }
-
-  .service-price {
-    color: #ffffff;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    padding: 18px 0;
-    margin: 20px 0;
-    border-top: 1px solid #29333d;
-    border-bottom: 1px solid #29333d;
-  }
-
-  .service-benefits {
-    list-style: none;
-  }
-
-  .service-benefits li {
-    color: #98a4b0;
-    font-size: 14px;
-    padding: 7px 0;
-  }
-
-  .service-benefits li::before {
-    content: "✓";
-    color: #55a7ff;
-    margin-right: 10px;
-  }
-
-  .next-steps {
-    margin-top: 32px;
-    padding-top: 25px;
-    border-top: 1px solid #29333d;
-  }
-
-  .next-steps strong {
-    display: block;
-    font-size: 12px;
-    margin-bottom: 12px;
-  }
-
-  .next-steps p {
-    color: #7f8b97;
-    font-size: 12px;
-    margin-bottom: 7px;
-  }
-
-  footer {
-    padding: 35px 0 50px;
-    color: #687582;
-    font-size: 12px;
-    border-top: 1px solid #252c34;
-  }
-
-  @media (max-width: 800px) {
-    .assessment-layout {
-      grid-template-columns: 1fr;
-      gap: 45px;
-    }
-
-    .service-panel {
-      position: relative;
-      top: 0;
-    }
-
-    .choices {
-      grid-template-columns: 1fr;
-    }
-
-    h1 {
-      letter-spacing: -2px;
-    }
-  }
-</style>
+    *{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;background:#0b0f14;color:#f4f7fa;line-height:1.6}.container{width:min(1180px,88%);margin:0 auto}
+    nav{display:flex;justify-content:space-between;align-items:center;padding:30px 0;border-bottom:1px solid #252c34}.logo{color:#fff;font-weight:700;letter-spacing:1px;text-decoration:none}.back-link{color:#8f9ba8;font-size:13px;font-weight:700;letter-spacing:1px;text-decoration:none}.back-link:hover{color:#fff}
+    .assessment-layout{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(300px,.75fr);gap:70px;padding:75px 0 100px;align-items:start}.eyebrow{color:#55a7ff;text-transform:uppercase;letter-spacing:3px;font-size:12px;font-weight:700;margin-bottom:18px}h1{font-size:clamp(42px,6vw,72px);line-height:1;letter-spacing:-3px;margin-bottom:25px}.intro{color:#9da8b4;font-size:18px;max-width:680px;margin-bottom:18px}.reference-line{color:#7f8b97;font-size:13px;margin-bottom:42px}.reference-line strong{color:#cbd3db}
+    .progress{display:flex;gap:8px;margin-bottom:45px}.progress-step{height:3px;flex:1;border-radius:3px;background:#26303a}.progress-step.active{background:#55a7ff}.form-step{display:none}.form-step.active{display:block}.step-label{color:#55a7ff;font-size:11px;font-weight:700;letter-spacing:1.5px;margin-bottom:10px}h2{font-size:30px;letter-spacing:-1px;margin-bottom:10px}.step-description{color:#8f9ba8;margin-bottom:32px}.field{margin-bottom:24px}.field label,.field-legend{display:block;color:#cbd3db;font-size:13px;font-weight:700;margin-bottom:9px}.hint{display:block;color:#6f7b87;font-size:12px;margin-top:7px}
+    select,input,textarea{width:100%;color:#f4f7fa;background:#11171e;border:1px solid #2a3540;border-radius:8px;padding:14px 15px;font:inherit;outline:none}select:focus,input:focus,textarea:focus{border-color:#55a7ff}textarea{min-height:130px;resize:vertical}.choices{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.choice{position:relative}.choice input{position:absolute;opacity:0;pointer-events:none}.choice label{display:block;height:100%;padding:14px 15px;margin:0;color:#9da8b4;background:#11171e;border:1px solid #2a3540;border-radius:8px;cursor:pointer;transition:.2s ease}.choice input:focus+label{border-color:#55a7ff}.choice input:checked+label{color:#fff;border-color:#55a7ff;background:#132234}
+    .form-actions{display:flex;justify-content:space-between;gap:12px;margin-top:36px}.button{border:0;border-radius:7px;padding:14px 21px;font-size:12px;font-weight:700;letter-spacing:.7px;cursor:pointer}.button:disabled{opacity:.65;cursor:not-allowed}.button-primary{color:#fff;background:#2387f5}.button-secondary{color:#c5ced7;background:transparent;border:1px solid #35404c}
+    .service-panel{position:sticky;top:35px;padding:30px;background:#11171e;border:1px solid #26303a;border-radius:12px}.service-type{color:#55a7ff;font-size:11px;font-weight:700;letter-spacing:1.5px;margin-bottom:15px}.service-panel h3{font-size:24px;line-height:1.2;margin-bottom:18px}.service-price{color:#fff;font-size:13px;font-weight:700;letter-spacing:1px;padding:18px 0;margin:20px 0;border-top:1px solid #29333d;border-bottom:1px solid #29333d}.service-benefits{list-style:none}.service-benefits li{color:#98a4b0;font-size:14px;padding:7px 0}.service-benefits li::before{content:"✓";color:#55a7ff;margin-right:10px}.next-steps{margin-top:32px;padding-top:25px;border-top:1px solid #29333d}.next-steps strong{display:block;font-size:12px;margin-bottom:12px}.next-steps p{color:#7f8b97;font-size:12px;margin-bottom:7px}footer{padding:35px 0 50px;color:#687582;font-size:12px;border-top:1px solid #252c34}
+    @media(max-width:800px){.assessment-layout{grid-template-columns:1fr;gap:45px}.service-panel{position:relative;top:0}.choices{grid-template-columns:1fr}h1{letter-spacing:-2px}nav{gap:20px}.back-link{text-align:right}}
+  </style>
 </head>
-
 <body>
 <div class="container">
-
-  <nav>
-    <a href="index.html">BORIS GOLOBOKOV</a>
-    <a href="index.html">← BACK TO PORTFOLIO</a>
-  </nav>
-
+  <nav><a class="logo" href="index.html">BORIS GOLOBOKOV</a><a class="back-link" href="index.html">← BACK TO PORTFOLIO</a></nav>
   <main class="assessment-layout">
-
     <div class="assessment-main">
-
       <div class="eyebrow">IT &amp; BUSINESS SYSTEMS HEALTH CHECK · STAGE 2</div>
-
-      <h1>Let’s define<br>the right scope.</h1>
-
-      <p class="intro">
-    A focused follow-up to clarify your current environment,
-    priorities and the scope of the Health Check.
-</p>
-<p class="reference-line">
-    Reference: <strong id="assessment-reference">—</strong>
-</p>
-      <div class="progress">
-        <div class="progress-step active"></div>
-        <div class="progress-step"></div>
-        <div class="progress-step"></div>
-        <div class="progress-step"></div>
-        <div class="progress-step"></div>
-      </div>
-
-
-      <!-- STEP 1 -->
+      <h1>Let’s see what<br>needs attention.</h1>
+      <p class="intro">A focused follow-up to define the environment, risks, operating model and assessment priorities for your independent IT &amp; Business Systems Health Check.</p>
+      <p class="reference-line">Reference: <strong id="assessment-reference">—</strong></p>
+      <div class="progress" aria-label="Assessment progress"><div class="progress-step active"></div><div class="progress-step"></div><div class="progress-step"></div><div class="progress-step"></div><div class="progress-step"></div></div>
 
       <section class="form-step active" data-step="1">
-
-        <div class="step-label">STEP 01 · CURRENT ENVIRONMENT</div>
-
-        <h2>Let’s map your current environment.</h2>
-
-        <p class="step-description">
-    A few details will help establish the scale and operating context for your Health Check.
-</p>
-
-        <div class="field">
-          <label for="industry">Industry</label>
-
-          <select id="industry">
-            <option value="">Select industry</option>
-            <option>Manufacturing</option>
-            <option>Engineering</option>
-            <option>Distribution</option>
-            <option>Pharmaceutical</option>
-            <option>Logistics</option>
-            <option>Professional Services</option>
-            <option>Retail</option>
-            <option>Other</option>
-          </select>
-        </div>
-
-
-        <div class="field">
-          <label for="company-size">Company size</label>
-
-          <select id="company-size">
-            <option value="">Select company size</option>
-            <option>Below 100 employees</option>
-            <option>100–250 employees</option>
-            <option>250–500 employees</option>
-            <option>500–1,000 employees</option>
-            <option>1,000+ employees</option>
-          </select>
-        </div>
-
-
-        <div class="field">
-          <label for="locations">Locations</label>
-
-          <select id="locations">
-            <option value="">Select operating model</option>
-            <option>Single location</option>
-            <option>Multiple locations</option>
-            <option>Multi-country operations</option>
-          </select>
-        </div>
-    <div class="field">
-      <label for="sponsorStatus">Executive sponsorship</label>
-
-      <select id="sponsorStatus">
-        <option value="">Select status</option>
-        <option>Confirmed executive sponsor</option>
-        <option>Sponsor identified, not yet confirmed</option>
-        <option>Internal discussion in progress</option>
-        <option>No executive sponsor yet</option>
-        <option>Not sure</option>
-      </select>
-    </div>
-
-        <div class="field">
-          <label for="markets">Countries / markets</label>
-
-          <input
-            id="markets"
-            type="text"
-            placeholder="e.g. Kazakhstan, Uzbekistan, Central Asia"
-          >
-        </div>
-
-        <div class="form-actions">
-          <span></span>
-          <button class="button button-primary" type="button">
-            CONTINUE →
-          </button>
-        </div>
-
+        <div class="step-label">STEP 01 · ENVIRONMENT &amp; OPERATING MODEL</div><h2>How is the environment set up?</h2><p class="step-description">Give enough operating context to calibrate the breadth and depth of the review.</p>
+        <div class="field"><label for="operating-footprint">Operating footprint</label><select id="operating-footprint"><option value="">Select footprint</option><option>Single site</option><option>Multiple sites in one country</option><option>Multi-country operations</option><option>Regional / global organization</option></select></div>
+        <div class="field"><label for="locations-markets">Locations / markets</label><input id="locations-markets" placeholder="e.g. Kazakhstan and Uzbekistan, 4 offices and one plant"></div>
+        <div class="field"><label for="it-team-model">Internal IT model</label><select id="it-team-model"><option value="">Select model</option><option>No dedicated internal IT</option><option>Small local IT team</option><option>Established local IT team</option><option>Central / regional IT with local support</option><option>Global IT operating model</option><option>Mostly outsourced / vendor-managed</option></select></div>
+        <div class="field"><label for="it-team-scale">IT organization / support scale</label><input id="it-team-scale" placeholder="e.g. 5 internal IT staff, shared regional team, outsourced L1"><span class="hint">Approximate information is sufficient.</span></div>
+        <div class="field"><label for="critical-operations">Business-critical operations</label><textarea id="critical-operations" placeholder="What must keep running: manufacturing, warehouse, customer service, finance close, field service, e-commerce, 24/7 operations, etc."></textarea></div>
+        <div class="form-actions"><span></span><button class="button button-primary" type="button">CONTINUE →</button></div>
       </section>
-
-
-      <!-- STEP 2 -->
 
       <section class="form-step" data-step="2">
-
-        <div class="step-label">STEP 02 · TECHNOLOGY LANDSCAPE</div>
-
-        <h2>What does your environment look like?</h2>
-
-        <p class="step-description">
-          Select everything that currently applies.
-        </p>
-
-        <div class="choices">
-
-          <div class="choice">
-            <input type="checkbox" id="m365">
-            <label for="m365">Microsoft 365</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="onec">
-            <label for="onec">1C</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="d365">
-            <label for="d365">Dynamics 365</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="erp">
-            <label for="erp">SAP / Other ERP</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="crm">
-            <label for="crm">CRM</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="bi">
-            <label for="bi">Power BI / Analytics</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="cloud">
-            <label for="cloud">Cloud / Azure</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="onprem">
-            <label for="onprem">On-prem Infrastructure</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="manufacturing">
-            <label for="manufacturing">Manufacturing / OT</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="unknown">
-            <label for="unknown">Not sure</label>
-          </div>
-
-        </div>
-
-        <div class="form-actions">
-          <button class="button button-secondary" type="button">
-            ← BACK
-          </button>
-
-          <button class="button button-primary" type="button">
-            CONTINUE →
-          </button>
-        </div>
-
+        <div class="step-label">STEP 02 · TECHNOLOGY LANDSCAPE</div><h2>What should the review cover?</h2><p class="step-description">Select the main platforms and technical domains present in the environment.</p>
+        <div class="field"><div class="choices" id="technology-landscape">
+          <div class="choice"><input type="checkbox" id="tech-m365" value="Microsoft 365"><label for="tech-m365">Microsoft 365</label></div><div class="choice"><input type="checkbox" id="tech-1c" value="1C"><label for="tech-1c">1C</label></div>
+          <div class="choice"><input type="checkbox" id="tech-d365" value="Dynamics 365"><label for="tech-d365">Dynamics 365</label></div><div class="choice"><input type="checkbox" id="tech-erp" value="SAP / other ERP"><label for="tech-erp">SAP / other ERP</label></div>
+          <div class="choice"><input type="checkbox" id="tech-crm" value="CRM"><label for="tech-crm">CRM</label></div><div class="choice"><input type="checkbox" id="tech-bi" value="Power BI / analytics"><label for="tech-bi">Power BI / analytics</label></div>
+          <div class="choice"><input type="checkbox" id="tech-cloud" value="Cloud / Azure"><label for="tech-cloud">Cloud / Azure</label></div><div class="choice"><input type="checkbox" id="tech-onprem" value="On-prem infrastructure"><label for="tech-onprem">On-prem infrastructure</label></div>
+          <div class="choice"><input type="checkbox" id="tech-network" value="Network / connectivity"><label for="tech-network">Network / connectivity</label></div><div class="choice"><input type="checkbox" id="tech-ot" value="Manufacturing / OT"><label for="tech-ot">Manufacturing / OT</label></div>
+          <div class="choice"><input type="checkbox" id="tech-security" value="Security / identity"><label for="tech-security">Security / identity</label></div><div class="choice"><input type="checkbox" id="tech-other" value="Other / legacy systems"><label for="tech-other">Other / legacy systems</label></div>
+        </div></div>
+        <div class="field"><label for="platform-context">Key platforms, versions or architecture context</label><textarea id="platform-context" placeholder="Mention important products, hosting model, legacy constraints, local systems or major integrations"></textarea></div>
+        <div class="field"><label for="outsourced-services">Important outsourced services / vendors</label><textarea id="outsourced-services" placeholder="MSP, telecom, ERP partner, cloud provider, cybersecurity provider, licensing partner, etc."></textarea></div>
+        <div class="form-actions"><button class="button button-secondary" type="button">← BACK</button><button class="button button-primary" type="button">CONTINUE →</button></div>
       </section>
-
-
-      <!-- STEP 3 -->
 
       <section class="form-step" data-step="3">
-
-        <div class="step-label">STEP 03 · YOUR PRIORITIES</div>
-
-        <h2 id="priority-title">What brought you here?</h2>
-
-        <p class="step-description" id="priority-description">
-          Select the areas where you would like experienced technology guidance.
-        </p>
-
-        <div class="choices" id="service-questions">
-
-          <div class="choice">
-            <input type="checkbox" id="strategy">
-            <label for="strategy">IT Strategy</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="costs">
-            <label for="costs">IT Costs</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="security">
-            <label for="security">Cybersecurity</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="systems">
-            <label for="systems">ERP / CRM</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="infra">
-            <label for="infra">Infrastructure</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="support">
-            <label for="support">Support Model</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="continuity">
-            <label for="continuity">Business Continuity</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="ai">
-            <label for="ai">AI / Copilot Adoption</label>
-          </div>
-
-        </div>
-
-        <div class="field" id="dynamic-extra-field"></div>
-
-        <div class="form-actions">
-          <button class="button button-secondary" type="button">
-            ← BACK
-          </button>
-
-          <button class="button button-primary" type="button">
-            CONTINUE →
-          </button>
-        </div>
-
+        <div class="step-label">STEP 03 · RISK &amp; CONTROL AREAS</div><h2>Where should we look hardest?</h2><p class="step-description">Select the areas where independent challenge or evidence-based review is most valuable.</p>
+        <div class="field"><div class="choices" id="risk-control-areas">
+          <div class="choice"><input type="checkbox" id="risk-security" value="Cybersecurity"><label for="risk-security">Cybersecurity</label></div><div class="choice"><input type="checkbox" id="risk-identity" value="Identity / access"><label for="risk-identity">Identity / access</label></div>
+          <div class="choice"><input type="checkbox" id="risk-continuity" value="Business continuity / disaster recovery"><label for="risk-continuity">Business continuity / DR</label></div><div class="choice"><input type="checkbox" id="risk-backup" value="Backup / recovery"><label for="risk-backup">Backup / recovery</label></div>
+          <div class="choice"><input type="checkbox" id="risk-infra" value="Infrastructure resilience"><label for="risk-infra">Infrastructure resilience</label></div><div class="choice"><input type="checkbox" id="risk-cost" value="IT cost / licensing"><label for="risk-cost">IT cost / licensing</label></div>
+          <div class="choice"><input type="checkbox" id="risk-vendor" value="Vendor dependency"><label for="risk-vendor">Vendor dependency</label></div><div class="choice"><input type="checkbox" id="risk-governance" value="IT governance"><label for="risk-governance">IT governance</label></div>
+          <div class="choice"><input type="checkbox" id="risk-systems" value="ERP / CRM controls"><label for="risk-systems">ERP / CRM controls</label></div><div class="choice"><input type="checkbox" id="risk-data" value="Data / reporting"><label for="risk-data">Data / reporting</label></div>
+          <div class="choice"><input type="checkbox" id="risk-support" value="Support quality"><label for="risk-support">Support quality</label></div><div class="choice"><input type="checkbox" id="risk-full" value="Full independent review"><label for="risk-full">Full independent review</label></div>
+        </div></div>
+        <div class="field"><label for="known-risks">Known incidents, weaknesses or concerns</label><textarea id="known-risks" placeholder="e.g. recurring outages, security findings, unsupported systems, audit issues, poor recovery confidence, uncontrolled admin access"></textarea></div>
+        <div class="field"><label for="compliance-context">Audit / regulatory / customer requirements</label><textarea id="compliance-context" placeholder="Optional: internal audit, customer requirements, regulatory obligations or corporate standards"></textarea></div>
+        <div class="form-actions"><button class="button button-secondary" type="button">← BACK</button><button class="button button-primary" type="button">CONTINUE →</button></div>
       </section>
-
-
-      <!-- STEP 4 -->
 
       <section class="form-step" data-step="4">
-
-        <div class="step-label">STEP 04 · OBJECTIVE</div>
-
-        <h2>What would success look like?</h2>
-
-        <p class="step-description">
-          Briefly describe what you would like to improve, solve or build.
-        </p>
-
-        <div class="field">
-          <label for="objective">Your objective</label>
-
-          <textarea
-            id="objective"
-            placeholder="Tell me briefly what you would like to achieve..."
-          ></textarea>
-        </div>
-
-
-        <div class="field">
-          <label for="timing">Expected timing</label>
-
-          <select id="timing">
-            <option value="">Select timing</option>
-            <option>As soon as possible</option>
-            <option>Within 1–3 months</option>
-            <option>3–6 months</option>
-            <option>6+ months</option>
-            <option>Exploring options</option>
-          </select>
-        </div>
-
-        <div class="form-actions">
-          <button class="button button-secondary" type="button">
-            ← BACK
-          </button>
-
-          <button class="button button-primary" type="button">
-            CONTINUE →
-          </button>
-        </div>
-
+        <div class="step-label">STEP 04 · OPERATIONS &amp; GOVERNANCE</div><h2>How is IT run day to day?</h2><p class="step-description">Clarify service ownership, decision-making and management practices behind the technology.</p>
+        <div class="field"><label for="service-model">Support / service-management model</label><select id="service-model"><option value="">Select model</option><option>Formal service desk and defined processes</option><option>Basic ticketing with informal processes</option><option>Mostly direct / ad-hoc support</option><option>Primarily outsourced support</option><option>Mixed internal and outsourced model</option><option>Not sure</option></select></div>
+        <div class="field"><label for="governance-maturity">Governance maturity</label><select id="governance-maturity"><option value="">Select maturity</option><option>Clear ownership, standards and decision rights</option><option>Core governance exists but is inconsistent</option><option>Responsibilities are partly defined</option><option>Mostly informal / reactive</option><option>Not sure</option></select></div>
+        <div class="field"><span class="field-legend">Management practices currently in place</span><div class="choices" id="management-practices">
+          <div class="choice"><input type="checkbox" id="mgmt-budget" value="IT budget / cost tracking"><label for="mgmt-budget">IT budget / cost tracking</label></div><div class="choice"><input type="checkbox" id="mgmt-assets" value="Asset / license management"><label for="mgmt-assets">Asset / license management</label></div>
+          <div class="choice"><input type="checkbox" id="mgmt-vendors" value="Vendor management"><label for="mgmt-vendors">Vendor management</label></div><div class="choice"><input type="checkbox" id="mgmt-changes" value="Change management"><label for="mgmt-changes">Change management</label></div>
+          <div class="choice"><input type="checkbox" id="mgmt-incidents" value="Incident / problem management"><label for="mgmt-incidents">Incident / problem management</label></div><div class="choice"><input type="checkbox" id="mgmt-kpi" value="Service KPIs / reporting"><label for="mgmt-kpi">Service KPIs / reporting</label></div>
+          <div class="choice"><input type="checkbox" id="mgmt-security" value="Security governance"><label for="mgmt-security">Security governance</label></div><div class="choice"><input type="checkbox" id="mgmt-roadmap" value="IT roadmap / planning"><label for="mgmt-roadmap">IT roadmap / planning</label></div>
+        </div></div>
+        <div class="field"><label for="operations-pain">Biggest operational pain points</label><textarea id="operations-pain" placeholder="e.g. slow support, recurring incidents, unclear ownership, excessive vendor dependency, limited visibility or constant firefighting"></textarea></div>
+        <div class="form-actions"><button class="button button-secondary" type="button">← BACK</button><button class="button button-primary" type="button">CONTINUE →</button></div>
       </section>
-
-
-      <!-- STEP 5 -->
 
       <section class="form-step" data-step="5">
-
-        <div class="step-label">STEP 05 · CONTACT</div>
-
-        <h2>Let's continue the conversation.</h2>
-
-        <p class="step-description">
-          No obligation. Scope, deliverables and commercial terms
-          are agreed before any engagement begins.
-        </p>
-
-
-        <div class="field">
-          <label for="name">Name</label>
-          <input id="name" type="text" placeholder="Your name">
-        </div>
-
-
-        <div class="field">
-          <label for="company">Company</label>
-          <input id="company" type="text" placeholder="Company name">
-        </div>
-
-
-        <div class="field">
-          <label for="email">Business email</label>
-          <input id="email" type="email" placeholder="name@company.com">
-        </div>
-
-
-        <div class="field">
-          <label for="phone">Phone / WhatsApp</label>
-          <input id="phone" type="tel" placeholder="+7 ...">
-        </div>
-
-
-        <div class="field">
-          <label>Preferred contact</label>
-
-          <div class="choices">
-
-            <div class="choice">
-              <input type="radio" name="contact" id="contact-email">
-              <label for="contact-email">Email</label>
-            </div>
-
-            <div class="choice">
-              <input type="radio" name="contact" id="contact-whatsapp">
-              <label for="contact-whatsapp">WhatsApp</label>
-            </div>
-
-            <div class="choice">
-              <input type="radio" name="contact" id="contact-teams">
-              <label for="contact-teams">Microsoft Teams</label>
-            </div>
-
-          </div>
-        </div>
-
-
-        <div class="form-actions">
-          <button class="button button-secondary" type="button">
-            ← BACK
-          </button>
-
-          <button class="button button-primary" type="button">
-            REQUEST INITIAL REVIEW →
-          </button>
-        </div>
-
+        <div class="step-label">STEP 05 · ASSESSMENT FOCUS &amp; CONTEXT</div><h2>What should the Health Check deliver clarity on?</h2><p class="step-description">Your Stage 1 contact and qualification context are already linked through the reference above.</p>
+        <div class="field"><label for="top-questions">Top questions you want the assessment to answer</label><textarea id="top-questions" placeholder="e.g. Are we secure enough? Are we overspending? Is our architecture fit for growth? What should we fix first?"></textarea></div>
+        <div class="field"><label for="evidence-availability">Evidence / documentation availability</label><select id="evidence-availability"><option value="">Select availability</option><option>Good documentation is available</option><option>Some documentation exists</option><option>Documentation is limited / outdated</option><option>Very little documented</option><option>Not sure</option></select></div>
+        <div class="field"><label for="stakeholder-access">Relevant stakeholder access</label><select id="stakeholder-access"><option value="">Select expected access</option><option>Business and IT stakeholders available</option><option>Mainly IT stakeholders available</option><option>Limited stakeholder availability</option><option>To be confirmed</option></select></div>
+        <div class="field"><label for="constraints">Known constraints</label><textarea id="constraints" placeholder="Optional: availability, corporate restrictions, vendor access, audit timing, sensitive systems or other boundaries"></textarea></div>
+        <div class="field"><label for="additional-context">Anything else I should know?</label><textarea id="additional-context" placeholder="Optional additional context"></textarea></div>
+        <div class="form-actions"><button class="button button-secondary" type="button">← BACK</button><button class="button button-primary" type="button">SUBMIT HEALTH CHECK SCOPE →</button></div>
       </section>
-
     </div>
 
-
-    <!-- RIGHT SERVICE PANEL -->
-
     <aside class="service-panel">
-
-      <div class="service-type" id="service-type">
-        IT & BUSINESS SYSTEMS HEALTH CHECK
-      </div>
-
-      <h3 id="service-title">
-        Understand where your IT stands.
-      </h3>
-
-      <p class="service-price" id="service-price">
-        FROM $1,500 · FIXED SCOPE
-      </p>
-
-      <ul class="service-benefits" id="service-benefits">
-        <li>Executive assessment</li>
-        <li>Current-state review</li>
-        <li>Risk map</li>
-        <li>Quick wins</li>
-        <li>Priority matrix</li>
-        <li>12-month roadmap</li>
-        <li>Executive recommendations</li>
-      </ul>
-
-
-      <div class="next-steps">
-
-        <strong>WHAT HAPPENS NEXT?</strong>
-
-        <p>01 · Your context is reviewed</p>
-        <p>02 · Short introductory conversation</p>
-        <p>03 · Scope and deliverables</p>
-        <p>04 · Fixed commercial proposal</p>
-        <p>05 · You decide whether to proceed</p>
-
-      </div>
-
+      <div class="service-type">IT &amp; BUSINESS SYSTEMS HEALTH CHECK</div><h3>Understand where your IT stands.</h3><p class="service-price">FROM $1,500 · FIXED SCOPE</p>
+      <ul class="service-benefits"><li>Executive assessment</li><li>Current-state review</li><li>Risk map</li><li>Quick wins</li><li>Priority matrix</li><li>12-month roadmap</li><li>Executive recommendations</li></ul>
+      <div class="next-steps"><strong>WHAT HAPPENS NEXT?</strong><p>01 · Your scope and context are reviewed</p><p>02 · Short scope-alignment conversation</p><p>03 · Evidence and stakeholder access agreed</p><p>04 · Fixed commercial proposal</p><p>05 · You decide whether to proceed</p></div>
     </aside>
-
   </main>
-
-
-  <footer>
-    © 2026 Boris Golobokov · Technology Advisory
-  </footer>
-
+  <footer>© 2026 Boris Golobokov · Technology Advisory</footer>
 </div>
- <script>
-  const steps = Array.from(document.querySelectorAll(".form-step"));
-  const progressSteps = Array.from(document.querySelectorAll(".progress-step"));
-
-  let currentStep = 0;
-
-  const serviceConfigs = {
-    "health-check": {
-      type: "IT & BUSINESS SYSTEMS HEALTH CHECK",
-      title: "Understand where your IT stands.",
-      price: "FROM $1,500 · FIXED SCOPE",
-      priorityTitle: "What would you like reviewed?",
-      priorityDescription:
-        "Select the areas that should be included in the independent assessment.",
-      priorities: [
-        "IT Costs",
-        "Cybersecurity",
-        "Infrastructure",
-        "ERP / CRM",
-        "Support Model",
-        "Business Continuity",
-        "Vendors & Licensing",
-        "IT Governance",
-        "Full Independent Review"
-      ],
-      benefits: [
-        "Executive assessment",
-        "Current-state review",
-        "Risk map",
-        "Quick wins",
-        "Priority matrix",
-        "12-month roadmap",
-        "Executive recommendations"
-      ],
-      extraField: ""
-    },
-
-    "fractional-cio": {
-      type: "FRACTIONAL CIO",
-      title: "Executive IT leadership without the full-time overhead.",
-      price: "MONTHLY ENGAGEMENT",
-      priorityTitle: "Where do you need leadership support?",
-      priorityDescription:
-        "Select the areas where experienced executive IT leadership would help.",
-      priorities: [
-        "IT Strategy",
-        "Budget & Cost Control",
-        "Vendor Management",
-        "Internal IT Team",
-        "ERP / CRM Program",
-        "Cybersecurity",
-        "Executive Reporting",
-        "Transformation Roadmap",
-        "Interim IT Leadership"
-      ],
-      benefits: [
-        "Executive IT leadership",
-        "Technology strategy",
-        "Budget and vendor control",
-        "IT team leadership",
-        "Project governance",
-        "Executive reporting",
-        "Technology roadmap"
-      ],
-      extraField: `
-        <label for="team-size">Current IT team size</label>
-        <select id="team-size">
-          <option value="">Select team size</option>
-          <option>No internal IT team</option>
-          <option>1–3 people</option>
-          <option>4–10 people</option>
-          <option>11–25 people</option>
-          <option>25+ people</option>
-        </select>
-      `
-    },
-
-    "transformation": {
-      type: "TRANSFORMATION ADVISORY",
-      title: "Make complex transformation manageable.",
-      price: "PROJECT-BASED",
-      priorityTitle: "What are you transforming?",
-      priorityDescription:
-        "Select the platforms, processes or capabilities involved.",
-      priorities: [
-        "ERP",
-        "CRM",
-        "Microsoft 365",
-        "Power BI / Analytics",
-        "AI / Copilot",
-        "Integrations",
-        "Data",
-        "Business Processes"
-      ],
-      benefits: [
-        "ERP / CRM advisory",
-        "Microsoft 365",
-        "Power BI and analytics",
-        "AI enablement",
-        "Integration governance",
-        "Testing and readiness",
-        "Business adoption"
-      ],
-      extraField: `
-        <label for="project-stage">Current project stage</label>
-        <select id="project-stage">
-          <option value="">Select project stage</option>
-          <option>Exploring</option>
-          <option>Planning</option>
-          <option>Already started</option>
-          <option>In trouble</option>
-        </select>
-      `
-    },
-
-    "greenfield": {
-      type: "GREENFIELD & MANUFACTURING IT",
-      title: "Technology leadership from design to operation.",
-      price: "PROJECT-BASED",
-      priorityTitle: "What are you building?",
-      priorityDescription:
-        "Select the type of facility or operational environment.",
-      priorities: [
-        "Manufacturing Facility",
-        "Warehouse / Logistics",
-        "Office",
-        "Service Center",
-        "Expansion of Existing Site",
-        "Existing Site Modernization",
-        "Other"
-      ],
-      benefits: [
-        "Technology architecture",
-        "IT infrastructure",
-        "Manufacturing IT",
-        "Vendor selection",
-        "Implementation governance",
-        "Operational readiness",
-        "Commissioning support"
-      ],
-      extraField: `
-        <label for="project-stage">Current project stage</label>
-        <select id="project-stage">
-          <option value="">Select project stage</option>
-          <option>Concept</option>
-          <option>Design</option>
-          <option>Construction</option>
-          <option>Implementation</option>
-          <option>Existing site modernization</option>
-        </select>
-      `
-    }
-  };
-
-  const queryParams = new URLSearchParams(window.location.search);
-  const selectedService = queryParams.get("service") || "health-check";
-
-  const activeService =
-    serviceConfigs[selectedService] || serviceConfigs["health-check"];
-
-  function showStep(stepIndex) {
-    currentStep = Math.max(0, Math.min(stepIndex, steps.length - 1));
-
-    steps.forEach((step, index) => {
-      step.classList.toggle("active", index === currentStep);
-    });
-
-    progressSteps.forEach((progressStep, index) => {
-      progressStep.classList.toggle("active", index <= currentStep);
-    });
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  }
-
-  function buildPriorityQuestions(priorities) {
-    const container = document.getElementById("service-questions");
-
-    container.innerHTML = priorities
-      .map((priority, index) => {
-        const inputId = `priority-${index}`;
-
-        return `
-          <div class="choice">
-            <input
-              type="checkbox"
-              id="${inputId}"
-              value="${priority}"
-            >
-            <label for="${inputId}">${priority}</label>
-          </div>
-        `;
-      })
-      .join("");
-  }
-
-  function applyServiceConfiguration() {
-    document.getElementById("service-type").textContent =
-      activeService.type;
-
-    document.getElementById("service-title").textContent =
-      activeService.title;
-
-    document.getElementById("service-price").textContent =
-      activeService.price;
-
-    document.getElementById("priority-title").textContent =
-      activeService.priorityTitle;
-
-    document.getElementById("priority-description").textContent =
-      activeService.priorityDescription;
-
-    document.getElementById("service-benefits").innerHTML =
-      activeService.benefits
-        .map((benefit) => `<li>${benefit}</li>`)
-        .join("");
-
-    document.getElementById("dynamic-extra-field").innerHTML =
-      activeService.extraField;
-
-    buildPriorityQuestions(activeService.priorities);
-  }
-
-  steps.forEach((step, index) => {
-    const primaryButton = step.querySelector(".button-primary");
-    const secondaryButton = step.querySelector(".button-secondary");
-
-    if (primaryButton && index < steps.length - 1) {
-      primaryButton.addEventListener("click", () => {
-        showStep(index + 1);
-      });
-    }
-
-    if (secondaryButton) {
-      secondaryButton.addEventListener("click", () => {
-        showStep(index - 1);
-      });
-    }
+<script>
+  const steps=[...document.querySelectorAll('.form-step')];
+  const progressSteps=[...document.querySelectorAll('.progress-step')];
+  const assessmentReference=new URLSearchParams(window.location.search).get('ref')||'Not provided';
+  const finalButton=steps[steps.length-1].querySelector('.button-primary');
+  let currentStep=0;
+  document.getElementById('assessment-reference').textContent=assessmentReference;
+  function showStep(i){currentStep=Math.max(0,Math.min(i,steps.length-1));steps.forEach((s,n)=>s.classList.toggle('active',n===currentStep));progressSteps.forEach((p,n)=>p.classList.toggle('active',n<=currentStep));window.scrollTo({top:0,behavior:'smooth'});}
+  steps.forEach((step,index)=>{const next=step.querySelector('.button-primary');const back=step.querySelector('.button-secondary');if(next&&index<steps.length-1)next.addEventListener('click',()=>showStep(index+1));if(back)back.addEventListener('click',()=>showStep(index-1));});
+  const value=id=>document.getElementById(id).value.trim();
+  const list=id=>{const v=[...document.querySelectorAll('#'+id+' input:checked')].map(x=>x.value);return v.length?v.join(', '):'Not specified';};
+  finalButton.addEventListener('click',async()=>{
+    if(assessmentReference==='Not provided'){alert('The Stage 1 reference is missing. Please reopen this assessment using the link from your Stage 1 confirmation.');return;}
+    const payload={
+      reference:assessmentReference,_subject:'New Health Check Stage 2 Assessment — '+assessmentReference,service:'IT & BUSINESS SYSTEMS HEALTH CHECK',engagement_model:'FROM $1,500 · FIXED SCOPE',assessment_stage:'Stage 2',
+      operating_footprint:value('operating-footprint'),locations_markets:value('locations-markets'),internal_it_model:value('it-team-model'),it_organization_support_scale:value('it-team-scale'),business_critical_operations:value('critical-operations'),
+      technology_landscape:list('technology-landscape'),platform_architecture_context:value('platform-context'),outsourced_services_vendors:value('outsourced-services'),
+      risk_control_areas:list('risk-control-areas'),known_risks_incidents_concerns:value('known-risks'),audit_regulatory_customer_context:value('compliance-context'),
+      support_service_model:value('service-model'),governance_maturity:value('governance-maturity'),management_practices:list('management-practices'),operational_pain_points:value('operations-pain'),
+      assessment_questions:value('top-questions'),evidence_documentation_availability:value('evidence-availability'),stakeholder_access:value('stakeholder-access'),known_constraints:value('constraints'),additional_context:value('additional-context'),source_page:window.location.href
+    };
+    const old=finalButton.textContent;finalButton.disabled=true;finalButton.textContent='SENDING...';
+    try{const response=await fetch('https://advisory-engine.priestik.workers.dev/stage2',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(payload)});if(!response.ok)throw new Error('Form submission failed');finalButton.textContent='SCOPE SENT ✓';alert('Thank you. Your Health Check scope has been sent successfully. I will review it together with your Stage 1 context.');}
+    catch(error){finalButton.disabled=false;finalButton.textContent=old;alert('The request could not be sent. Please try again or contact me directly by email.');}
   });
-
-  const finalButton =
-  steps[steps.length - 1].querySelector(".button-primary");
-
-finalButton.addEventListener("click", async () => {
-  const name = document.getElementById("name").value.trim();
-  const company = document.getElementById("company").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-
-  if (!name || !email) {
-    alert("Please enter your name and business email.");
-    return;
-  }
-
-  const getSelectedLabels = (selector) =>
-    Array.from(document.querySelectorAll(selector))
-      .filter((input) => input.checked)
-      .map((input) => {
-        const label = document.querySelector(`label[for="${input.id}"]`);
-        return input.value && input.value !== "on" ? input.value : (label ? label.textContent.trim() : input.id);
-      });
-
-  const technologyLandscape = getSelectedLabels(
-    '[data-step="2"] input[type="checkbox"]'
-  );
-
-  const priorities = getSelectedLabels(
-    '#service-questions input[type="checkbox"]'
-  );
-
-  const preferredContact = getSelectedLabels(
-    'input[name="contact"]'
-  )[0] || "Not specified";
-
-  const dynamicField =
-    document.querySelector("#dynamic-extra-field select");
-
-  const payload = {
-        reference: new URLSearchParams(window.location.search).get("ref") || "Not provided",
-    _subject: `New Advisory Assessment — ${activeService.type}`,
-    service: activeService.type,
-    engagement_model: activeService.price,
-    industry: document.getElementById("industry").value,
-    company_size: document.getElementById("company-size").value,
-    locations: document.getElementById("locations").value,
-    countries_markets: document.getElementById("markets").value.trim(),
-    technology_landscape:
-      technologyLandscape.join(", ") || "Not specified",
-    priorities: priorities.join(", ") || "Not specified",
-    additional_service_context:
-      dynamicField && dynamicField.value
-        ? dynamicField.value
-        : "Not applicable",
-    objective: document.getElementById("objective").value.trim(),
-    expected_timing: document.getElementById("timing").value,
-    name,
-    company,
-    email,
-    phone,
-    preferred_contact: preferredContact,
-    source_page: window.location.href
-  };
-
-  const originalButtonText = finalButton.textContent;
-  finalButton.disabled = true;
-  finalButton.textContent = "SENDING...";
-
-  try {
-    const response = await fetch("https://advisory-engine.priestik.workers.dev/stage2", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify(payload)
-    });
-
-    if (!response.ok) {
-      throw new Error("Form submission failed");
-    }
-
-    finalButton.textContent = "REQUEST SENT ✓";
-
-    alert(
-      "Thank you. Your assessment has been sent successfully. I will review your context and contact you shortly."
-    );
-  } catch (error) {
-    finalButton.disabled = false;
-    finalButton.textContent = originalButtonText;
-
-    alert(
-      "The request could not be sent. Please try again or contact me directly by email."
-    );
-  }
-});
-const assessmentReference =
-  new URLSearchParams(window.location.search).get("ref") || "Not provided";
-
-document.getElementById("assessment-reference").textContent =
-  assessmentReference;
-  applyServiceConfiguration();
   showStep(0);
-</script> 
+</script>
 </body>
 </html>
