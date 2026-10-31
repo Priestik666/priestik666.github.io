@@ -2,1124 +2,348 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JYHRWRY209"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-JYHRWRY209');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JYHRWRY209"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JYHRWRY209');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Greenfield Scope Assessment | Boris Golobokov</title>
   <style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #0b0f14;
-    color: #f4f7fa;
-    line-height: 1.6;
-  }
-
-  .container {
-    width: min(1180px, 88%);
-    margin: 0 auto;
-  }
-
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 0;
-    border-bottom: 1px solid #252c34;
-  }
-
-  .logo {
-    color: #ffffff;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-decoration: none;
-  }
-
-  .back-link {
-    color: #8f9ba8;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  .back-link:hover {
-    color: #ffffff;
-  }
-
-  .assessment-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.75fr);
-    gap: 70px;
-    padding: 75px 0 100px;
-    align-items: start;
-  }
-
-  .eyebrow {
-    color: #55a7ff;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 12px;
-    font-weight: 700;
-    margin-bottom: 18px;
-  }
-
-  h1 {
-    font-size: clamp(42px, 6vw, 72px);
-    line-height: 1;
-    letter-spacing: -3px;
-    margin-bottom: 25px;
-  }
-
-  .intro {
-    color: #9da8b4;
-    font-size: 18px;
-    max-width: 680px;
-    margin-bottom: 50px;
-  }
-
-  .progress {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 45px;
-  }
-
-  .progress-step {
-    height: 3px;
-    flex: 1;
-    border-radius: 3px;
-    background: #26303a;
-  }
-
-  .progress-step.active {
-    background: #55a7ff;
-  }
-
-  .form-step {
-    display: none;
-  }
-
-  .form-step.active {
-    display: block;
-  }
-
-  .step-label {
-    color: #55a7ff;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    margin-bottom: 10px;
-  }
-
-  h2 {
-    font-size: 30px;
-    letter-spacing: -1px;
-    margin-bottom: 10px;
-  }
-
-  .step-description {
-    color: #8f9ba8;
-    margin-bottom: 32px;
-  }
-
-  .field {
-    margin-bottom: 24px;
-  }
-
-  .field label {
-    display: block;
-    color: #cbd3db;
-    font-size: 13px;
-    font-weight: 700;
-    margin-bottom: 9px;
-  }
-
-  select,
-  input,
-  textarea {
-    width: 100%;
-    color: #f4f7fa;
-    background: #11171e;
-    border: 1px solid #2a3540;
-    border-radius: 8px;
-    padding: 14px 15px;
-    font: inherit;
-    outline: none;
-  }
-
-  select:focus,
-  input:focus,
-  textarea:focus {
-    border-color: #55a7ff;
-  }
-
-  textarea {
-    min-height: 130px;
-    resize: vertical;
-  }
-
-  .choices {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  .choice {
-    position: relative;
-  }
-
-  .choice input {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .choice label {
-    display: block;
-    padding: 14px 15px;
-    margin: 0;
-    color: #9da8b4;
-    background: #11171e;
-    border: 1px solid #2a3540;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.2s ease;
-  }
-
-  .choice input:checked + label {
-    color: #ffffff;
-    border-color: #55a7ff;
-    background: #132234;
-  }
-
-  .form-actions {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    margin-top: 36px;
-  }
-
-  .button {
-    border: 0;
-    border-radius: 7px;
-    padding: 14px 21px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.7px;
-    cursor: pointer;
-  }
-
-  .button-primary {
-    color: #ffffff;
-    background: #2387f5;
-  }
-
-  .button-secondary {
-    color: #c5ced7;
-    background: transparent;
-    border: 1px solid #35404c;
-  }
-
-  .service-panel {
-    position: sticky;
-    top: 35px;
-    padding: 30px;
-    background: #11171e;
-    border: 1px solid #26303a;
-    border-radius: 12px;
-  }
-
-  .service-type {
-    color: #55a7ff;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    margin-bottom: 15px;
-  }
-
-  .service-panel h3 {
-    font-size: 24px;
-    line-height: 1.2;
-    margin-bottom: 18px;
-  }
-
-  .service-price {
-    color: #ffffff;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    padding: 18px 0;
-    margin: 20px 0;
-    border-top: 1px solid #29333d;
-    border-bottom: 1px solid #29333d;
-  }
-
-  .service-benefits {
-    list-style: none;
-  }
-
-  .service-benefits li {
-    color: #98a4b0;
-    font-size: 14px;
-    padding: 7px 0;
-  }
-
-  .service-benefits li::before {
-    content: "✓";
-    color: #55a7ff;
-    margin-right: 10px;
-  }
-
-  .next-steps {
-    margin-top: 32px;
-    padding-top: 25px;
-    border-top: 1px solid #29333d;
-  }
-
-  .next-steps strong {
-    display: block;
-    font-size: 12px;
-    margin-bottom: 12px;
-  }
-
-  .next-steps p {
-    color: #7f8b97;
-    font-size: 12px;
-    margin-bottom: 7px;
-  }
-
-  footer {
-    padding: 35px 0 50px;
-    color: #687582;
-    font-size: 12px;
-    border-top: 1px solid #252c34;
-  }
-
-  @media (max-width: 800px) {
-    .assessment-layout {
-      grid-template-columns: 1fr;
-      gap: 45px;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Arial, Helvetica, sans-serif; background: #0b0f14; color: #f4f7fa; line-height: 1.6; }
+    .container { width: min(1180px, 88%); margin: 0 auto; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 30px 0; border-bottom: 1px solid #252c34; }
+    .logo { color: #fff; font-weight: 700; letter-spacing: 1px; text-decoration: none; }
+    .back-link { color: #8f9ba8; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-decoration: none; transition: color .2s ease; }
+    .back-link:hover { color: #fff; }
+    .assessment-layout { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(300px, .75fr); gap: 70px; padding: 75px 0 100px; align-items: start; }
+    .eyebrow { color: #55a7ff; text-transform: uppercase; letter-spacing: 3px; font-size: 12px; font-weight: 700; margin-bottom: 18px; }
+    h1 { font-size: clamp(42px, 6vw, 72px); line-height: 1; letter-spacing: -3px; margin-bottom: 25px; }
+    .intro { color: #9da8b4; font-size: 18px; max-width: 680px; margin-bottom: 18px; }
+    .reference-line { color: #7f8b97; font-size: 13px; margin-bottom: 42px; }
+    .reference-line strong { color: #cbd3db; }
+    .progress { display: flex; gap: 8px; margin-bottom: 45px; }
+    .progress-step { height: 3px; flex: 1; border-radius: 3px; background: #26303a; }
+    .progress-step.active { background: #55a7ff; }
+    .form-step { display: none; }
+    .form-step.active { display: block; }
+    .step-label { color: #55a7ff; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 10px; }
+    h2 { font-size: 30px; letter-spacing: -1px; margin-bottom: 10px; }
+    .step-description { color: #8f9ba8; margin-bottom: 32px; }
+    .field { margin-bottom: 24px; }
+    .field label, .field-legend { display: block; color: #cbd3db; font-size: 13px; font-weight: 700; margin-bottom: 9px; }
+    .hint { display: block; color: #6f7b87; font-size: 12px; margin-top: 7px; }
+    select, input, textarea { width: 100%; color: #f4f7fa; background: #11171e; border: 1px solid #2a3540; border-radius: 8px; padding: 14px 15px; font: inherit; outline: none; }
+    select:focus, input:focus, textarea:focus { border-color: #55a7ff; }
+    textarea { min-height: 130px; resize: vertical; }
+    .choices { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .choice { position: relative; }
+    .choice input { position: absolute; opacity: 0; pointer-events: none; }
+    .choice label { display: block; height: 100%; padding: 14px 15px; margin: 0; color: #9da8b4; background: #11171e; border: 1px solid #2a3540; border-radius: 8px; cursor: pointer; transition: .2s ease; }
+    .choice input:focus + label { border-color: #55a7ff; }
+    .choice input:checked + label { color: #fff; border-color: #55a7ff; background: #132234; }
+    .form-actions { display: flex; justify-content: space-between; gap: 12px; margin-top: 36px; }
+    .button { border: 0; border-radius: 7px; padding: 14px 21px; font-size: 12px; font-weight: 700; letter-spacing: .7px; cursor: pointer; }
+    .button:disabled { opacity: .65; cursor: not-allowed; }
+    .button-primary { color: #fff; background: #2387f5; }
+    .button-secondary { color: #c5ced7; background: transparent; border: 1px solid #35404c; }
+    .service-panel { position: sticky; top: 35px; padding: 30px; background: #11171e; border: 1px solid #26303a; border-radius: 12px; }
+    .service-type { color: #55a7ff; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 15px; }
+    .service-panel h3 { font-size: 24px; line-height: 1.2; margin-bottom: 18px; }
+    .service-price { color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 1px; padding: 18px 0; margin: 20px 0; border-top: 1px solid #29333d; border-bottom: 1px solid #29333d; }
+    .service-benefits { list-style: none; }
+    .service-benefits li { color: #98a4b0; font-size: 14px; padding: 7px 0; }
+    .service-benefits li::before { content: "✓"; color: #55a7ff; margin-right: 10px; }
+    .next-steps { margin-top: 32px; padding-top: 25px; border-top: 1px solid #29333d; }
+    .next-steps strong { display: block; font-size: 12px; margin-bottom: 12px; }
+    .next-steps p { color: #7f8b97; font-size: 12px; margin-bottom: 7px; }
+    footer { padding: 35px 0 50px; color: #687582; font-size: 12px; border-top: 1px solid #252c34; }
+    @media (max-width: 800px) {
+      .assessment-layout { grid-template-columns: 1fr; gap: 45px; }
+      .service-panel { position: relative; top: 0; }
+      .choices { grid-template-columns: 1fr; }
+      h1 { letter-spacing: -2px; }
+      nav { gap: 20px; }
+      .back-link { text-align: right; }
     }
-
-    .service-panel {
-      position: relative;
-      top: 0;
-    }
-
-    .choices {
-      grid-template-columns: 1fr;
-    }
-
-    h1 {
-      letter-spacing: -2px;
-    }
-  }
-</style>
+  </style>
 </head>
-
 <body>
 <div class="container">
-
   <nav>
-    <a href="index.html">BORIS GOLOBOKOV</a>
-    <a href="index.html">← BACK TO PORTFOLIO</a>
+    <a class="logo" href="index.html">BORIS GOLOBOKOV</a>
+    <a class="back-link" href="index.html">← BACK TO PORTFOLIO</a>
   </nav>
 
   <main class="assessment-layout">
-
     <div class="assessment-main">
-
       <div class="eyebrow">GREENFIELD MANUFACTURING IT · STAGE 2</div>
-
       <h1>Let’s define<br>the right foundation.</h1>
+      <p class="intro">A focused follow-up to define the facility, technology scope, delivery dependencies and operational-readiness requirements for your Greenfield environment.</p>
+      <p class="reference-line">Reference: <strong id="assessment-reference">—</strong></p>
 
-      <p class="intro">
-  A focused follow-up to clarify your project context,
-  operational requirements and the scope of your Greenfield IT environment.
-</p>
-<p class="reference-line">
-    Reference: <strong id="assessment-reference">—</strong>
-</p>
-      <div class="progress">
-        <div class="progress-step active"></div>
-        <div class="progress-step"></div>
-        <div class="progress-step"></div>
-        <div class="progress-step"></div>
-        <div class="progress-step"></div>
+      <div class="progress" aria-label="Assessment progress">
+        <div class="progress-step active"></div><div class="progress-step"></div><div class="progress-step"></div><div class="progress-step"></div><div class="progress-step"></div>
       </div>
-
 
       <!-- STEP 1 -->
-
       <section class="form-step active" data-step="1">
-
-        <div class="step-label">STEP 01 · CURRENT ENVIRONMENT</div>
-
-        <h2>Let’s map your current environment.</h2>
-
-        <p class="step-description">
-  A few details will help establish the scale, project context and operating requirements for your Greenfield environment.
-</p>
+        <div class="step-label">STEP 01 · PROJECT & FACILITY</div>
+        <h2>What are you building?</h2>
+        <p class="step-description">Define the physical environment and the project milestone that the technology work must support.</p>
 
         <div class="field">
-          <label for="industry">Industry</label>
-
-          <select id="industry">
-            <option value="">Select industry</option>
-            <option>Manufacturing</option>
-            <option>Engineering</option>
-            <option>Distribution</option>
-            <option>Pharmaceutical</option>
-            <option>Logistics</option>
-            <option>Professional Services</option>
-            <option>Retail</option>
-            <option>Other</option>
-          </select>
+          <span class="field-legend">Project type</span>
+          <div class="choices">
+            <div class="choice"><input type="radio" name="project-type" id="project-new" value="New site / Greenfield"><label for="project-new">New site / Greenfield</label></div>
+            <div class="choice"><input type="radio" name="project-type" id="project-expansion" value="Expansion of existing site"><label for="project-expansion">Expansion of existing site</label></div>
+            <div class="choice"><input type="radio" name="project-type" id="project-modernization" value="Existing site modernization"><label for="project-modernization">Existing site modernization</label></div>
+            <div class="choice"><input type="radio" name="project-type" id="project-relocation" value="Relocation / consolidation"><label for="project-relocation">Relocation / consolidation</label></div>
+          </div>
         </div>
-
 
         <div class="field">
-          <label for="company-size">Company size</label>
-
-          <select id="company-size">
-            <option value="">Select company size</option>
-            <option>Below 100 employees</option>
-            <option>100–250 employees</option>
-            <option>250–500 employees</option>
-            <option>500–1,000 employees</option>
-            <option>1,000+ employees</option>
-          </select>
+          <span class="field-legend">Facility type</span>
+          <div class="choices">
+            <div class="choice"><input type="checkbox" id="facility-manufacturing" value="Manufacturing facility"><label for="facility-manufacturing">Manufacturing facility</label></div>
+            <div class="choice"><input type="checkbox" id="facility-warehouse" value="Warehouse / logistics"><label for="facility-warehouse">Warehouse / logistics</label></div>
+            <div class="choice"><input type="checkbox" id="facility-office" value="Office / administration"><label for="facility-office">Office / administration</label></div>
+            <div class="choice"><input type="checkbox" id="facility-service" value="Service / repair center"><label for="facility-service">Service / repair center</label></div>
+            <div class="choice"><input type="checkbox" id="facility-lab" value="Laboratory / quality area"><label for="facility-lab">Laboratory / quality area</label></div>
+            <div class="choice"><input type="checkbox" id="facility-other" value="Other"><label for="facility-other">Other</label></div>
+          </div>
         </div>
 
+        <div class="field"><label for="site-location">Site location</label><input id="site-location" type="text" placeholder="City, country"></div>
+        <div class="field"><label for="facility-scale">Facility scale</label><input id="facility-scale" type="text" placeholder="e.g. 12,000 m², 250 users, 3 production lines"><span class="hint">Approximate figures are sufficient.</span></div>
+        <div class="field"><label for="project-stage">Current project stage</label><select id="project-stage"><option value="">Select project stage</option><option>Concept / feasibility</option><option>Design</option><option>Procurement / tendering</option><option>Construction</option><option>Technology implementation</option><option>Commissioning / start-up</option><option>Already operational</option></select></div>
+        <div class="field"><label for="target-milestone">Target operational milestone</label><input id="target-milestone" type="text" placeholder="e.g. production start in Q3 2027"></div>
 
-        <div class="field">
-          <label for="locations">Locations</label>
-
-          <select id="locations">
-            <option value="">Select operating model</option>
-            <option>Single location</option>
-            <option>Multiple locations</option>
-            <option>Multi-country operations</option>
-          </select>
-        </div>
-    <div class="field">
-      <label for="sponsorStatus">Executive sponsorship</label>
-
-      <select id="sponsorStatus">
-        <option value="">Select status</option>
-        <option>Confirmed executive sponsor</option>
-        <option>Sponsor identified, not yet confirmed</option>
-        <option>Internal discussion in progress</option>
-        <option>No executive sponsor yet</option>
-        <option>Not sure</option>
-      </select>
-    </div>
-
-        <div class="field">
-          <label for="markets">Countries / markets</label>
-
-          <input
-            id="markets"
-            type="text"
-            placeholder="e.g. Kazakhstan, Uzbekistan, Central Asia"
-          >
-        </div>
-
-        <div class="form-actions">
-          <span></span>
-          <button class="button button-primary" type="button">
-            CONTINUE →
-          </button>
-        </div>
-
+        <div class="form-actions"><span></span><button class="button button-primary" type="button">CONTINUE →</button></div>
       </section>
-
 
       <!-- STEP 2 -->
-
       <section class="form-step" data-step="2">
+        <div class="step-label">STEP 02 · IT / OT SCOPE</div>
+        <h2>Which technology domains are in scope?</h2>
+        <p class="step-description">Select the capabilities that must be designed, delivered or governed as part of the project.</p>
 
-        <div class="step-label">STEP 02 · TECHNOLOGY LANDSCAPE</div>
-
-        <h2>What does your environment look like?</h2>
-
-        <p class="step-description">
-          Select everything that currently applies.
-        </p>
-
-        <div class="choices">
-
-          <div class="choice">
-            <input type="checkbox" id="m365">
-            <label for="m365">Microsoft 365</label>
+        <div class="field">
+          <div class="choices" id="it-ot-scope">
+            <div class="choice"><input type="checkbox" id="scope-lan" value="LAN / WAN / Internet"><label for="scope-lan">LAN / WAN / Internet</label></div>
+            <div class="choice"><input type="checkbox" id="scope-wifi" value="Corporate and industrial Wi-Fi"><label for="scope-wifi">Corporate and industrial Wi-Fi</label></div>
+            <div class="choice"><input type="checkbox" id="scope-server" value="Server / cloud infrastructure"><label for="scope-server">Server / cloud infrastructure</label></div>
+            <div class="choice"><input type="checkbox" id="scope-endpoints" value="Endpoints and workplace technology"><label for="scope-endpoints">Endpoints and workplace technology</label></div>
+            <div class="choice"><input type="checkbox" id="scope-identity" value="Identity and access management"><label for="scope-identity">Identity and access management</label></div>
+            <div class="choice"><input type="checkbox" id="scope-security" value="Cybersecurity architecture"><label for="scope-security">Cybersecurity architecture</label></div>
+            <div class="choice"><input type="checkbox" id="scope-ot" value="OT / production network"><label for="scope-ot">OT / production network</label></div>
+            <div class="choice"><input type="checkbox" id="scope-cctv" value="CCTV / access control"><label for="scope-cctv">CCTV / access control</label></div>
+            <div class="choice"><input type="checkbox" id="scope-voice" value="Telephony / Teams Rooms / AV"><label for="scope-voice">Telephony / Teams Rooms / AV</label></div>
+            <div class="choice"><input type="checkbox" id="scope-print" value="Printing / labeling / handhelds"><label for="scope-print">Printing / labeling / handhelds</label></div>
+            <div class="choice"><input type="checkbox" id="scope-monitoring" value="Monitoring / backup / disaster recovery"><label for="scope-monitoring">Monitoring / backup / disaster recovery</label></div>
+            <div class="choice"><input type="checkbox" id="scope-support" value="Service desk and support model"><label for="scope-support">Service desk and support model</label></div>
           </div>
-
-          <div class="choice">
-            <input type="checkbox" id="onec">
-            <label for="onec">1C</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="d365">
-            <label for="d365">Dynamics 365</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="erp">
-            <label for="erp">SAP / Other ERP</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="crm">
-            <label for="crm">CRM</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="bi">
-            <label for="bi">Power BI / Analytics</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="cloud">
-            <label for="cloud">Cloud / Azure</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="onprem">
-            <label for="onprem">On-prem Infrastructure</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="manufacturing">
-            <label for="manufacturing">Manufacturing / OT</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="unknown">
-            <label for="unknown">Not sure</label>
-          </div>
-
         </div>
 
-        <div class="form-actions">
-          <button class="button button-secondary" type="button">
-            ← BACK
-          </button>
+        <div class="field"><label for="it-ot-boundary">IT / OT ownership and boundary</label><select id="it-ot-boundary"><option value="">Select current clarity</option><option>Clearly defined</option><option>Partially defined</option><option>Not yet defined</option><option>Handled by separate corporate and engineering teams</option><option>Not sure</option></select></div>
+        <div class="field"><label for="availability-requirements">Availability and continuity requirements</label><textarea id="availability-requirements" placeholder="e.g. 24/7 production, redundant Internet, local operation during WAN outage, target recovery requirements"></textarea></div>
 
-          <button class="button button-primary" type="button">
-            CONTINUE →
-          </button>
-        </div>
-
+        <div class="form-actions"><button class="button button-secondary" type="button">← BACK</button><button class="button button-primary" type="button">CONTINUE →</button></div>
       </section>
-
 
       <!-- STEP 3 -->
-
       <section class="form-step" data-step="3">
+        <div class="step-label">STEP 03 · BUSINESS SYSTEMS & INTEGRATIONS</div>
+        <h2>What must connect to the new operation?</h2>
+        <p class="step-description">Identify the platforms and operational systems that influence architecture, interfaces, testing and readiness.</p>
 
-        <div class="step-label">STEP 03 · YOUR PRIORITIES</div>
-
-        <h2 id="priority-title">What brought you here?</h2>
-
-        <p class="step-description" id="priority-description">
-          Select the areas where you would like experienced technology guidance.
-        </p>
-
-        <div class="choices" id="service-questions">
-
-          <div class="choice">
-            <input type="checkbox" id="strategy">
-            <label for="strategy">IT Strategy</label>
+        <div class="field">
+          <div class="choices" id="business-systems">
+            <div class="choice"><input type="checkbox" id="system-erp" value="ERP"><label for="system-erp">ERP</label></div>
+            <div class="choice"><input type="checkbox" id="system-mes" value="MES / shopfloor systems"><label for="system-mes">MES / shopfloor systems</label></div>
+            <div class="choice"><input type="checkbox" id="system-wms" value="WMS / logistics systems"><label for="system-wms">WMS / logistics systems</label></div>
+            <div class="choice"><input type="checkbox" id="system-qms" value="QMS / laboratory systems"><label for="system-qms">QMS / laboratory systems</label></div>
+            <div class="choice"><input type="checkbox" id="system-crm" value="CRM"><label for="system-crm">CRM</label></div>
+            <div class="choice"><input type="checkbox" id="system-m365" value="Microsoft 365 / collaboration"><label for="system-m365">Microsoft 365 / collaboration</label></div>
+            <div class="choice"><input type="checkbox" id="system-bi" value="BI / analytics / reporting"><label for="system-bi">BI / analytics / reporting</label></div>
+            <div class="choice"><input type="checkbox" id="system-hr" value="HR / time and attendance"><label for="system-hr">HR / time and attendance</label></div>
+            <div class="choice"><input type="checkbox" id="system-maintenance" value="Maintenance / asset management"><label for="system-maintenance">Maintenance / asset management</label></div>
+            <div class="choice"><input type="checkbox" id="system-local" value="Local statutory / regulatory systems"><label for="system-local">Local statutory / regulatory systems</label></div>
+            <div class="choice"><input type="checkbox" id="system-iot" value="IoT / machine connectivity"><label for="system-iot">IoT / machine connectivity</label></div>
+            <div class="choice"><input type="checkbox" id="system-unknown" value="Systems not yet selected"><label for="system-unknown">Systems not yet selected</label></div>
           </div>
-
-          <div class="choice">
-            <input type="checkbox" id="costs">
-            <label for="costs">IT Costs</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="security">
-            <label for="security">Cybersecurity</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="systems">
-            <label for="systems">ERP / CRM</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="infra">
-            <label for="infra">Infrastructure</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="support">
-            <label for="support">Support Model</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="continuity">
-            <label for="continuity">Business Continuity</label>
-          </div>
-
-          <div class="choice">
-            <input type="checkbox" id="ai">
-            <label for="ai">AI / Copilot Adoption</label>
-          </div>
-
         </div>
 
-        <div class="field" id="dynamic-extra-field"></div>
+        <div class="field"><label for="key-platforms">Known platforms or planned products</label><textarea id="key-platforms" placeholder="e.g. SAP S/4HANA, Dynamics 365, 1C, Siemens/AVEVA MES, Microsoft 365, Azure"></textarea></div>
+        <div class="field"><label for="integration-context">Critical integrations and data flows</label><textarea id="integration-context" placeholder="Describe any known ERP–MES, WMS, shopfloor, corporate, customer, supplier or regulatory integrations"></textarea></div>
+        <div class="field"><label for="systems-ownership">Systems ownership</label><select id="systems-ownership"><option value="">Select operating model</option><option>Primarily corporate / global</option><option>Primarily local</option><option>Shared corporate and local ownership</option><option>Mostly vendor-managed</option><option>Not yet defined</option></select></div>
 
-        <div class="form-actions">
-          <button class="button button-secondary" type="button">
-            ← BACK
-          </button>
-
-          <button class="button button-primary" type="button">
-            CONTINUE →
-          </button>
-        </div>
-
+        <div class="form-actions"><button class="button button-secondary" type="button">← BACK</button><button class="button button-primary" type="button">CONTINUE →</button></div>
       </section>
-
 
       <!-- STEP 4 -->
-
       <section class="form-step" data-step="4">
+        <div class="step-label">STEP 04 · DELIVERY & READINESS</div>
+        <h2>How is delivery organized?</h2>
+        <p class="step-description">Clarify ownership, vendor maturity and dependencies that may affect implementation and commissioning.</p>
 
-        <div class="step-label">STEP 04 · OBJECTIVE</div>
-
-        <h2>What would success look like?</h2>
-
-        <p class="step-description">
-          Briefly describe what you would like to improve, solve or build.
-        </p>
+        <div class="field"><label for="internal-capacity">Internal IT delivery capacity</label><select id="internal-capacity"><option value="">Select current capacity</option><option>Dedicated internal project team</option><option>Shared internal resources</option><option>Limited internal capacity</option><option>No internal delivery team</option><option>Not yet defined</option></select></div>
+        <div class="field"><label for="vendor-status">Vendor and design status</label><select id="vendor-status"><option value="">Select status</option><option>Architecture and vendors approved</option><option>Design exists; vendors being selected</option><option>Some vendors already appointed</option><option>Tender / procurement in progress</option><option>No technology vendors selected</option><option>Not sure</option></select></div>
 
         <div class="field">
-          <label for="objective">Your objective</label>
-
-          <textarea
-            id="objective"
-            placeholder="Tell me briefly what you would like to achieve..."
-          ></textarea>
-        </div>
-
-
-        <div class="field">
-          <label for="timing">Expected timing</label>
-
-          <select id="timing">
-            <option value="">Select timing</option>
-            <option>As soon as possible</option>
-            <option>Within 1–3 months</option>
-            <option>3–6 months</option>
-            <option>6+ months</option>
-            <option>Exploring options</option>
-          </select>
-        </div>
-
-        <div class="form-actions">
-          <button class="button button-secondary" type="button">
-            ← BACK
-          </button>
-
-          <button class="button button-primary" type="button">
-            CONTINUE →
-          </button>
-        </div>
-
-      </section>
-
-
-      <!-- STEP 5 -->
-
-      <section class="form-step" data-step="5">
-
-        <div class="step-label">STEP 05 · CONTACT</div>
-
-        <h2>Let's continue the conversation.</h2>
-
-        <p class="step-description">
-          No obligation. Scope, deliverables and commercial terms
-          are agreed before any engagement begins.
-        </p>
-
-
-        <div class="field">
-          <label for="name">Name</label>
-          <input id="name" type="text" placeholder="Your name">
-        </div>
-
-
-        <div class="field">
-          <label for="company">Company</label>
-          <input id="company" type="text" placeholder="Company name">
-        </div>
-
-
-        <div class="field">
-          <label for="email">Business email</label>
-          <input id="email" type="email" placeholder="name@company.com">
-        </div>
-
-
-        <div class="field">
-          <label for="phone">Phone / WhatsApp</label>
-          <input id="phone" type="tel" placeholder="+7 ...">
-        </div>
-
-
-        <div class="field">
-          <label>Preferred contact</label>
-
-          <div class="choices">
-
-            <div class="choice">
-              <input type="radio" name="contact" id="contact-email">
-              <label for="contact-email">Email</label>
-            </div>
-
-            <div class="choice">
-              <input type="radio" name="contact" id="contact-whatsapp">
-              <label for="contact-whatsapp">WhatsApp</label>
-            </div>
-
-            <div class="choice">
-              <input type="radio" name="contact" id="contact-teams">
-              <label for="contact-teams">Microsoft Teams</label>
-            </div>
-
+          <span class="field-legend">Key delivery dependencies</span>
+          <div class="choices" id="delivery-dependencies">
+            <div class="choice"><input type="checkbox" id="dep-construction" value="Construction / civil works"><label for="dep-construction">Construction / civil works</label></div>
+            <div class="choice"><input type="checkbox" id="dep-epc" value="EPC / general contractor"><label for="dep-epc">EPC / general contractor</label></div>
+            <div class="choice"><input type="checkbox" id="dep-machinery" value="Machinery / production equipment"><label for="dep-machinery">Machinery / production equipment</label></div>
+            <div class="choice"><input type="checkbox" id="dep-global" value="Corporate / global IT"><label for="dep-global">Corporate / global IT</label></div>
+            <div class="choice"><input type="checkbox" id="dep-telecom" value="Telecom providers"><label for="dep-telecom">Telecom providers</label></div>
+            <div class="choice"><input type="checkbox" id="dep-regulatory" value="Regulatory / data requirements"><label for="dep-regulatory">Regulatory / data requirements</label></div>
+            <div class="choice"><input type="checkbox" id="dep-erp" value="ERP / MES program"><label for="dep-erp">ERP / MES program</label></div>
+            <div class="choice"><input type="checkbox" id="dep-recruitment" value="Recruitment and user onboarding"><label for="dep-recruitment">Recruitment and user onboarding</label></div>
           </div>
         </div>
 
+        <div class="field"><label for="readiness-support">Support needed through go-live</label><select id="readiness-support"><option value="">Select expected support</option><option>Independent scope and architecture review</option><option>Full design-to-operation advisory</option><option>Vendor selection and procurement support</option><option>Implementation governance</option><option>Testing and operational-readiness review</option><option>Commissioning and hypercare support</option><option>Not sure; recommend the right model</option></select></div>
+        <div class="field"><label for="governance-context">Current governance and decision model</label><textarea id="governance-context" placeholder="Who owns decisions, budget, architecture approval and acceptance? Mention any corporate standards or fixed constraints."></textarea></div>
 
-        <div class="form-actions">
-          <button class="button button-secondary" type="button">
-            ← BACK
-          </button>
-
-          <button class="button button-primary" type="button">
-            REQUEST INITIAL REVIEW →
-          </button>
-        </div>
-
+        <div class="form-actions"><button class="button button-secondary" type="button">← BACK</button><button class="button button-primary" type="button">CONTINUE →</button></div>
       </section>
 
+      <!-- STEP 5 -->
+      <section class="form-step" data-step="5">
+        <div class="step-label">STEP 05 · RISKS & CONTEXT</div>
+        <h2>What needs the closest attention?</h2>
+        <p class="step-description">Share the uncertainties, constraints or decisions that matter most. Your Stage 1 contact details are already linked through the reference above.</p>
+
+        <div class="field"><label for="biggest-risk">Biggest current risk or uncertainty</label><textarea id="biggest-risk" placeholder="e.g. unclear ownership, compressed timeline, incomplete design, vendor coordination, IT/OT boundary, continuity requirements"></textarea></div>
+        <div class="field"><label for="fixed-constraints">Fixed constraints</label><textarea id="fixed-constraints" placeholder="e.g. mandatory corporate standards, approved vendors, budget limits, construction milestones, regulatory requirements"></textarea></div>
+        <div class="field"><label for="support-priority">Where would an independent advisor add the most value?</label><textarea id="support-priority" placeholder="Tell me where you need clarity, challenge, governance or hands-on support"></textarea></div>
+        <div class="field"><label for="additional-context">Anything else I should know?</label><textarea id="additional-context" placeholder="Optional additional context"></textarea></div>
+
+        <div class="form-actions"><button class="button button-secondary" type="button">← BACK</button><button class="button button-primary" type="button">SUBMIT GREENFIELD SCOPE →</button></div>
+      </section>
     </div>
 
-
-    <!-- RIGHT SERVICE PANEL -->
-
     <aside class="service-panel">
-
-      <div class="service-type" id="service-type">
-  GREENFIELD MANUFACTURING IT
-</div>
-
-      <h3 id="service-title">
-        Understand where your IT stands.
-      </h3>
-
-      <p class="service-price" id="service-price">
-        FROM $1,500 · FIXED SCOPE
-      </p>
-
-      <ul class="service-benefits" id="service-benefits">
-        <li>Executive assessment</li>
-        <li>Current-state review</li>
-        <li>Risk map</li>
-        <li>Quick wins</li>
-        <li>Priority matrix</li>
-        <li>12-month roadmap</li>
-        <li>Executive recommendations</li>
+      <div class="service-type">GREENFIELD & MANUFACTURING IT</div>
+      <h3>Technology leadership from design to operation.</h3>
+      <p class="service-price">PROJECT-BASED</p>
+      <ul class="service-benefits">
+        <li>Technology architecture</li><li>IT and OT scope definition</li><li>Business-systems integration</li><li>Vendor selection</li><li>Implementation governance</li><li>Operational readiness</li><li>Commissioning support</li>
       </ul>
-
-
       <div class="next-steps">
-
         <strong>WHAT HAPPENS NEXT?</strong>
-
-        <p>01 · Your context is reviewed</p>
-        <p>02 · Short introductory conversation</p>
-        <p>03 · Scope and deliverables</p>
-        <p>04 · Fixed commercial proposal</p>
-        <p>05 · You decide whether to proceed</p>
-
+        <p>01 · Your Greenfield scope is reviewed</p><p>02 · Key assumptions and gaps are identified</p><p>03 · Short scope-alignment conversation</p><p>04 · Deliverables and engagement model</p><p>05 · Commercial proposal</p>
       </div>
-
     </aside>
-
   </main>
 
-
-  <footer>
-    © 2026 Boris Golobokov · Technology Advisory
-  </footer>
-
+  <footer>© 2026 Boris Golobokov · Technology Advisory</footer>
 </div>
- <script>
-  const steps = Array.from(document.querySelectorAll(".form-step"));
-  const progressSteps = Array.from(document.querySelectorAll(".progress-step"));
 
+<script>
+  const steps = Array.from(document.querySelectorAll('.form-step'));
+  const progressSteps = Array.from(document.querySelectorAll('.progress-step'));
+  const assessmentReference = new URLSearchParams(window.location.search).get('ref') || 'Not provided';
+  const finalButton = steps[steps.length - 1].querySelector('.button-primary');
   let currentStep = 0;
 
-  const serviceConfigs = {
-    "health-check": {
-      type: "IT & BUSINESS SYSTEMS HEALTH CHECK",
-      title: "Understand where your IT stands.",
-      price: "FROM $1,500 · FIXED SCOPE",
-      priorityTitle: "Which areas should the Greenfield scope cover?",
-      priorityDescription:
-        "Select the areas that should be included in the independent assessment.",
-      priorities: [
-        "IT Costs",
-        "Cybersecurity",
-        "Infrastructure",
-        "ERP / CRM",
-        "Support Model",
-        "Business Continuity",
-        "Vendors & Licensing",
-        "IT Governance",
-        "Full Independent Review"
-      ],
-      benefits: [
-        "Executive assessment",
-        "Current-state review",
-        "Risk map",
-        "Quick wins",
-        "Priority matrix",
-        "12-month roadmap",
-        "Executive recommendations"
-      ],
-      extraField: ""
-    },
-
-    "fractional-cio": {
-      type: "FRACTIONAL CIO",
-      title: "Executive IT leadership without the full-time overhead.",
-      price: "MONTHLY ENGAGEMENT",
-      priorityTitle: "Where do you need leadership support?",
-      priorityDescription:
-        "Select the areas where experienced executive IT leadership would help.",
-      priorities: [
-        "IT Strategy",
-        "Budget & Cost Control",
-        "Vendor Management",
-        "Internal IT Team",
-        "ERP / CRM Program",
-        "Cybersecurity",
-        "Executive Reporting",
-        "Transformation Roadmap",
-        "Interim IT Leadership"
-      ],
-      benefits: [
-        "Executive IT leadership",
-        "Technology strategy",
-        "Budget and vendor control",
-        "IT team leadership",
-        "Project governance",
-        "Executive reporting",
-        "Technology roadmap"
-      ],
-      extraField: `
-        <label for="team-size">Current IT team size</label>
-        <select id="team-size">
-          <option value="">Select team size</option>
-          <option>No internal IT team</option>
-          <option>1–3 people</option>
-          <option>4–10 people</option>
-          <option>11–25 people</option>
-          <option>25+ people</option>
-        </select>
-      `
-    },
-
-    "transformation": {
-      type: "TRANSFORMATION ADVISORY",
-      title: "Make complex transformation manageable.",
-      price: "PROJECT-BASED",
-      priorityTitle: "What are you transforming?",
-      priorityDescription:
-        "Select the platforms, processes or capabilities involved.",
-      priorities: [
-        "ERP",
-        "CRM",
-        "Microsoft 365",
-        "Power BI / Analytics",
-        "AI / Copilot",
-        "Integrations",
-        "Data",
-        "Business Processes"
-      ],
-      benefits: [
-        "ERP / CRM advisory",
-        "Microsoft 365",
-        "Power BI and analytics",
-        "AI enablement",
-        "Integration governance",
-        "Testing and readiness",
-        "Business adoption"
-      ],
-      extraField: `
-        <label for="project-stage">Current project stage</label>
-        <select id="project-stage">
-          <option value="">Select project stage</option>
-          <option>Exploring</option>
-          <option>Planning</option>
-          <option>Already started</option>
-          <option>In trouble</option>
-        </select>
-      `
-    },
-
-    "greenfield": {
-      type: "GREENFIELD & MANUFACTURING IT",
-      title: "Technology leadership from design to operation.",
-      price: "PROJECT-BASED",
-      priorityTitle: "What are you building?",
-      priorityDescription:
-        "Select the type of facility or operational environment.",
-      priorities: [
-        "Manufacturing Facility",
-        "Warehouse / Logistics",
-        "Office",
-        "Service Center",
-        "Expansion of Existing Site",
-        "Existing Site Modernization",
-        "Other"
-      ],
-      benefits: [
-        "Technology architecture",
-        "IT infrastructure",
-        "Manufacturing IT",
-        "Vendor selection",
-        "Implementation governance",
-        "Operational readiness",
-        "Commissioning support"
-      ],
-      extraField: `
-        <label for="project-stage">Current project stage</label>
-        <select id="project-stage">
-          <option value="">Select project stage</option>
-          <option>Concept</option>
-          <option>Design</option>
-          <option>Construction</option>
-          <option>Implementation</option>
-          <option>Existing site modernization</option>
-        </select>
-      `
-    }
-  };
-
-  const selectedService = "greenfield";
-
-const activeService =
-  serviceConfigs["greenfield"];
+  document.getElementById('assessment-reference').textContent = assessmentReference;
 
   function showStep(stepIndex) {
     currentStep = Math.max(0, Math.min(stepIndex, steps.length - 1));
-
-    steps.forEach((step, index) => {
-      step.classList.toggle("active", index === currentStep);
-    });
-
-    progressSteps.forEach((progressStep, index) => {
-      progressStep.classList.toggle("active", index <= currentStep);
-    });
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  }
-
-  function buildPriorityQuestions(priorities) {
-    const container = document.getElementById("service-questions");
-
-    container.innerHTML = priorities
-      .map((priority, index) => {
-        const inputId = `priority-${index}`;
-
-        return `
-          <div class="choice">
-            <input
-              type="checkbox"
-              id="${inputId}"
-              value="${priority}"
-            >
-            <label for="${inputId}">${priority}</label>
-          </div>
-        `;
-      })
-      .join("");
-  }
-
-  function applyServiceConfiguration() {
-    document.getElementById("service-type").textContent =
-      activeService.type;
-
-    document.getElementById("service-title").textContent =
-      activeService.title;
-
-    document.getElementById("service-price").textContent =
-      activeService.price;
-
-    document.getElementById("priority-title").textContent =
-      activeService.priorityTitle;
-
-    document.getElementById("priority-description").textContent =
-      activeService.priorityDescription;
-
-    document.getElementById("service-benefits").innerHTML =
-      activeService.benefits
-        .map((benefit) => `<li>${benefit}</li>`)
-        .join("");
-
-    document.getElementById("dynamic-extra-field").innerHTML =
-      activeService.extraField;
-
-    buildPriorityQuestions(activeService.priorities);
+    steps.forEach((step, index) => step.classList.toggle('active', index === currentStep));
+    progressSteps.forEach((item, index) => item.classList.toggle('active', index <= currentStep));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   steps.forEach((step, index) => {
-    const primaryButton = step.querySelector(".button-primary");
-    const secondaryButton = step.querySelector(".button-secondary");
+    const primaryButton = step.querySelector('.button-primary');
+    const secondaryButton = step.querySelector('.button-secondary');
+    if (primaryButton && index < steps.length - 1) primaryButton.addEventListener('click', () => showStep(index + 1));
+    if (secondaryButton) secondaryButton.addEventListener('click', () => showStep(index - 1));
+  });
 
-    if (primaryButton && index < steps.length - 1) {
-      primaryButton.addEventListener("click", () => {
-        showStep(index + 1);
-      });
+  const value = (id) => document.getElementById(id).value.trim();
+  const selected = (selector) => Array.from(document.querySelectorAll(selector)).filter(input => input.checked).map(input => input.value);
+  const selectedOne = (selector) => {
+    const input = document.querySelector(selector + ':checked');
+    return input ? input.value : 'Not specified';
+  };
+  const listOrDefault = (selector) => {
+    const values = selected(selector);
+    return values.length ? values.join(', ') : 'Not specified';
+  };
+
+  finalButton.addEventListener('click', async () => {
+    if (assessmentReference === 'Not provided') {
+      alert('The Stage 1 reference is missing. Please reopen this assessment using the link from your Stage 1 confirmation.');
+      return;
     }
 
-    if (secondaryButton) {
-      secondaryButton.addEventListener("click", () => {
-        showStep(index - 1);
+    const payload = {
+      reference: assessmentReference,
+      _subject: 'New Greenfield Stage 2 Assessment — ' + assessmentReference,
+      service: 'GREENFIELD & MANUFACTURING IT',
+      engagement_model: 'PROJECT-BASED',
+      assessment_stage: 'Stage 2',
+
+      project_type: selectedOne('input[name="project-type"]'),
+      facility_type: listOrDefault('[data-step="1"] input[type="checkbox"]'),
+      site_location: value('site-location'),
+      facility_scale: value('facility-scale'),
+      project_stage: value('project-stage'),
+      target_operational_milestone: value('target-milestone'),
+
+      it_ot_scope: listOrDefault('#it-ot-scope input[type="checkbox"]'),
+      it_ot_boundary: value('it-ot-boundary'),
+      availability_continuity_requirements: value('availability-requirements'),
+
+      business_systems: listOrDefault('#business-systems input[type="checkbox"]'),
+      known_platforms: value('key-platforms'),
+      critical_integrations: value('integration-context'),
+      systems_ownership: value('systems-ownership'),
+
+      internal_it_capacity: value('internal-capacity'),
+      vendor_design_status: value('vendor-status'),
+      delivery_dependencies: listOrDefault('#delivery-dependencies input[type="checkbox"]'),
+      go_live_support_needed: value('readiness-support'),
+      governance_decision_model: value('governance-context'),
+
+      biggest_risk_uncertainty: value('biggest-risk'),
+      fixed_constraints: value('fixed-constraints'),
+      advisor_value_priority: value('support-priority'),
+      additional_context: value('additional-context'),
+      source_page: window.location.href
+    };
+
+    const originalButtonText = finalButton.textContent;
+    finalButton.disabled = true;
+    finalButton.textContent = 'SENDING...';
+
+    try {
+      const response = await fetch('https://advisory-engine.priestik.workers.dev/stage2', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload)
       });
+      if (!response.ok) throw new Error('Form submission failed');
+      finalButton.textContent = 'SCOPE SENT ✓';
+      alert('Thank you. Your Greenfield scope has been sent successfully. I will review it together with your Stage 1 context.');
+    } catch (error) {
+      finalButton.disabled = false;
+      finalButton.textContent = originalButtonText;
+      alert('The request could not be sent. Please try again or contact me directly by email.');
     }
   });
 
-  const finalButton =
-  steps[steps.length - 1].querySelector(".button-primary");
-
-finalButton.addEventListener("click", async () => {
-  const name = document.getElementById("name").value.trim();
-  const company = document.getElementById("company").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-
-  if (!name || !email) {
-    alert("Please enter your name and business email.");
-    return;
-  }
-
-  const getSelectedLabels = (selector) =>
-    Array.from(document.querySelectorAll(selector))
-      .filter((input) => input.checked)
-      .map((input) => {
-        const label = document.querySelector(`label[for="${input.id}"]`);
-        return input.value && input.value !== "on" ? input.value : (label ? label.textContent.trim() : input.id);
-      });
-
-  const technologyLandscape = getSelectedLabels(
-    '[data-step="2"] input[type="checkbox"]'
-  );
-
-  const priorities = getSelectedLabels(
-    '#service-questions input[type="checkbox"]'
-  );
-
-  const preferredContact = getSelectedLabels(
-    'input[name="contact"]'
-  )[0] || "Not specified";
-
-  const dynamicField =
-    document.querySelector("#dynamic-extra-field select");
-
-  const payload = {
-        reference: new URLSearchParams(window.location.search).get("ref") || "Not provided",
-    _subject: `New Advisory Assessment — ${activeService.type}`,
-    service: activeService.type,
-    engagement_model: activeService.price,
-    industry: document.getElementById("industry").value,
-    company_size: document.getElementById("company-size").value,
-    locations: document.getElementById("locations").value,
-    countries_markets: document.getElementById("markets").value.trim(),
-    technology_landscape:
-      technologyLandscape.join(", ") || "Not specified",
-    priorities: priorities.join(", ") || "Not specified",
-    additional_service_context:
-      dynamicField && dynamicField.value
-        ? dynamicField.value
-        : "Not applicable",
-    objective: document.getElementById("objective").value.trim(),
-    expected_timing: document.getElementById("timing").value,
-    name,
-    company,
-    email,
-    phone,
-    preferred_contact: preferredContact,
-    source_page: window.location.href
-  };
-
-  const originalButtonText = finalButton.textContent;
-  finalButton.disabled = true;
-  finalButton.textContent = "SENDING...";
-
-  try {
-    const response = await fetch("https://advisory-engine.priestik.workers.dev/stage2", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify(payload)
-    });
-
-    if (!response.ok) {
-      throw new Error("Form submission failed");
-    }
-
-    finalButton.textContent = "REQUEST SENT ✓";
-
-    alert(
-      "Thank you. Your assessment has been sent successfully. I will review your context and contact you shortly."
-    );
-  } catch (error) {
-    finalButton.disabled = false;
-    finalButton.textContent = originalButtonText;
-
-    alert(
-      "The request could not be sent. Please try again or contact me directly by email."
-    );
-  }
-});
-const assessmentReference =
-  new URLSearchParams(window.location.search).get("ref") || "Not provided";
-
-document.getElementById("assessment-reference").textContent =
-  assessmentReference;
-  applyServiceConfiguration();
   showStep(0);
-</script> 
+</script>
 </body>
 </html>
