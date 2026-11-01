@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JYHRWRY209"></script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JYHRWRY209"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -10,12 +11,10 @@
 
   gtag('config', 'G-JYHRWRY209');
 </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Boris Golobokov | IT & Business Systems Leader</title>
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Boris Golobokov | IT &amp; Business Systems Leader</title>
+<style>
     * {
       box-sizing: border-box;
       margin: 0;
@@ -396,6 +395,11 @@
       font-size: 13px;
     }
 
+    .nav-actions { display:flex; align-items:center; gap:18px; }
+    .lang-switch { display:flex; align-items:center; gap:7px; font-size:12px; font-weight:700; letter-spacing:.8px; }
+    .lang-switch button { border:0; background:transparent; color:#64717e; cursor:pointer; font:inherit; padding:3px 1px; }
+    .lang-switch button.active { color:#55a7ff; }
+    .lang-switch span { color:#3d4853; }
     @media (max-width: 760px) {
           .menu-toggle {
       display: flex;
@@ -473,498 +477,436 @@
     }
   </style>
 </head>
-
 <body>
-
-  <div class="container">
-
-    <nav>
-      <div class="logo">BORIS GOLOBOKOV</div>
-      <button class="menu-toggle"
-              type="button"
-              aria-label="Open navigation"
-              aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <div class="nav-links">
-        <a href="#expertise">Expertise</a>
-        <a href="#work">Selected Work</a>
-        <a href="#advisory">Advisory</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-
-    <main>
-
-      <section class="hero">
-        <div>
-          <div class="eyebrow">IT Leadership · Business Systems · Transformation</div>
-
-          <h1>
-            Technology that<br>
-            <span class="accent">moves business.</span>
-          </h1>
-
-          <p class="lead">
-            IT & Business Systems leader connecting reliable operations,
+<div class="container">
+<nav>
+<div class="logo">BORIS GOLOBOKOV</div>
+<button aria-expanded="false" aria-label="Open navigation" class="menu-toggle" type="button">
+<span></span>
+<span></span>
+<span></span>
+</button>
+<div class="nav-actions">
+<div class="lang-switch"><button id="lang-en" type="button">EN</button><span>|</span><button id="lang-ru" type="button">RU</button></div>
+<div class="nav-links">
+<a href="#expertise" id="nav-expertise">Expertise</a>
+<a href="#work" id="nav-work">Selected Work</a>
+<a href="#advisory" id="nav-advisory">Advisory</a>
+<a href="#about" id="nav-about">About</a>
+<a href="#contact" id="nav-contact">Contact</a>
+</div>
+</div>
+</nav>
+<main>
+<section class="hero">
+<div>
+<div class="eyebrow" id="hero-eyebrow">IT Leadership · Business Systems · Transformation</div>
+<h1 id="hero-title">Technology that<br/><span class="accent">moves business.</span></h1>
+<p class="lead" id="hero-lead">
+            IT &amp; Business Systems leader connecting reliable operations,
             enterprise platforms and practical digital transformation
             across manufacturing and international business environments.
           </p>
-
-          <div class="buttons">
-            <a class="button primary" href="#work">Selected Work</a>
-            <a class="button secondary" href="#about">About Me</a>
-          </div>
-        </div>
-      </section>
-
-      <div class="stats">
-        <div class="stat">
-          <strong>20+ Years</strong>
-          <span>IT leadership & delivery</span>
-        </div>
-
-        <div class="stat">
-          <strong>ERP & CRM</strong>
-          <span>Business systems</span>
-        </div>
-
-        <div class="stat">
-          <strong>Manufacturing</strong>
-          <span>Operational technology</span>
-        </div>
-
-        <div class="stat">
-          <strong>Multi-country</strong>
-          <span>Regional environments</span>
-        </div>
-      </div>
-
-      <section id="expertise">
-        <h2>Where technology meets operations.</h2>
-
-        <p class="section-intro">
+<div class="buttons">
+<a class="button primary" href="#work" id="hero-work">Selected Work</a>
+<a class="button secondary" href="#about" id="hero-about">About Me</a>
+</div>
+</div>
+</section>
+<div class="stats">
+<div class="stat">
+<strong>20+ Years</strong>
+<span>IT leadership &amp; delivery</span>
+</div>
+<div class="stat">
+<strong>ERP &amp; CRM</strong>
+<span>Business systems</span>
+</div>
+<div class="stat">
+<strong>Manufacturing</strong>
+<span>Operational technology</span>
+</div>
+<div class="stat">
+<strong>Multi-country</strong>
+<span>Regional environments</span>
+</div>
+</div>
+<section id="expertise">
+<h2 id="expertise-title">Where technology meets operations.</h2>
+<p class="section-intro">
           From resilient infrastructure to enterprise platforms,
           I work at the intersection of business operations,
           technology and transformation.
         </p>
-
-        <div class="cards">
-          <div class="card">
-            <h3>IT Leadership</h3>
-            <p>
+<div class="cards">
+<div class="card">
+<h3>IT Leadership</h3>
+<p>
               Technology strategy, regional operations, service delivery,
               governance and vendor management.
             </p>
-          </div>
-
-          <div class="card">
-            <h3>ERP & Business Systems</h3>
-            <p>
+</div>
+<div class="card">
+<h3>ERP &amp; Business Systems</h3>
+<p>
               ERP, CRM, enterprise applications, integrations,
               data and business process modernization.
             </p>
-          </div>
-
-          <div class="card">
-            <h3>Manufacturing IT</h3>
-            <p>
+</div>
+<div class="card">
+<h3>Manufacturing IT</h3>
+<p>
               Greenfield environments, plant infrastructure,
               operational resilience and production-focused IT.
             </p>
-          </div>
-
-          <div class="card">
-            <h3>Transformation & Governance</h3>
-            <p>
+</div>
+<div class="card">
+<h3>Transformation &amp; Governance</h3>
+<p>
   Turning complex initiatives into structured ownership,
   practical processes and measurable delivery, including AI enablement,
   deployment, adoption and user training.
 </p>
-          </div>
-        </div>
-      </section>
-
-      <div class="tech-strip">
-  <span>MICROSOFT 365</span>
-  <span>DYNAMICS 365</span>
-  <span>POWER BI</span>
-  <span>INTUNE</span>
-  <span>TEAMS</span>
-  <span>1C</span>
-  <span>ERP</span>
-  <span>CRM</span>
-  <span>ITSM</span>
-  <span>CYBERSECURITY</span>
-  <span>AI & COPILOT</span>
 </div>
-      
-      <section id="work">
-        <h2>Selected work.</h2>
-
-        <p class="section-intro">
+</div>
+</section>
+<div class="tech-strip">
+<span>MICROSOFT 365</span>
+<span>DYNAMICS 365</span>
+<span>POWER BI</span>
+<span>INTUNE</span>
+<span>TEAMS</span>
+<span>1C</span>
+<span>ERP</span>
+<span>CRM</span>
+<span>ITSM</span>
+<span>CYBERSECURITY</span>
+<span>AI &amp; COPILOT</span>
+</div>
+<section id="work">
+<h2 id="work-title">Selected work.</h2>
+<p class="section-intro">
           A selection of transformation and technology domains
           spanning manufacturing, enterprise systems and regional IT.
         </p>
-
-      <div class="card">
-  <div class="card-number">GREENFIELD MANUFACTURING</div>
-
-  <h3>Manufacturing IT from the ground up</h3>
-
-  <p>
+<div class="card" data-work-card="0">
+<div class="card-number">GREENFIELD MANUFACTURING</div>
+<h3>Manufacturing IT from the ground up</h3>
+<p>
     Built the technology foundation for a new manufacturing environment
     in Central Asia, connecting IT infrastructure, workplace services,
     enterprise systems and production-focused operations.
   </p>
-        <details class="case-details">
-  <summary>Explore case ↓</summary>
-
-  <div class="case-content">
-    <strong>CONTEXT</strong>
-    <p>Greenfield manufacturing environment in Central Asia.</p>
-
-    <strong>ROLE</strong>
-    <p>IT leadership and end-to-end technology delivery.</p>
-
-    <strong>SCOPE</strong>
-    <p>
+<details class="case-details">
+<summary>Explore case ↓</summary>
+<div class="case-content">
+<strong>CONTEXT</strong>
+<p>Greenfield manufacturing environment in Central Asia.</p>
+<strong>ROLE</strong>
+<p>IT leadership and end-to-end technology delivery.</p>
+<strong>SCOPE</strong>
+<p>
       IT infrastructure · Workplace services · Business systems ·
       Production-focused IT · Operational resilience
     </p>
-    <p style="margin-top:18px;">
-  <a href="greenfield-manufacturing-it.html"
-     style="color:#3aa9e8; font-weight:700; text-decoration:none;">
+<p style="margin-top:18px;">
+<a data-case-href="greenfield-manufacturing-it.html" href="greenfield-manufacturing-it.html" style="color:#3aa9e8; font-weight:700; text-decoration:none;">
     VIEW FULL GREENFIELD CASE →
   </a>
 </p>
-  </div>
+</div>
 </details>
 </div>
-
-        <div class="card">
-  <div class="card-number">ERP TRANSFORMATION</div>
-
-  <h3>Connecting systems, processes and people</h3>
-
-  <p>
+<div class="card" data-work-card="1">
+<div class="card-number">ERP TRANSFORMATION</div>
+<h3>Connecting systems, processes and people</h3>
+<p>
     Led regional ERP transformation readiness across business processes,
     data, integrations, local compliance requirements, testing,
     training and user adoption.
   </p>
-          <details class="case-details">
-  <summary>Explore case ↓</summary>
-
-  <div class="case-content">
-    <strong>CONTEXT</strong>
-    <p>
+<details class="case-details">
+<summary>Explore case ↓</summary>
+<div class="case-content">
+<strong>CONTEXT</strong>
+<p>
       Regional enterprise transformation across multiple business
       processes and local requirements.
     </p>
-
-    <strong>ROLE</strong>
-    <p>
+<strong>ROLE</strong>
+<p>
       Regional IT and business systems leadership.
     </p>
-
-    <strong>SCOPE</strong>
-    <p>
+<strong>SCOPE</strong>
+<p>
       Business processes · ERP · Data · Integrations · Localization ·
       Testing · Training · User adoption
     </p>
-    <p style="margin-top:18px;">
-  <a href="erp-transformation.html"
-   style="color:#3aa9e8; font-weight:700; text-decoration:none;">
+<p style="margin-top:18px;">
+<a data-case-href="erp-transformation.html" href="erp-transformation.html" style="color:#3aa9e8; font-weight:700; text-decoration:none;">
   VIEW FULL ERP TRANSFORMATION CASE →
 </a>
 </p>
-  </div>
+</div>
 </details>
 </div>
-
-          <div class="card">
-  <div class="card-number">CRM & GOVERNANCE</div>
-
-  <h3>Turning customer requests into accountable workflows</h3>
-
-  <p>
+<div class="card" data-work-card="2">
+<div class="card-number">CRM &amp; GOVERNANCE</div>
+<h3>Turning customer requests into accountable workflows</h3>
+<p>
     Designed a structured governance model connecting customer requests,
     ownership, qualification, opportunities and business outcomes,
     bringing traceability into the commercial process.
   </p>
-            <details class="case-details">
-  <summary>Explore case ↓</summary>
-
-  <div class="case-content">
-    <strong>CONTEXT</strong>
-    <p>
+<details class="case-details">
+<summary>Explore case ↓</summary>
+<div class="case-content">
+<strong>CONTEXT</strong>
+<p>
       Commercial processes requiring clearer ownership, qualification
       and traceability from customer request to business outcome.
     </p>
-
-    <strong>ROLE</strong>
-    <p>
+<strong>ROLE</strong>
+<p>
       Business systems leadership and governance design.
     </p>
-
-    <strong>SCOPE</strong>
-    <p>
+<strong>SCOPE</strong>
+<p>
       Customer requests · Ownership · Qualification · Opportunities ·
       CRM governance · Traceability · Business outcomes
     </p>
-                 <a class="case-link" href="crm-governance.html">
+<a class="case-link" data-case-href="crm-governance.html" href="crm-governance.html">
           VIEW FULL CRM &amp; GOVERNANCE CASE →
         </a>
-      </div>
-    </details>
-  </div>
-
-        <div class="card">
-  <div class="card-number">IT OPERATIONS</div>
-
-  <h3>Building resilient regional IT operations</h3>
-
-  <p>
+</div>
+</details>
+</div>
+<div class="card" data-work-card="3">
+<div class="card-number">IT OPERATIONS</div>
+<h3>Building resilient regional IT operations</h3>
+<p>
     Developed and standardized IT operations across distributed
     environments, combining infrastructure resilience, modern workplace,
     service delivery and practical governance.
   </p>
-          <details class="case-details">
-  <summary>Explore case ↓</summary>
-
-  <div class="case-content">
-    <strong>CONTEXT</strong>
-    <p>
+<details class="case-details">
+<summary>Explore case ↓</summary>
+<div class="case-content">
+<strong>CONTEXT</strong>
+<p>
       Distributed regional IT environment requiring reliable operations,
       consistent service delivery and practical governance.
     </p>
-
-    <strong>ROLE</strong>
-    <p>
+<strong>ROLE</strong>
+<p>
       Regional IT leadership across infrastructure, workplace services
       and operational delivery.
     </p>
-
-    <strong>SCOPE</strong>
-    <p>
+<strong>SCOPE</strong>
+<p>
       Regional IT · Infrastructure · Modern Workplace · Service Delivery ·
       Governance · Operational Resilience
     </p>
-    <a class="case-link" href="it-operations-governance.html">
+<a class="case-link" data-case-href="it-operations-governance.html" href="it-operations-governance.html">
   VIEW FULL IT OPERATIONS &amp; GOVERNANCE CASE →
 </a>
-  </div>
+</div>
 </details>
 </div>
-
-        <div class="card">
-  <div class="card-number">TECHNOLOGY INFRASTRUCTURE & ENTREPRENEURSHIP</div>
-
-  <h3>Delivering complex infrastructure from design to operation</h3>
-
-  <p>
+<div class="card" data-work-card="4">
+<div class="card-number">TECHNOLOGY INFRASTRUCTURE &amp; ENTREPRENEURSHIP</div>
+<h3>Delivering complex infrastructure from design to operation</h3>
+<p>
   As a business owner, led end-to-end delivery of integrated technology
   and security systems for a major facility, spanning structured cabling,
   LAN, fiber optics, CCTV, fire detection and security systems, from
   installation through commissioning and configuration.
 </p>
-          <details class="case-details">
-  <summary>Explore case →</summary>
-
-  <div class="case-content">
-    <strong>CONTEXT</strong>
-    <p>
+<details class="case-details">
+<summary>Explore case →</summary>
+<div class="case-content">
+<strong>CONTEXT</strong>
+<p>
       Complex technology and security infrastructure delivery
       for a major facility.
     </p>
-
-    <strong>ROLE</strong>
-    <p>
+<strong>ROLE</strong>
+<p>
       Business Owner / Project Lead with end-to-end responsibility
       for technology delivery.
     </p>
-
-    <strong>SCOPE</strong>
-    <p>
+<strong>SCOPE</strong>
+<p>
       Structured Cabling · LAN · Fiber Optics · CCTV ·
       Fire Detection · Security Systems
     </p>
-
-    <strong>DELIVERY</strong>
-    <p>
+<strong>DELIVERY</strong>
+<p>
       Installation · Configuration · Commissioning
     </p>
-  </div>
+</div>
 </details>
 </div>
-        </div>
-      </section>
+</section></main></div>
+
 <section id="advisory">
-  <div class="eyebrow">Advisory</div>
-
-  <h2>Senior technology leadership.<br>When you need it.</h2>
-
-  <p class="section-intro">
+<div class="eyebrow" id="advisory-eyebrow">Advisory</div>
+<h2 id="advisory-title">Senior technology leadership.<br/>When you need it.</h2>
+<p class="section-intro">
     Focused advisory engagements for growing businesses, regional operations
     and manufacturing environments that need experienced technology leadership
     without unnecessary consulting overhead.
   </p>
-
-  <div class="cards advisory-cards">
-
-    <div class="card advisory-card">
-      <div class="card-number">IT & BUSINESS SYSTEMS HEALTH CHECK</div>
-
-      <h3>Understand where your IT stands.</h3>
-
-      <p>
+<div class="cards advisory-cards">
+<div class="card advisory-card">
+<div class="card-number">IT &amp; BUSINESS SYSTEMS HEALTH CHECK</div>
+<h3>Understand where your IT stands.</h3>
+<p>
         Independent review of IT operations, business systems, cybersecurity,
         resilience, vendors and governance, with clear priorities and a
         practical roadmap.
       </p>
-
-      <div class="advisory-price">FROM $1,500 · FIXED SCOPE</div>
-
-      <a href="advisory.html?service=health-check" class="advisory-link">
+<div class="advisory-price">FROM $1,500 · FIXED SCOPE</div>
+<a class="advisory-link" data-service="health-check" href="advisory.html?service=health-check">
         START ASSESSMENT →
       </a>
-    </div>
-
-
-    <div class="card advisory-card">
-      <div class="card-number">FRACTIONAL CIO</div>
-
-      <h3>Executive IT leadership without the full-time overhead.</h3>
-
-      <p>
+</div>
+<div class="card advisory-card">
+<div class="card-number">FRACTIONAL CIO</div>
+<h3>Executive IT leadership without the full-time overhead.</h3>
+<p>
         Senior technology leadership covering strategy, budgeting, vendors,
         IT teams, business systems, governance and transformation priorities.
       </p>
-
-      <div class="advisory-price">MONTHLY ENGAGEMENT</div>
-
-      <a href="advisory.html?service=fractional-cio" class="advisory-link">
+<div class="advisory-price">MONTHLY ENGAGEMENT</div>
+<a class="advisory-link" data-service="fractional-cio" href="advisory.html?service=fractional-cio">
         DISCUSS YOUR NEEDS →
       </a>
-    </div>
-
-
-    <div class="card advisory-card">
-      <div class="card-number">TRANSFORMATION ADVISORY</div>
-
-      <h3>Make complex transformation manageable.</h3>
-
-      <p>
+</div>
+<div class="card advisory-card">
+<div class="card-number">TRANSFORMATION ADVISORY</div>
+<h3>Make complex transformation manageable.</h3>
+<p>
         Customer-side leadership for ERP, CRM, Microsoft 365, Power BI,
         integrations, AI enablement, adoption and business-process change.
       </p>
-
-      <div class="advisory-price">PROJECT-BASED</div>
-
-      <a href="advisory.html?service=transformation" class="advisory-link">
+<div class="advisory-price">PROJECT-BASED</div>
+<a class="advisory-link" data-service="transformation" href="advisory.html?service=transformation">
         DISCUSS TRANSFORMATION →
       </a>
-    </div>
-
-
-    <div class="card advisory-card">
-  <div class="card-number">GREENFIELD & MANUFACTURING IT</div>
-
-  <h3>Technology leadership from design to operation.</h3>
-
-  <p>
+</div>
+<div class="card advisory-card">
+<div class="card-number">GREENFIELD &amp; MANUFACTURING IT</div>
+<h3>Technology leadership from design to operation.</h3>
+<p>
     Architecture, infrastructure, manufacturing IT, vendor selection,
     implementation governance and commissioning for new and expanding sites.
   </p>
-
-  <div class="advisory-price">PROJECT-BASED</div>
-
-  <a href="advisory.html?service=greenfield" class="advisory-link">
+<div class="advisory-price">PROJECT-BASED</div>
+<a class="advisory-link" data-service="greenfield" href="advisory.html?service=greenfield">
     DISCUSS YOUR PROJECT →
   </a>
 </div>
-
-  </div>
+</div>
 </section>
-      <section id="about">
-        <div class="about">
-          <div>
-            <div class="eyebrow">About</div>
-            <h2>Business first.<br>Technology second.</h2>
-          </div>
-
-          <div>
-            <p>
+<section id="about">
+<div class="about">
+<div>
+<div class="eyebrow" id="about-eyebrow">About</div>
+<h2 id="about-title">Business first.<br/>Technology second.</h2>
+</div>
+<div>
+<p>
               I build and lead technology environments where IT is not
               an isolated support function, but part of how the business
               operates, grows and changes.
             </p>
-
-            <p>
+<p>
   My experience spans corporate IT leadership, business systems,
   manufacturing technology, digital transformation and entrepreneurship,
   combining the perspective of both technology leader and business owner
   with a focus on turning complexity into practical, sustainable
   operating models.
 </p>
-          </div>
-          <div class="about-photo">
-  <img
-    src="Bois Golobokov.jpeg"
-    alt="Boris Golobokov"
-  >
 </div>
-        </div>
-      </section>
+<div class="about-photo">
+<img alt="Boris Golobokov" data-original-src="Bois Golobokov.jpeg" src="Bois%20Golobokov.jpeg"/>
+</div>
+</div>
+</section>
 
-    </main>
-
-    <section id="contact" class="contact-section">
-  <div class="eyebrow">Let’s talk</div>
-
-  <h2>
-    Technology leadership.<br>
-    Transformation.<br>
+<section class="contact-section" id="contact">
+<div class="eyebrow" id="contact-eyebrow">Let’s talk</div>
+<h2>
+    Technology leadership.<br/>
+    Transformation.<br/>
     Complex projects.
   </h2>
-
-  <p class="section-intro">
+<p class="section-intro">
     Open to leadership roles, transformation initiatives
     and selected advisory projects.
   </p>
-
-  <div class="contact-links">
-    <a href="https://www.linkedin.com/in/boris-golobokov-78a8b9261/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B7nCGveWjSPGdhB5a6HUvpA%3D%3D"
-   target="_blank"
-   rel="noopener noreferrer">LINKEDIN</a>
-    <a href="mailto:priestik@list.ru">EMAIL</a>
-    <a href="https://wa.me/77027217149"
-   target="_blank"
-   rel="noopener noreferrer">WHATSAPP</a>
-    <a href="Boris_Golobokov_Executive_CV.pdf" download="Boris_Golobokov_Executive_CV.pdf">DOWNLOAD CV</a>
-
-    <a href="Boris_Golobokov_Executive_Portfolio_v4.pdf" ... >EXECUTIVE PORTFOLIO</a>
-
-  </div>
+<div class="contact-links">
+<a href="https://www.linkedin.com/in/boris-golobokov-78a8b9261/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B7nCGveWjSPGdhB5a6HUvpA%3D%3D" rel="noopener noreferrer" target="_blank">LINKEDIN</a>
+<a href="mailto:priestik@list.ru">EMAIL</a>
+<a href="https://wa.me/77027217149" rel="noopener noreferrer" target="_blank">WHATSAPP</a>
+<a download="Boris_Golobokov_Executive_CV.pdf" href="Boris_Golobokov_Executive_CV.pdf">DOWNLOAD CV</a>
+<a ...="" href="Boris_Golobokov_Executive_Portfolio_v4.pdf">EXECUTIVE PORTFOLIO</a>
+</div>
 </section>
-    
-    <footer>
-      © 2026 Boris Golobokov · IT & Business Systems
+<footer id="footer">
+      © 2026 Boris Golobokov · IT &amp; Business Systems
     </footer>
 
-  </div>
-  <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    menuToggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', isOpen);
-    });
-  </script>
-
+<script>
+const menuToggle=document.querySelector('.menu-toggle'),navLinks=document.querySelector('.nav-links');menuToggle.addEventListener('click',()=>{const isOpen=navLinks.classList.toggle('open');menuToggle.setAttribute('aria-expanded',isOpen)});
+const T={
+en:{nav:['Expertise','Selected Work','Advisory','About','Contact'],heroEyebrow:'IT Leadership · Business Systems · Transformation',heroTitle:'Technology that<br><span class="accent">moves business.</span>',heroLead:'IT & Business Systems leader connecting reliable operations, enterprise platforms and practical digital transformation across manufacturing and international business environments.',heroButtons:['Selected Work','About Me'],stats:[['20+ Years','IT leadership & delivery'],['ERP & CRM','Business systems'],['Manufacturing','Operational technology'],['Multi-country','Regional environments']],expertiseTitle:'Where technology meets operations.',expertiseIntro:'From resilient infrastructure to enterprise platforms, I work at the intersection of business operations, technology and transformation.',expertise:[['IT Leadership','Technology strategy, regional operations, service delivery, governance and vendor management.'],['ERP & Business Systems','ERP, CRM, enterprise applications, integrations, data and business process modernization.'],['Manufacturing IT','Greenfield environments, plant infrastructure, operational resilience and production-focused IT.'],['Transformation & Governance','Turning complex initiatives into structured ownership, practical processes and measurable delivery, including AI enablement, deployment, adoption and user training.']],workTitle:'Selected work.',workIntro:'A selection of transformation and technology domains spanning manufacturing, enterprise systems and regional IT.',caseExplore:'Explore case ↓',caseLabels:['CONTEXT','ROLE','SCOPE','DELIVERY'],advisoryEyebrow:'Advisory',advisoryTitle:'Senior technology leadership.<br>When you need it.',advisoryIntro:'Focused advisory engagements for growing businesses, regional operations and manufacturing environments that need experienced technology leadership without unnecessary consulting overhead.',advisory:[['IT & BUSINESS SYSTEMS HEALTH CHECK','Understand where your IT stands.','Independent review of IT operations, business systems, cybersecurity, resilience, vendors and governance, with clear priorities and a practical roadmap.','FROM $1,500 · FIXED SCOPE','START ASSESSMENT →'],['FRACTIONAL CIO','Executive IT leadership without the full-time overhead.','Senior technology leadership covering strategy, budgeting, vendors, IT teams, business systems, governance and transformation priorities.','MONTHLY ENGAGEMENT','DISCUSS YOUR NEEDS →'],['TRANSFORMATION ADVISORY','Make complex transformation manageable.','Customer-side leadership for ERP, CRM, Microsoft 365, Power BI, integrations, AI enablement, adoption and business-process change.','PROJECT-BASED','DISCUSS TRANSFORMATION →'],['GREENFIELD & MANUFACTURING IT','Technology leadership from design to operation.','Architecture, infrastructure, manufacturing IT, vendor selection, implementation governance and commissioning for new and expanding sites.','PROJECT-BASED','DISCUSS YOUR PROJECT →']],aboutEyebrow:'About',aboutTitle:'Business first.<br>Technology second.',about:['I build and lead technology environments where IT is not an isolated support function, but part of how the business operates, grows and changes.','My experience spans corporate IT leadership, business systems, manufacturing technology, digital transformation and entrepreneurship, combining the perspective of both technology leader and business owner with a focus on turning complexity into practical, sustainable operating models.'],contactEyebrow:'Let’s talk',contactTitle:'Technology leadership.<br>Transformation.<br>Complex projects.',contactIntro:'Open to leadership roles, transformation initiatives and selected advisory projects.',contacts:['LINKEDIN','EMAIL','WHATSAPP','DOWNLOAD CV','EXECUTIVE PORTFOLIO'],footer:'© 2026 Boris Golobokov · IT & Business Systems'},
+ru:{nav:['Экспертиза','Проекты','Консалтинг','Обо мне','Контакты'],heroEyebrow:'IT-РУКОВОДСТВО · БИЗНЕС-СИСТЕМЫ · ТРАНСФОРМАЦИЯ',heroTitle:'Технологии, которые<br><span class="accent">двигают бизнес.</span>',heroLead:'Руководитель IT и бизнес-систем, объединяющий надёжные операции, корпоративные платформы и практическую цифровую трансформацию в производственных и международных бизнес-средах.',heroButtons:['Проекты','Обо мне'],stats:[['20+ лет','IT-руководство и реализация'],['ERP & CRM','Бизнес-системы'],['Производство','Операционные технологии'],['Несколько стран','Региональные среды']],expertiseTitle:'Там, где технологии встречаются с операциями.',expertiseIntro:'От устойчивой инфраструктуры до корпоративных платформ — я работаю на пересечении бизнес-операций, технологий и трансформации.',expertise:[['IT-руководство','Технологическая стратегия, региональные операции, сервисная модель, управление и поставщики.'],['ERP и бизнес-системы','ERP, CRM, корпоративные приложения, интеграции, данные и модернизация бизнес-процессов.'],['Производственное IT','Greenfield-среды, инфраструктура предприятий, операционная устойчивость и IT для производства.'],['Трансформация и управление','Превращение сложных инициатив в понятную ответственность, практические процессы и измеримый результат, включая внедрение AI, развёртывание, адаптацию и обучение пользователей.']],workTitle:'Избранные проекты.',workIntro:'Примеры трансформационных и технологических направлений в производстве, корпоративных системах и региональном IT.',caseExplore:'Подробнее ↓',caseLabels:['КОНТЕКСТ','РОЛЬ','ОБЪЁМ','РЕАЛИЗАЦИЯ'],advisoryEyebrow:'Консалтинг',advisoryTitle:'Опытное технологическое руководство.<br>Когда оно действительно нужно.',advisoryIntro:'Фокусные консалтинговые проекты для растущих компаний, региональных операций и производственных сред, которым нужен опытный технологический лидер без лишнего консалтингового overhead.',advisory:[['IT & BUSINESS SYSTEMS HEALTH CHECK','Поймите реальное состояние вашей IT-среды.','Независимая оценка IT-операций, бизнес-систем, кибербезопасности, устойчивости, поставщиков и управления с понятными приоритетами и практической дорожной картой.','ОТ $1,500 · ФИКСИРОВАННЫЙ ОБЪЁМ','НАЧАТЬ ОЦЕНКУ →'],['FRACTIONAL CIO','IT-руководство executive-уровня без необходимости полной штатной роли.','Технологическое руководство: стратегия, бюджет, поставщики, IT-команда, бизнес-системы, управление и приоритеты трансформации.','ЕЖЕМЕСЯЧНОЕ ВЗАИМОДЕЙСТВИЕ','ОБСУДИТЬ ЗАДАЧИ →'],['TRANSFORMATION ADVISORY','Сделайте сложную трансформацию управляемой.','Руководство со стороны заказчика для ERP, CRM, Microsoft 365, Power BI, интеграций, AI, адаптации и изменений бизнес-процессов.','ПРОЕКТНЫЙ ФОРМАТ','ОБСУДИТЬ ТРАНСФОРМАЦИЮ →'],['GREENFIELD & MANUFACTURING IT','Технологическое руководство от проектирования до запуска.','Архитектура, инфраструктура, производственное IT, выбор поставщиков, управление внедрением и commissioning для новых и расширяемых площадок.','ПРОЕКТНЫЙ ФОРМАТ','ОБСУДИТЬ ПРОЕКТ →']],aboutEyebrow:'Обо мне',aboutTitle:'Сначала бизнес.<br>Потом технологии.',about:['Я создаю и развиваю технологические среды, где IT — не изолированная функция поддержки, а часть того, как бизнес работает, растёт и меняется.','Мой опыт охватывает корпоративное IT-руководство, бизнес-системы, производственные технологии, цифровую трансформацию и предпринимательство. Это сочетает взгляд технологического лидера и владельца бизнеса с фокусом на превращение сложности в практичные и устойчивые operating models.'],contactEyebrow:'Давайте поговорим',contactTitle:'Технологическое руководство.<br>Трансформация.<br>Сложные проекты.',contactIntro:'Открыт к руководящим ролям, трансформационным инициативам и отдельным консалтинговым проектам.',contacts:['LINKEDIN','EMAIL','WHATSAPP','СКАЧАТЬ CV','EXECUTIVE PORTFOLIO'],footer:'© 2026 Boris Golobokov · IT & Business Systems'}};
+const WORK={
+en:[
+{number:'GREENFIELD MANUFACTURING',title:'Manufacturing IT from the ground up',summary:'Built the technology foundation for a new manufacturing environment in Central Asia, connecting IT infrastructure, workplace services, enterprise systems and production-focused operations.',details:['CONTEXT','Greenfield manufacturing environment in Central Asia.','ROLE','IT leadership and end-to-end technology delivery.','SCOPE','IT infrastructure · Workplace services · Business systems · Production-focused IT · Operational resilience'],link:'VIEW FULL GREENFIELD CASE →'},
+{number:'ERP TRANSFORMATION',title:'Connecting systems, processes and people',summary:'Led regional ERP transformation readiness across business processes, data, integrations, local compliance requirements, testing, training and user adoption.',details:['CONTEXT','Regional enterprise transformation across multiple business processes and local requirements.','ROLE','Regional IT and business systems leadership.','SCOPE','Business processes · ERP · Data · Integrations · Localization · Testing · Training · User adoption'],link:'VIEW FULL ERP TRANSFORMATION CASE →'},
+{number:'CRM & GOVERNANCE',title:'Turning customer requests into accountable workflows',summary:'Designed a structured governance model connecting customer requests, ownership, qualification, opportunities and business outcomes, bringing transparency and accountability into the commercial process.',details:['CONTEXT','CRM and customer-request governance across commercial processes.','ROLE','Business systems and process governance leadership.','SCOPE','CRM governance · Lead qualification · Customer requests · Ownership · Reporting · Business adoption'],link:'VIEW FULL CRM & GOVERNANCE CASE →'},
+{number:'IT OPERATIONS',title:'Building resilient regional IT operations',summary:'Developed and standardized IT operations across distributed environments, combining infrastructure resilience, modern workplace, service delivery, governance and operational continuity.',details:['CONTEXT','Regional IT operations across distributed business environments.','ROLE','IT leadership across infrastructure, workplace services and operational delivery.','SCOPE','Regional IT · Infrastructure · Modern Workplace · Service Delivery · Governance · Operational Resilience'],link:'VIEW FULL IT OPERATIONS & GOVERNANCE CASE →'},
+{number:'TECHNOLOGY INFRASTRUCTURE & ENTREPRENEURSHIP',title:'Delivering complex infrastructure from design to operation',summary:'As a business owner, led end-to-end delivery of integrated technology and security systems for a major facility, spanning structured cabling, LAN, fiber optics, CCTV, fire detection and security systems, from installation through commissioning and configuration.',details:['CONTEXT','Complex technology and security infrastructure delivery.','ROLE','Business ownership and end-to-end delivery leadership.','SCOPE','Structured cabling · LAN · Fiber optics · CCTV · Fire detection · Security systems · Commissioning'],link:''}
+],
+ru:[
+{number:'GREENFIELD MANUFACTURING',title:'Производственное IT с нуля',summary:'Создана технологическая основа новой производственной среды в Центральной Азии: IT-инфраструктура, workplace services, корпоративные системы и производственно-ориентированные операции.',details:['КОНТЕКСТ','Greenfield-производство в Центральной Азии.','РОЛЬ','IT-руководство и сквозная технологическая реализация.','ОБЪЁМ','IT-инфраструктура · Workplace services · Бизнес-системы · Производственное IT · Операционная устойчивость'],link:'ПОЛНЫЙ КЕЙС GREENFIELD →'},
+{number:'ERP TRANSFORMATION',title:'Объединяя системы, процессы и людей',summary:'Подготовка региональной ERP-трансформации по бизнес-процессам, данным, интеграциям, локальным требованиям, тестированию, обучению и пользовательской адаптации.',details:['КОНТЕКСТ','Региональная корпоративная трансформация с несколькими бизнес-процессами и локальными требованиями.','РОЛЬ','Региональное руководство IT и бизнес-системами.','ОБЪЁМ','Бизнес-процессы · ERP · Данные · Интеграции · Локализация · Тестирование · Обучение · Адаптация пользователей'],link:'ПОЛНЫЙ КЕЙС ERP TRANSFORMATION →'},
+{number:'CRM & GOVERNANCE',title:'От клиентских запросов к управляемым процессам',summary:'Разработана модель управления, связывающая клиентские запросы, ответственность, квалификацию, возможности и бизнес-результаты, повышая прозрачность и accountability коммерческого процесса.',details:['КОНТЕКСТ','Управление CRM и клиентскими запросами в коммерческих процессах.','РОЛЬ','Руководство бизнес-системами и управлением процессами.','ОБЪЁМ','CRM governance · Квалификация лидов · Клиентские запросы · Ответственность · Отчётность · Адаптация бизнеса'],link:'ПОЛНЫЙ КЕЙС CRM & GOVERNANCE →'},
+{number:'IT OPERATIONS',title:'Устойчивые региональные IT-операции',summary:'Развитие и стандартизация IT-операций в распределённых средах: устойчивость инфраструктуры, Modern Workplace, сервисная модель, управление и операционная непрерывность.',details:['КОНТЕКСТ','Региональные IT-операции в распределённых бизнес-средах.','РОЛЬ','IT-руководство инфраструктурой, workplace services и операционной реализацией.','ОБЪЁМ','Региональное IT · Инфраструктура · Modern Workplace · Service Delivery · Governance · Операционная устойчивость'],link:'ПОЛНЫЙ КЕЙС IT OPERATIONS & GOVERNANCE →'},
+{number:'ТЕХНОЛОГИЧЕСКАЯ ИНФРАСТРУКТУРА И ПРЕДПРИНИМАТЕЛЬСТВО',title:'Сложная инфраструктура от проектирования до эксплуатации',summary:'Как владелец бизнеса, руководил сквозной реализацией интегрированных технологических и охранных систем крупного объекта: СКС, LAN, оптика, CCTV, пожарная сигнализация и системы безопасности, от монтажа до пусконаладки и конфигурации.',details:['КОНТЕКСТ','Комплексная реализация технологической и security-инфраструктуры.','РОЛЬ','Владение бизнесом и руководство сквозной реализацией.','ОБЪЁМ','СКС · LAN · Оптика · CCTV · Пожарная сигнализация · Системы безопасности · Пусконаладка'],link:''}
+]};
+let lang=new URLSearchParams(location.search).get('lang')==='ru'?'ru':'en';
+function txt(el,v){if(el)el.textContent=v}
+function localizeWork(){
+  const data=WORK[lang];
+  [...document.querySelectorAll('#work .card')].forEach((card,i)=>{
+    const d=data[i];
+    if(!d)return;
+    txt(card.querySelector('.card-number'),d.number);
+    txt(card.querySelector('h3'),d.title);
+    const top=[...card.children].find(x=>x.tagName==='P');
+    if(top)txt(top,d.summary);
+    const details=card.querySelector('.case-details');
+    if(!details)return;
+    txt(details.querySelector('summary'),lang==='ru'?'Подробнее ↓':'Explore case ↓');
+    const content=details.querySelector('.case-content');
+    if(!content)return;
+    const strong=[...content.querySelectorAll('strong')];
+    const paras=[...content.children].filter(x=>x.tagName==='P'&&!x.querySelector('a'));
+    strong.forEach((e,n)=>txt(e,d.details[n*2]||e.textContent));
+    paras.slice(0,3).forEach((e,n)=>txt(e,d.details[n*2+1]||e.textContent));
+    const link=content.querySelector('a[data-case-href]');
+    if(link){
+      txt(link,d.link);
+      link.href=link.dataset.caseHref+(lang==='ru'?'?lang=ru':'');
+    }
+  });
+}
+function apply(){const t=T[lang];document.documentElement.lang=lang;document.title=lang==='ru'?'Boris Golobokov | IT и бизнес-системы':'Boris Golobokov | IT & Business Systems Leader';['expertise','work','advisory','about','contact'].forEach((x,i)=>txt(document.getElementById('nav-'+x),t.nav[i]));txt(document.getElementById('hero-eyebrow'),t.heroEyebrow);document.getElementById('hero-title').innerHTML=t.heroTitle;txt(document.getElementById('hero-lead'),t.heroLead);txt(document.getElementById('hero-work'),t.heroButtons[0]);txt(document.getElementById('hero-about'),t.heroButtons[1]);[...document.querySelectorAll('.stats .stat')].forEach((e,i)=>{txt(e.querySelector('strong'),t.stats[i][0]);txt(e.querySelector('span'),t.stats[i][1])});txt(document.getElementById('expertise-title'),t.expertiseTitle);txt(document.querySelector('#expertise .section-intro'),t.expertiseIntro);[...document.querySelectorAll('#expertise .card')].forEach((e,i)=>{txt(e.querySelector('h3'),t.expertise[i][0]);txt(e.querySelector('p'),t.expertise[i][1])});txt(document.getElementById('work-title'),t.workTitle);txt(document.querySelector('#work>.section-intro'),t.workIntro);localizeWork();[...document.querySelectorAll('#work details summary')].forEach(e=>txt(e,t.caseExplore));[...document.querySelectorAll('#work .case-content strong')].forEach(e=>{const x=e.textContent.trim();const ix=['CONTEXT','ROLE','SCOPE','DELIVERY'].indexOf(x);if(ix>=0)txt(e,t.caseLabels[ix])});txt(document.getElementById('advisory-eyebrow'),t.advisoryEyebrow);document.getElementById('advisory-title').innerHTML=t.advisoryTitle;txt(document.querySelector('#advisory>.section-intro'),t.advisoryIntro);[...document.querySelectorAll('#advisory .advisory-card')].forEach((e,i)=>{const a=t.advisory[i];txt(e.querySelector('.card-number'),a[0]);txt(e.querySelector('h3'),a[1]);txt(e.querySelector('p'),a[2]);txt(e.querySelector('.advisory-price'),a[3]);txt(e.querySelector('.advisory-link'),a[4]);const link=e.querySelector('.advisory-link'),service=link.dataset.service;link.href=`advisory.html?service=${encodeURIComponent(service)}${lang==='ru'?'&lang=ru':''}`});txt(document.getElementById('about-eyebrow'),t.aboutEyebrow);document.getElementById('about-title').innerHTML=t.aboutTitle;[...document.querySelectorAll('#about .about>div:nth-child(2) p')].forEach((e,i)=>txt(e,t.about[i]));txt(document.getElementById('contact-eyebrow'),t.contactEyebrow);document.querySelector('#contact h2').innerHTML=t.contactTitle;txt(document.querySelector('#contact .section-intro'),t.contactIntro);[...document.querySelectorAll('#contact .contact-links a')].forEach((e,i)=>{if(t.contacts[i])txt(e,t.contacts[i])});txt(document.getElementById('footer'),t.footer);document.getElementById('lang-en').classList.toggle('active',lang==='en');document.getElementById('lang-ru').classList.toggle('active',lang==='ru');const u=new URL(location.href);lang==='ru'?u.searchParams.set('lang','ru'):u.searchParams.delete('lang');history.replaceState({},'',u)}
+document.getElementById('lang-en').onclick=()=>{lang='en';apply()};document.getElementById('lang-ru').onclick=()=>{lang='ru';apply()};apply();
+</script>
 </body>
 </html>
