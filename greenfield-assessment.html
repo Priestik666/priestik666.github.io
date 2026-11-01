@@ -21,6 +21,11 @@
     .logo { color: #fff; font-weight: 700; letter-spacing: 1px; text-decoration: none; }
     .back-link { color: #8f9ba8; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-decoration: none; transition: color .2s ease; }
     .back-link:hover { color: #fff; }
+    .nav-actions { display:flex; align-items:center; gap:18px; }
+    .lang-switch { display:flex; align-items:center; gap:7px; font-size:12px; font-weight:700; letter-spacing:.8px; }
+    .lang-switch button { border:0; background:transparent; color:#64717e; cursor:pointer; font:inherit; padding:3px 1px; }
+    .lang-switch button.active { color:#55a7ff; }
+    .lang-switch span { color:#3d4853; }
     .assessment-layout { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(300px, .75fr); gap: 70px; padding: 75px 0 100px; align-items: start; }
     .eyebrow { color: #55a7ff; text-transform: uppercase; letter-spacing: 3px; font-size: 12px; font-weight: 700; margin-bottom: 18px; }
     h1 { font-size: clamp(42px, 6vw, 72px); line-height: 1; letter-spacing: -3px; margin-bottom: 25px; }
@@ -77,15 +82,15 @@
 <div class="container">
   <nav>
     <a class="logo" href="index.html">BORIS GOLOBOKOV</a>
-    <a class="back-link" href="index.html">← BACK TO PORTFOLIO</a>
+    <div class="nav-actions"><div class="lang-switch"><button id="lang-en" type="button">EN</button><span>|</span><button id="lang-ru" type="button">RU</button></div><a class="back-link" id="back-link" href="index.html">← BACK TO PORTFOLIO</a></div>
   </nav>
 
   <main class="assessment-layout">
     <div class="assessment-main">
-      <div class="eyebrow">GREENFIELD MANUFACTURING IT · STAGE 2</div>
-      <h1>Let’s define<br>the right foundation.</h1>
-      <p class="intro">A focused follow-up to define the facility, technology scope, delivery dependencies and operational-readiness requirements for your Greenfield environment.</p>
-      <p class="reference-line">Reference: <strong id="assessment-reference">—</strong></p>
+      <div class="eyebrow" id="eyebrow">GREENFIELD MANUFACTURING IT · STAGE 2</div>
+      <h1 id="hero-title">Let’s define<br>the right foundation.</h1>
+      <p class="intro" id="intro">A focused follow-up to define the facility, technology scope, delivery dependencies and operational-readiness requirements for your Greenfield environment.</p>
+      <p class="reference-line"><span id="reference-label">Reference:</span> <strong id="assessment-reference">—</strong></p>
 
       <div class="progress" aria-label="Assessment progress">
         <div class="progress-step active"></div><div class="progress-step"></div><div class="progress-step"></div><div class="progress-step"></div><div class="progress-step"></div>
@@ -231,15 +236,15 @@
     </div>
 
     <aside class="service-panel">
-      <div class="service-type">GREENFIELD & MANUFACTURING IT</div>
-      <h3>Technology leadership from design to operation.</h3>
-      <p class="service-price">PROJECT-BASED</p>
-      <ul class="service-benefits">
+      <div class="service-type" id="service-type">GREENFIELD & MANUFACTURING IT</div>
+      <h3 id="service-title">Technology leadership from design to operation.</h3>
+      <p class="service-price" id="service-price">PROJECT-BASED</p>
+      <ul class="service-benefits" id="service-benefits">
         <li>Technology architecture</li><li>IT and OT scope definition</li><li>Business-systems integration</li><li>Vendor selection</li><li>Implementation governance</li><li>Operational readiness</li><li>Commissioning support</li>
       </ul>
       <div class="next-steps">
-        <strong>WHAT HAPPENS NEXT?</strong>
-        <p>01 · Your Greenfield scope is reviewed</p><p>02 · Key assumptions and gaps are identified</p><p>03 · Short scope-alignment conversation</p><p>04 · Deliverables and engagement model</p><p>05 · Commercial proposal</p>
+        <strong id="next-title">WHAT HAPPENS NEXT?</strong>
+        <p id="next-1">01 · Your Greenfield scope is reviewed</p><p id="next-2">02 · Key assumptions and gaps are identified</p><p id="next-3">03 · Short scope-alignment conversation</p><p id="next-4">04 · Deliverables and engagement model</p><p id="next-5">05 · Commercial proposal</p>
       </div>
     </aside>
   </main>
@@ -248,102 +253,114 @@
 </div>
 
 <script>
-  const steps = Array.from(document.querySelectorAll('.form-step'));
-  const progressSteps = Array.from(document.querySelectorAll('.progress-step'));
-  const assessmentReference = new URLSearchParams(window.location.search).get('ref') || 'Not provided';
+  const I18N = {
+    en: {
+      back:"← BACK TO PORTFOLIO", eyebrow:"GREENFIELD MANUFACTURING IT · STAGE 2", hero:"Let’s define<br>the right foundation.", intro:"A focused follow-up to define the facility, technology scope, delivery dependencies and operational-readiness requirements for your Greenfield environment.", reference:"Reference:",
+      steps:[
+        {label:"STEP 01 · PROJECT & FACILITY",title:"What are you building?",description:"Define the physical environment and the project milestone that the technology work must support."},
+        {label:"STEP 02 · IT / OT SCOPE",title:"Which technology domains are in scope?",description:"Select the capabilities that must be designed, delivered or governed as part of the project."},
+        {label:"STEP 03 · BUSINESS SYSTEMS & INTEGRATIONS",title:"What must connect to the new operation?",description:"Identify the platforms and operational systems that influence architecture, interfaces, testing and readiness."},
+        {label:"STEP 04 · DELIVERY & READINESS",title:"How is delivery organized?",description:"Clarify ownership, vendor maturity and dependencies that may affect implementation and commissioning."},
+        {label:"STEP 05 · RISKS & CONTEXT",title:"What needs the closest attention?",description:"Share the uncertainties, constraints or decisions that matter most. Your Stage 1 contact details are already linked through the reference above."}
+      ],
+      labels:{projectType:"Project type",facilityType:"Facility type",siteLocation:"Site location",facilityScale:"Facility scale",projectStage:"Current project stage",targetMilestone:"Target operational milestone",boundary:"IT / OT ownership and boundary",availability:"Availability and continuity requirements",platforms:"Known platforms or planned products",integrations:"Critical integrations and data flows",ownership:"Systems ownership",capacity:"Internal IT delivery capacity",vendor:"Vendor and design status",dependencies:"Key delivery dependencies",support:"Support needed through go-live",governance:"Current governance and decision model",risk:"Biggest current risk or uncertainty",constraints:"Fixed constraints",priority:"Where would an independent advisor add the most value?",additional:"Anything else I should know?"},
+      placeholders:{siteLocation:"City, country",facilityScale:"e.g. 12,000 m², 250 users, 3 production lines",targetMilestone:"e.g. production start in Q3 2027",availability:"e.g. 24/7 production, redundant Internet, local operation during WAN outage, target recovery requirements",platforms:"e.g. SAP S/4HANA, Dynamics 365, 1C, Siemens/AVEVA MES, Microsoft 365, Azure",integrations:"Describe any known ERP–MES, WMS, shopfloor, corporate, customer, supplier or regulatory integrations",governance:"Who owns decisions, budget, architecture approval and acceptance? Mention any corporate standards or fixed constraints.",risk:"e.g. unclear ownership, compressed timeline, incomplete design, vendor coordination, IT/OT boundary, continuity requirements",constraints:"e.g. mandatory corporate standards, approved vendors, budget limits, construction milestones, regulatory requirements",priority:"Tell me where you need clarity, challenge, governance or hands-on support",additional:"Optional additional context"},
+      hint:"Approximate figures are sufficient.", buttons:{back:"← BACK",continue:"CONTINUE →",submit:"SUBMIT GREENFIELD SCOPE →",sending:"SENDING...",sent:"SCOPE SENT ✓"},
+      choices:{
+        projectType:["New site / Greenfield","Expansion of existing site","Existing site modernization","Relocation / consolidation"],
+        facility:["Manufacturing facility","Warehouse / logistics","Office / administration","Service / repair center","Laboratory / quality area","Other"],
+        projectStage:["Select project stage","Concept / feasibility","Design","Procurement / tendering","Construction","Technology implementation","Commissioning / start-up","Already operational"],
+        scope:["LAN / WAN / Internet","Corporate and industrial Wi-Fi","Server / cloud infrastructure","Endpoints and workplace technology","Identity and access management","Cybersecurity architecture","OT / production network","CCTV / access control","Telephony / Teams Rooms / AV","Printing / labeling / handhelds","Monitoring / backup / disaster recovery","Service desk and support model"],
+        boundary:["Select current clarity","Clearly defined","Partially defined","Not yet defined","Handled by separate corporate and engineering teams","Not sure"],
+        systems:["ERP","MES / shopfloor systems","WMS / logistics systems","QMS / laboratory systems","CRM","Microsoft 365 / collaboration","BI / analytics / reporting","HR / time and attendance","Maintenance / asset management","Local statutory / regulatory systems","IoT / machine connectivity","Systems not yet selected"],
+        ownership:["Select operating model","Primarily corporate / global","Primarily local","Shared corporate and local ownership","Mostly vendor-managed","Not yet defined"],
+        capacity:["Select current capacity","Dedicated internal project team","Shared internal resources","Limited internal capacity","No internal delivery team","Not yet defined"],
+        vendor:["Select status","Architecture and vendors approved","Design exists; vendors being selected","Some vendors already appointed","Tender / procurement in progress","No technology vendors selected","Not sure"],
+        dependencies:["Construction / civil works","EPC / general contractor","Machinery / production equipment","Corporate / global IT","Telecom providers","Regulatory / data requirements","ERP / MES program","Recruitment and user onboarding"],
+        support:["Select expected support","Independent scope and architecture review","Full design-to-operation advisory","Vendor selection and procurement support","Implementation governance","Testing and operational-readiness review","Commissioning and hypercare support","Not sure; recommend the right model"]
+      },
+      service:{title:"Technology leadership from design to operation.",price:"PROJECT-BASED",benefits:["Technology architecture","IT and OT scope definition","Business-systems integration","Vendor selection","Implementation governance","Operational readiness","Commissioning support"],nextTitle:"WHAT HAPPENS NEXT?",next:["01 · Your Greenfield scope is reviewed","02 · Key assumptions and gaps are identified","03 · Short scope-alignment conversation","04 · Deliverables and engagement model","05 · Commercial proposal"]},
+      missing:"The Stage 1 reference is missing. Please reopen this assessment using the link from your Stage 1 confirmation.", success:"Thank you. Your Greenfield scope has been sent successfully. I will review it together with your Stage 1 context.", error:"The request could not be sent. Please try again or contact me directly by email.", notSpecified:"Not specified"
+    },
+    ru: {
+      back:"← НАЗАД К ПОРТФОЛИО", eyebrow:"GREENFIELD & MANUFACTURING IT · ЭТАП 2", hero:"Давайте создадим<br>правильную основу.", intro:"Уточняющая анкета поможет определить параметры площадки, технологический объём, зависимости поставки и требования к операционной готовности Greenfield-проекта.", reference:"Номер заявки:",
+      steps:[
+        {label:"ШАГ 01 · ПРОЕКТ И ПЛОЩАДКА",title:"Что вы строите или развиваете?",description:"Опишите физическую среду и ключевой этап проекта, который должна поддержать технологическая часть."},
+        {label:"ШАГ 02 · ОБЪЁМ IT / OT",title:"Какие технологические направления входят в объём?",description:"Выберите функции, которые необходимо спроектировать, реализовать или организовать в рамках проекта."},
+        {label:"ШАГ 03 · БИЗНЕС-СИСТЕМЫ И ИНТЕГРАЦИИ",title:"Что должно быть подключено к новой площадке?",description:"Укажите платформы и операционные системы, влияющие на архитектуру, интерфейсы, тестирование и готовность."},
+        {label:"ШАГ 04 · РЕАЛИЗАЦИЯ И ГОТОВНОСТЬ",title:"Как организована реализация проекта?",description:"Уточните ответственность, готовность поставщиков и зависимости, которые могут повлиять на внедрение и запуск."},
+        {label:"ШАГ 05 · РИСКИ И КОНТЕКСТ",title:"Что требует наибольшего внимания?",description:"Опишите ключевые неопределённости, ограничения или решения. Контактные данные из Этапа 1 уже связаны с номером заявки."}
+      ],
+      labels:{projectType:"Тип проекта",facilityType:"Тип площадки",siteLocation:"Расположение площадки",facilityScale:"Масштаб площадки",projectStage:"Текущая стадия проекта",targetMilestone:"Целевой операционный этап",boundary:"Ответственность и границы IT / OT",availability:"Требования к доступности и непрерывности",platforms:"Известные платформы или планируемые продукты",integrations:"Критичные интеграции и потоки данных",ownership:"Ответственность за системы",capacity:"Внутренние ресурсы IT для реализации",vendor:"Статус проектирования и поставщиков",dependencies:"Ключевые зависимости реализации",support:"Необходимая поддержка до выхода в эксплуатацию",governance:"Текущая модель управления и принятия решений",risk:"Главный текущий риск или неопределённость",constraints:"Фиксированные ограничения",priority:"Где независимый консультант принесёт наибольшую ценность?",additional:"Что ещё важно знать?"},
+      placeholders:{siteLocation:"Город, страна",facilityScale:"например: 12 000 м², 250 пользователей, 3 производственные линии",targetMilestone:"например: запуск производства в 3 квартале 2027 года",availability:"например: производство 24/7, резервный интернет, локальная работа при отказе WAN, требования к восстановлению",platforms:"например: SAP S/4HANA, Dynamics 365, 1C, Siemens/AVEVA MES, Microsoft 365, Azure",integrations:"Опишите известные интеграции ERP–MES, WMS, shopfloor, корпоративных, клиентских, поставщицких или регуляторных систем",governance:"Кто отвечает за решения, бюджет, согласование архитектуры и приёмку? Укажите корпоративные стандарты или жёсткие ограничения.",risk:"например: неясная ответственность, сжатые сроки, неполный дизайн, координация поставщиков, граница IT/OT, непрерывность",constraints:"например: обязательные корпоративные стандарты, утверждённые поставщики, бюджетные ограничения, строительные этапы, регуляторные требования",priority:"Укажите, где нужны ясность, независимая оценка, управление или практическая поддержка",additional:"Дополнительный контекст, если есть"},
+      hint:"Достаточно приблизительных данных.", buttons:{back:"← НАЗАД",continue:"ДАЛЕЕ →",submit:"ОТПРАВИТЬ ОБЪЁМ GREENFIELD →",sending:"ОТПРАВКА...",sent:"ОБЪЁМ ОТПРАВЛЕН ✓"},
+      choices:{
+        projectType:["Новая площадка / Greenfield","Расширение существующей площадки","Модернизация существующей площадки","Перенос / консолидация"],
+        facility:["Производственная площадка","Склад / логистика","Офис / администрация","Сервисный / ремонтный центр","Лаборатория / зона качества","Другое"],
+        projectStage:["Выберите стадию проекта","Концепция / технико-экономическое обоснование","Проектирование","Закупка / тендер","Строительство","Внедрение технологий","Пусконаладка / запуск","Уже эксплуатируется"],
+        scope:["LAN / WAN / Интернет","Корпоративный и промышленный Wi-Fi","Серверная / облачная инфраструктура","Рабочие места и конечные устройства","Управление идентификацией и доступом","Архитектура кибербезопасности","OT / производственная сеть","Видеонаблюдение / контроль доступа","Телефония / Teams Rooms / AV","Печать / маркировка / мобильные терминалы","Мониторинг / резервное копирование / аварийное восстановление","Service desk и модель поддержки"],
+        boundary:["Выберите текущую ясность","Чётко определено","Частично определено","Пока не определено","Разделено между корпоративной IT и инженерной командой","Не уверен"],
+        systems:["ERP","MES / системы цехового уровня","WMS / логистические системы","QMS / лабораторные системы","CRM","Microsoft 365 / совместная работа","BI / аналитика / отчётность","HR / учёт времени","Техническое обслуживание / управление активами","Локальные законодательные / регуляторные системы","IoT / подключение оборудования","Системы ещё не выбраны"],
+        ownership:["Выберите модель ответственности","Преимущественно корпоративная / глобальная","Преимущественно локальная","Совместная корпоративная и локальная ответственность","Преимущественно у поставщиков","Пока не определено"],
+        capacity:["Выберите текущие ресурсы","Выделенная внутренняя проектная команда","Совмещённые внутренние ресурсы","Ограниченные внутренние ресурсы","Нет внутренней команды реализации","Пока не определено"],
+        vendor:["Выберите статус","Архитектура и поставщики утверждены","Проектирование готово; идёт выбор поставщиков","Некоторые поставщики уже назначены","Идёт тендер / закупка","Технологические поставщики не выбраны","Не уверен"],
+        dependencies:["Строительство / общестроительные работы","EPC / генеральный подрядчик","Оборудование / производственные линии","Корпоративная / глобальная IT","Телеком-провайдеры","Регуляторные требования / требования к данным","Программа ERP / MES","Найм и подключение пользователей"],
+        support:["Выберите необходимую поддержку","Независимая проверка объёма и архитектуры","Полное сопровождение от дизайна до эксплуатации","Поддержка выбора поставщиков и закупок","Управление внедрением","Проверка тестирования и операционной готовности","Поддержка пусконаладки и hypercare","Не уверен; предложите подходящую модель"]
+      },
+      service:{title:"Технологическое руководство от проектирования до запуска.",price:"ПРОЕКТНЫЙ ФОРМАТ",benefits:["Технологическая архитектура","Определение объёма IT и OT","Интеграция бизнес-систем","Выбор поставщиков","Управление внедрением","Операционная готовность","Поддержка запуска"],nextTitle:"ЧТО БУДЕТ ДАЛЬШЕ?",next:["01 · Я изучу объём Greenfield-проекта","02 · Определю ключевые допущения и пробелы","03 · Короткий разговор для согласования объёма","04 · Результаты и формат взаимодействия","05 · Коммерческое предложение"]},
+      missing:"Не найден номер заявки Этапа 1. Откройте анкету по ссылке из письма после Этапа 1.", success:"Спасибо. Информация по Greenfield-проекту успешно отправлена. Я изучу её вместе с контекстом Этапа 1.", error:"Не удалось отправить запрос. Попробуйте ещё раз или свяжитесь со мной по email.", notSpecified:"Не указано"
+    }
+  };
+
+  const params = new URLSearchParams(location.search);
+  const assessmentReference = params.get('ref') || 'Not provided';
+  let currentLanguage = params.get('lang') === 'ru' ? 'ru' : 'en';
+  const steps = [...document.querySelectorAll('.form-step')];
+  const progressSteps = [...document.querySelectorAll('.progress-step')];
   const finalButton = steps[steps.length - 1].querySelector('.button-primary');
   let currentStep = 0;
 
-  document.getElementById('assessment-reference').textContent = assessmentReference;
+  const ids = {
+    projectType:['project-new','project-expansion','project-modernization','project-relocation'], facility:['facility-manufacturing','facility-warehouse','facility-office','facility-service','facility-lab','facility-other'], scope:['scope-lan','scope-wifi','scope-server','scope-endpoints','scope-identity','scope-security','scope-ot','scope-cctv','scope-voice','scope-print','scope-monitoring','scope-support'], systems:['system-erp','system-mes','system-wms','system-qms','system-crm','system-m365','system-bi','system-hr','system-maintenance','system-local','system-iot','system-unknown'], dependencies:['dep-construction','dep-epc','dep-machinery','dep-global','dep-telecom','dep-regulatory','dep-erp','dep-recruitment']
+  };
 
-  function showStep(stepIndex) {
-    currentStep = Math.max(0, Math.min(stepIndex, steps.length - 1));
-    steps.forEach((step, index) => step.classList.toggle('active', index === currentStep));
-    progressSteps.forEach((item, index) => item.classList.toggle('active', index <= currentStep));
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  function setLabel(forId,text){const el=document.querySelector(`label[for="${forId}"]`);if(el)el.textContent=text;}
+  function setLegend(stepIndex,legendIndex,text){const legends=steps[stepIndex].querySelectorAll('.field-legend');if(legends[legendIndex])legends[legendIndex].textContent=text;}
+  function setChoiceGroup(group,values){ids[group].forEach((id,index)=>{const input=document.getElementById(id);const label=document.querySelector(`label[for="${id}"]`);if(input&&values[index])input.value=values[index];if(label&&values[index])label.textContent=values[index];});}
+  function setSelect(id,values){const el=document.getElementById(id);const selectedIndex=el.selectedIndex;el.innerHTML='';values.forEach((text,index)=>{const option=document.createElement('option');option.value=index===0?'':text;option.textContent=text;el.appendChild(option);});if(selectedIndex>0&&selectedIndex<el.options.length)el.selectedIndex=selectedIndex;}
+  function setPlaceholder(id,text){const el=document.getElementById(id);if(el)el.placeholder=text;}
+
+  function applyLanguage(){
+    const t=I18N[currentLanguage]; document.documentElement.lang=currentLanguage; document.title=currentLanguage==='ru'?'Оценка Greenfield-проекта | Boris Golobokov':'Greenfield Scope Assessment | Boris Golobokov';
+    document.getElementById('back-link').textContent=t.back;document.getElementById('eyebrow').textContent=t.eyebrow;document.getElementById('hero-title').innerHTML=t.hero;document.getElementById('intro').textContent=t.intro;document.getElementById('reference-label').textContent=t.reference;document.getElementById('assessment-reference').textContent=assessmentReference;
+    steps.forEach((step,index)=>{step.querySelector('.step-label').textContent=t.steps[index].label;step.querySelector('h2').textContent=t.steps[index].title;step.querySelector('.step-description').textContent=t.steps[index].description;});
+    setLegend(0,0,t.labels.projectType);setLegend(0,1,t.labels.facilityType);setLabel('site-location',t.labels.siteLocation);setLabel('facility-scale',t.labels.facilityScale);setLabel('project-stage',t.labels.projectStage);setLabel('target-milestone',t.labels.targetMilestone);setLabel('it-ot-boundary',t.labels.boundary);setLabel('availability-requirements',t.labels.availability);setLabel('key-platforms',t.labels.platforms);setLabel('integration-context',t.labels.integrations);setLabel('systems-ownership',t.labels.ownership);setLabel('internal-capacity',t.labels.capacity);setLabel('vendor-status',t.labels.vendor);setLegend(3,0,t.labels.dependencies);setLabel('readiness-support',t.labels.support);setLabel('governance-context',t.labels.governance);setLabel('biggest-risk',t.labels.risk);setLabel('fixed-constraints',t.labels.constraints);setLabel('support-priority',t.labels.priority);setLabel('additional-context',t.labels.additional);
+    Object.entries(t.placeholders).forEach(([key,val])=>{const map={siteLocation:'site-location',facilityScale:'facility-scale',targetMilestone:'target-milestone',availability:'availability-requirements',platforms:'key-platforms',integrations:'integration-context',governance:'governance-context',risk:'biggest-risk',constraints:'fixed-constraints',priority:'support-priority',additional:'additional-context'};setPlaceholder(map[key],val);});
+    steps[0].querySelector('.hint').textContent=t.hint;setChoiceGroup('projectType',t.choices.projectType);setChoiceGroup('facility',t.choices.facility);setSelect('project-stage',t.choices.projectStage);setChoiceGroup('scope',t.choices.scope);setSelect('it-ot-boundary',t.choices.boundary);setChoiceGroup('systems',t.choices.systems);setSelect('systems-ownership',t.choices.ownership);setSelect('internal-capacity',t.choices.capacity);setSelect('vendor-status',t.choices.vendor);setChoiceGroup('dependencies',t.choices.dependencies);setSelect('readiness-support',t.choices.support);
+    steps.forEach((step,index)=>{const back=step.querySelector('.button-secondary');const next=step.querySelector('.button-primary');if(back)back.textContent=t.buttons.back;if(next)next.textContent=index===steps.length-1?t.buttons.submit:t.buttons.continue;});
+    document.getElementById('service-title').textContent=t.service.title;document.getElementById('service-price').textContent=t.service.price;document.getElementById('service-benefits').innerHTML=t.service.benefits.map(x=>`<li>${x}</li>`).join('');document.getElementById('next-title').textContent=t.service.nextTitle;t.service.next.forEach((x,i)=>document.getElementById(`next-${i+1}`).textContent=x);
+    document.getElementById('lang-en').classList.toggle('active',currentLanguage==='en');document.getElementById('lang-ru').classList.toggle('active',currentLanguage==='ru');const url=new URL(location.href);if(currentLanguage==='ru')url.searchParams.set('lang','ru');else url.searchParams.delete('lang');history.replaceState({},'',url);
   }
 
-  steps.forEach((step, index) => {
-    const primaryButton = step.querySelector('.button-primary');
-    const secondaryButton = step.querySelector('.button-secondary');
-    if (primaryButton && index < steps.length - 1) primaryButton.addEventListener('click', () => showStep(index + 1));
-    if (secondaryButton) secondaryButton.addEventListener('click', () => showStep(index - 1));
+  function changeLanguage(lang){currentLanguage=lang;applyLanguage();}
+  function showStep(index){currentStep=Math.max(0,Math.min(index,steps.length-1));steps.forEach((step,i)=>step.classList.toggle('active',i===currentStep));progressSteps.forEach((item,i)=>item.classList.toggle('active',i<=currentStep));scrollTo({top:0,behavior:'smooth'});}
+  steps.forEach((step,index)=>{const primary=step.querySelector('.button-primary');const secondary=step.querySelector('.button-secondary');if(primary&&index<steps.length-1)primary.addEventListener('click',()=>showStep(index+1));if(secondary)secondary.addEventListener('click',()=>showStep(index-1));});
+  const value=id=>document.getElementById(id).value.trim();
+  const selected=selector=>[...document.querySelectorAll(selector)].filter(x=>x.checked).map(x=>x.value);
+  const selectedOne=selector=>document.querySelector(selector+':checked')?.value||I18N[currentLanguage].notSpecified;
+  const listOrDefault=selector=>{const values=selected(selector);return values.length?values.join(', '):I18N[currentLanguage].notSpecified;};
+
+  finalButton.addEventListener('click',async()=>{
+    const t=I18N[currentLanguage];
+    if(assessmentReference==='Not provided'){alert(t.missing);return;}
+    const payload={reference:assessmentReference,_subject:'New Greenfield Stage 2 Assessment — '+assessmentReference,service:'GREENFIELD & MANUFACTURING IT',engagement_model:'PROJECT-BASED',assessment_stage:'Stage 2',language:currentLanguage,project_type:selectedOne('input[name="project-type"]'),facility_type:listOrDefault('[data-step="1"] input[type="checkbox"]'),site_location:value('site-location'),facility_scale:value('facility-scale'),project_stage:value('project-stage'),target_operational_milestone:value('target-milestone'),it_ot_scope:listOrDefault('#it-ot-scope input[type="checkbox"]'),it_ot_boundary:value('it-ot-boundary'),availability_continuity_requirements:value('availability-requirements'),business_systems:listOrDefault('#business-systems input[type="checkbox"]'),known_platforms:value('key-platforms'),critical_integrations:value('integration-context'),systems_ownership:value('systems-ownership'),internal_it_capacity:value('internal-capacity'),vendor_design_status:value('vendor-status'),delivery_dependencies:listOrDefault('#delivery-dependencies input[type="checkbox"]'),go_live_support_needed:value('readiness-support'),governance_decision_model:value('governance-context'),biggest_risk_uncertainty:value('biggest-risk'),fixed_constraints:value('fixed-constraints'),advisor_value_priority:value('support-priority'),additional_context:value('additional-context'),source_page:location.href};
+    const original=finalButton.textContent;finalButton.disabled=true;finalButton.textContent=t.buttons.sending;
+    try{const response=await fetch('https://advisory-engine.priestik.workers.dev/stage2',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(payload)});if(!response.ok)throw Error();finalButton.textContent=t.buttons.sent;alert(t.success);}catch(error){finalButton.disabled=false;finalButton.textContent=original;alert(t.error);}
   });
 
-  const value = (id) => document.getElementById(id).value.trim();
-  const selected = (selector) => Array.from(document.querySelectorAll(selector)).filter(input => input.checked).map(input => input.value);
-  const selectedOne = (selector) => {
-    const input = document.querySelector(selector + ':checked');
-    return input ? input.value : 'Not specified';
-  };
-  const listOrDefault = (selector) => {
-    const values = selected(selector);
-    return values.length ? values.join(', ') : 'Not specified';
-  };
-
-  finalButton.addEventListener('click', async () => {
-    if (assessmentReference === 'Not provided') {
-      alert('The Stage 1 reference is missing. Please reopen this assessment using the link from your Stage 1 confirmation.');
-      return;
-    }
-
-    const payload = {
-      reference: assessmentReference,
-      _subject: 'New Greenfield Stage 2 Assessment — ' + assessmentReference,
-      service: 'GREENFIELD & MANUFACTURING IT',
-      engagement_model: 'PROJECT-BASED',
-      assessment_stage: 'Stage 2',
-
-      project_type: selectedOne('input[name="project-type"]'),
-      facility_type: listOrDefault('[data-step="1"] input[type="checkbox"]'),
-      site_location: value('site-location'),
-      facility_scale: value('facility-scale'),
-      project_stage: value('project-stage'),
-      target_operational_milestone: value('target-milestone'),
-
-      it_ot_scope: listOrDefault('#it-ot-scope input[type="checkbox"]'),
-      it_ot_boundary: value('it-ot-boundary'),
-      availability_continuity_requirements: value('availability-requirements'),
-
-      business_systems: listOrDefault('#business-systems input[type="checkbox"]'),
-      known_platforms: value('key-platforms'),
-      critical_integrations: value('integration-context'),
-      systems_ownership: value('systems-ownership'),
-
-      internal_it_capacity: value('internal-capacity'),
-      vendor_design_status: value('vendor-status'),
-      delivery_dependencies: listOrDefault('#delivery-dependencies input[type="checkbox"]'),
-      go_live_support_needed: value('readiness-support'),
-      governance_decision_model: value('governance-context'),
-
-      biggest_risk_uncertainty: value('biggest-risk'),
-      fixed_constraints: value('fixed-constraints'),
-      advisor_value_priority: value('support-priority'),
-      additional_context: value('additional-context'),
-      source_page: window.location.href
-    };
-
-    const originalButtonText = finalButton.textContent;
-    finalButton.disabled = true;
-    finalButton.textContent = 'SENDING...';
-
-    try {
-      const response = await fetch('https://advisory-engine.priestik.workers.dev/stage2', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      if (!response.ok) throw new Error('Form submission failed');
-      finalButton.textContent = 'SCOPE SENT ✓';
-      alert('Thank you. Your Greenfield scope has been sent successfully. I will review it together with your Stage 1 context.');
-    } catch (error) {
-      finalButton.disabled = false;
-      finalButton.textContent = originalButtonText;
-      alert('The request could not be sent. Please try again or contact me directly by email.');
-    }
-  });
-
-  showStep(0);
+  document.getElementById('lang-en').addEventListener('click',()=>changeLanguage('en'));
+  document.getElementById('lang-ru').addEventListener('click',()=>changeLanguage('ru'));
+  applyLanguage();showStep(0);
 </script>
 </body>
 </html>

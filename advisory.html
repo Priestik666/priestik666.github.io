@@ -49,6 +49,11 @@
     .next-steps strong { display: block; font-size: 12px; margin-bottom: 12px; }
     .next-steps p { color: #7f8b97; font-size: 12px; margin-bottom: 7px; }
     .form-note { color: #687582; font-size: 12px; margin-top: 16px; }
+    .nav-actions { display:flex; align-items:center; gap:18px; }
+    .lang-switch { display:flex; align-items:center; gap:7px; font-size:12px; font-weight:700; letter-spacing:.8px; }
+    .lang-switch button { border:0; background:transparent; color:#64717e; cursor:pointer; font:inherit; padding:3px 1px; }
+    .lang-switch button.active { color:#55a7ff; }
+    .lang-switch span { color:#3d4853; }
     footer { padding: 35px 0 50px; color: #687582; font-size: 12px; border-top: 1px solid #252c34; }
     @media (max-width: 800px) {
       .assessment-layout { grid-template-columns: 1fr; gap: 45px; }
@@ -62,19 +67,19 @@
 <div class="container">
   <nav>
     <a href="index.html">BORIS GOLOBOKOV</a>
-    <a href="index.html">← BACK TO PORTFOLIO</a>
+    <div class="nav-actions"><div class="lang-switch"><button id="lang-en" type="button">EN</button><span>|</span><button id="lang-ru" type="button">RU</button></div><a href="index.html" id="back-link">← BACK TO PORTFOLIO</a></div>
   </nav>
 
   <main class="assessment-layout">
     <div class="assessment-main">
-      <div class="eyebrow">Technology Advisory</div>
-      <h1>Let's understand<br>what you need.</h1>
-      <p class="intro">A short business-focused assessment helps define your context, priorities and the right engagement model before any project begins.</p>
+      <div class="eyebrow" id="eyebrow">Technology Advisory</div>
+      <h1 id="hero-title">Let's understand<br>what you need.</h1>
+      <p class="intro" id="intro">A short business-focused assessment helps define your context, priorities and the right engagement model before any project begins.</p>
 
       <section class="form-step active" data-step="1">
-        <div class="step-label">INITIAL ASSESSMENT · ABOUT 2 MINUTES</div>
-        <h2>Tell me briefly about your situation.</h2>
-        <p class="step-description">A few details are enough to understand your request and identify the right next step.</p>
+        <div class="step-label" id="assessment-label">INITIAL ASSESSMENT · ABOUT 2 MINUTES</div>
+        <h2 id="assessment-title">Tell me briefly about your situation.</h2>
+        <p class="step-description" id="assessment-description">A few details are enough to understand your request and identify the right next step.</p>
 
         <input id="selected-service" type="hidden">
 
@@ -159,16 +164,16 @@
           </select>
         </div>
 
-        <div class="step-label" style="margin-top:45px;">YOUR DETAILS</div>
-        <h2>Let's continue the conversation.</h2>
-        <p class="step-description">No obligation. Scope, deliverables and commercial terms are agreed before any engagement begins.</p>
+        <div class="step-label" id="details-label" style="margin-top:45px;">YOUR DETAILS</div>
+        <h2 id="details-title">Let's continue the conversation.</h2>
+        <p class="step-description" id="details-description">No obligation. Scope, deliverables and commercial terms are agreed before any engagement begins.</p>
 
         <div class="field"><label for="name">Name</label><input id="name" type="text" placeholder="Your name" autocomplete="name"></div>
         <div class="field"><label for="email">Business email</label><input id="email" type="email" placeholder="name@company.com" autocomplete="email"></div>
         <div class="field"><label for="phone">Phone / WhatsApp <span style="font-weight:400;color:#7f8b97;">(optional)</span></label><input id="phone" type="tel" placeholder="+7 ..." autocomplete="tel"></div>
 
         <div class="form-actions"><button class="button button-primary" id="submit-assessment" type="button">REQUEST INITIAL REVIEW →</button></div>
-        <p class="form-note">You will receive a reference number for the next step.</p>
+        <p class="form-note" id="form-note">You will receive a reference number for the next step.</p>
       </section>
     </div>
 
@@ -178,9 +183,9 @@
       <p class="service-price" id="service-price">FROM $1,500 · FIXED SCOPE</p>
       <ul class="service-benefits" id="service-benefits"></ul>
       <div class="next-steps">
-        <strong>WHAT HAPPENS NEXT?</strong>
-        <p>01 · Your context is reviewed</p><p>02 · Short introductory conversation</p>
-        <p>03 · Scope and deliverables</p><p>04 · Fixed commercial proposal</p><p>05 · You decide whether to proceed</p>
+        <strong id="next-title">WHAT HAPPENS NEXT?</strong>
+        <p id="next-1">01 · Your context is reviewed</p><p id="next-2">02 · Short introductory conversation</p>
+        <p id="next-3">03 · Scope and deliverables</p><p id="next-4">04 · Fixed commercial proposal</p><p id="next-5">05 · You decide whether to proceed</p>
       </div>
     </aside>
   </main>
@@ -188,160 +193,86 @@
 </div>
 
 <script>
-  const serviceConfigs = {
-    "health-check": {
-      type: "IT & BUSINESS SYSTEMS HEALTH CHECK", title: "Understand where your IT stands.", price: "FROM $1,500 · FIXED SCOPE",
-      benefits: ["Executive assessment","Current-state review","Risk map","Quick wins","Priority matrix","12-month roadmap","Executive recommendations"],
-      requestAreaLabel: "What would you like reviewed?",
-      requestAreas: ["Full independent review","IT strategy and governance","IT costs and licensing","Cybersecurity and risk","Infrastructure and cloud","ERP / CRM landscape","Support model","Business continuity","Vendors and contracts"],
-      stageLabel: "Primary reason for the review",
-      stages: ["Independent baseline assessment","Concerns about risks or costs","Preparation for transformation","Management or ownership change","Technology roadmap required","Not sure yet"]
+  const translations = {
+    en: {
+      back:"← BACK TO PORTFOLIO", eyebrow:"Technology Advisory", hero:"Let's understand<br>what you need.", intro:"A short business-focused assessment helps define your context, priorities and the right engagement model before any project begins.", assessmentLabel:"INITIAL ASSESSMENT · ABOUT 2 MINUTES", assessmentTitle:"Tell me briefly about your situation.", assessmentDescription:"A few details are enough to understand your request and identify the right next step.",
+      labels:{company:"Company",industry:"Industry",companySize:"Company size",locations:"Locations",markets:"Countries / markets",role:"Your role",objective:"What would you like to change, solve or improve?",sponsor:"Executive sponsorship",timing:"Expected timing",name:"Name",email:"Business email",phone:'Phone / WhatsApp <span style="font-weight:400;color:#7f8b97;">(optional)</span>'},
+      placeholders:{company:"Company name",markets:"e.g. Kazakhstan, Uzbekistan, Central Asia",objective:"Briefly describe the current situation and the outcome you would like to achieve...",name:"Your name",email:"name@company.com",phone:"+7 ..."},
+      staticSelects:{industry:["Select industry","Manufacturing","Engineering","Distribution","Pharmaceutical","Logistics","Professional Services","Retail","Other"],companySize:["Select company size","Below 100 employees","100–250 employees","250–500 employees","500–1,000 employees","1,000+ employees"],locations:["Select operating model","Single location","Multiple locations","Multi-country operations"],role:["Select your role","Owner / Executive","IT Leadership","Finance","Operations","Sales / CRM","Project / Transformation","Other"],sponsor:["Select status","I am the executive sponsor","Executive sponsor confirmed","Sponsor identified, not yet confirmed","Internal discussion in progress","No executive sponsor yet","Not sure"],timing:["Select timing","As soon as possible","Within 1–3 months","Within 3–6 months","More than 6 months","Exploring options"]},
+      detailsLabel:"YOUR DETAILS",detailsTitle:"Let's continue the conversation.",detailsDescription:"No obligation. Scope, deliverables and commercial terms are agreed before any engagement begins.",submit:"REQUEST INITIAL REVIEW →",formNote:"You will receive a reference number for the next step.",nextTitle:"WHAT HAPPENS NEXT?",next:["01 · Your context is reviewed","02 · Short introductory conversation","03 · Scope and deliverables","04 · Fixed commercial proposal","05 · You decide whether to proceed"],selectOption:"Select an option",sending:"SENDING...",sent:"REQUEST SENT ✓",
+      validation:{company:"Please enter your company name.",industry:"Please select your industry.",companySize:"Please select your company size.",locations:"Please select your operating model.",role:"Please select your role.",requestArea:"Please select the primary area.",stage:"Please select the current stage.",objective:"Please briefly describe your objective.",sponsor:"Please select the executive sponsorship status.",timing:"Please select the expected timing.",name:"Please enter your name.",email:"Please enter your business email.",validEmail:"Please enter a valid business email address."},
+      successRef:ref=>`Thank you. Your request has been submitted successfully.\n\nReference ID: ${ref}\n\nPlease keep this reference number for the next step.`,success:"Thank you. Your request has been submitted successfully. I will review your context and contact you shortly.",error:"The request could not be sent. Please try again or contact me directly by email."
     },
-    "fractional-cio": {
-      type: "FRACTIONAL CIO", title: "Executive IT leadership without the full-time overhead.", price: "MONTHLY ENGAGEMENT",
-      benefits: ["Executive IT leadership","Technology strategy","Budget and vendor control","IT team leadership","Project governance","Executive reporting","Technology roadmap"],
-      requestAreaLabel: "Where do you need leadership support?",
-      requestAreas: ["IT strategy","Governance and operating model","Budget and cost control","Vendor management","IT team leadership","Cybersecurity and risk","ERP / CRM program","Executive reporting","Ongoing CIO support"],
-      stageLabel: "Current IT leadership situation",
-      stages: ["No internal IT leadership","IT manager needs executive support","Temporary leadership gap","Transformation requires governance","Current model needs improvement","Not sure yet"]
-    },
-    "transformation": {
-      type: "TRANSFORMATION ADVISORY", title: "Make complex transformation manageable.", price: "PROJECT-BASED",
-      benefits: ["ERP / CRM advisory","Microsoft 365","Power BI and analytics","AI enablement","Integration governance","Testing and readiness","Business adoption"],
-      requestAreaLabel: "Primary system or transformation area",
-      requestAreas: ["Microsoft Dynamics 365","SAP","Oracle","1C","Salesforce","HubSpot","Microsoft 365","Power BI / Analytics","AI / Copilot","Data and integrations","Business processes","Multiple systems","Not decided yet"],
-      stageLabel: "Current transformation stage",
-      stages: ["Exploring options","Business case","Planning","Implementation","Recovery / struggling project","Post-implementation improvement"]
-    },
-    "greenfield": {
-      type: "GREENFIELD & MANUFACTURING IT", title: "Technology leadership from design to operation.", price: "PROJECT-BASED",
-      benefits: ["Technology architecture","IT infrastructure","Manufacturing IT","Vendor selection","Implementation governance","Operational readiness","Commissioning support"],
-      requestAreaLabel: "What are you building?",
-      requestAreas: ["Manufacturing facility","Warehouse / logistics facility","Office","Service center","Expansion of an existing site","Existing site modernization","Other operational environment"],
-      stageLabel: "Current project stage",
-      stages: ["Concept","Design","Construction","Implementation","Commissioning","Operational / expansion"]
-    },
-    "crm": {
-      type: "CRM & GOVERNANCE", title: "Turn CRM into a governed business process.", price: "PROJECT-BASED",
-      benefits: ["CRM governance","Lead qualification","Sales process design","Customer request governance","Ownership and accountability","Reporting and visibility","Business adoption"],
-      requestAreaLabel: "Current CRM or customer platform",
-      requestAreas: ["Microsoft Dynamics 365","Salesforce","HubSpot","SAP","Oracle","1C","Custom CRM","Excel / fragmented tools","No CRM yet","Other","Not decided yet"],
-      stageLabel: "Primary CRM challenge",
-      stages: ["Lead management","Sales process","Customer request management","Governance and ownership","Reporting and visibility","Data quality","User adoption","Integration with ERP or other systems"]
-    },
-    "ai": {
-      type: "AI ADVISORY", title: "Move from AI interest to practical business value.", price: "PROJECT-BASED",
-      benefits: ["AI opportunity assessment","Business use cases","Microsoft Copilot readiness","Data and security review","Adoption roadmap","Governance principles","Practical implementation plan"],
-      requestAreaLabel: "Primary AI area",
-      requestAreas: ["Microsoft 365 Copilot","AI strategy","Business process automation","Internal knowledge assistant","Customer service","Reporting and analytics","AI governance","Not sure yet"],
-      stageLabel: "Current AI stage",
-      stages: ["Exploring opportunities","Identifying use cases","Preparing a pilot","Pilot in progress","Scaling adoption","Governance or security concerns"]
+    ru: {
+      back:"← НАЗАД К ПОРТФОЛИО", eyebrow:"Технологический консалтинг", hero:"Давайте разберёмся,<br>что вам нужно.", intro:"Короткая бизнес-анкета поможет понять ваш контекст, приоритеты и подходящий формат взаимодействия до начала проекта.", assessmentLabel:"ПЕРВИЧНАЯ ОЦЕНКА · ОКОЛО 2 МИНУТ", assessmentTitle:"Кратко расскажите о вашей ситуации.", assessmentDescription:"Нескольких деталей достаточно, чтобы понять запрос и определить правильный следующий шаг.",
+      labels:{company:"Компания",industry:"Отрасль",companySize:"Размер компании",locations:"География присутствия",markets:"Страны / рынки",role:"Ваша роль",objective:"Что вы хотели бы изменить, решить или улучшить?",sponsor:"Поддержка руководства",timing:"Ожидаемые сроки",name:"Имя",email:"Рабочий email",phone:'Телефон / WhatsApp <span style="font-weight:400;color:#7f8b97;">(необязательно)</span>'},
+      placeholders:{company:"Название компании",markets:"например: Казахстан, Узбекистан, Центральная Азия",objective:"Кратко опишите текущую ситуацию и результат, которого вы хотели бы достичь...",name:"Ваше имя",email:"name@company.com",phone:"+7 ..."},
+      staticSelects:{industry:["Выберите отрасль","Производство","Инжиниринг","Дистрибуция","Фармацевтика","Логистика","Профессиональные услуги","Розничная торговля","Другое"],companySize:["Выберите размер компании","До 100 сотрудников","100–250 сотрудников","250–500 сотрудников","500–1 000 сотрудников","1 000+ сотрудников"],locations:["Выберите модель присутствия","Одна площадка","Несколько площадок","Работа в нескольких странах"],role:["Выберите вашу роль","Собственник / Руководитель","IT-руководство","Финансы","Операционная деятельность","Продажи / CRM","Проект / Трансформация","Другое"],sponsor:["Выберите статус","Я являюсь исполнительным спонсором","Исполнительный спонсор подтверждён","Спонсор определён, но ещё не подтверждён","Внутреннее обсуждение продолжается","Исполнительного спонсора пока нет","Не уверен"],timing:["Выберите сроки","Как можно скорее","В течение 1–3 месяцев","В течение 3–6 месяцев","Более 6 месяцев","Изучаем варианты"]},
+      detailsLabel:"ВАШИ ДАННЫЕ",detailsTitle:"Давайте продолжим разговор.",detailsDescription:"Без обязательств. Объём работ, результаты и коммерческие условия согласовываются до начала взаимодействия.",submit:"ОТПРАВИТЬ НА ПЕРВИЧНУЮ ОЦЕНКУ →",formNote:"Вы получите номер заявки для следующего шага.",nextTitle:"ЧТО БУДЕТ ДАЛЬШЕ?",next:["01 · Я изучу ваш контекст","02 · Короткий вводный разговор","03 · Определим объём работ и результаты","04 · Коммерческое предложение","05 · Вы принимаете решение о продолжении"],selectOption:"Выберите вариант",sending:"ОТПРАВКА...",sent:"ЗАПРОС ОТПРАВЛЕН ✓",
+      validation:{company:"Укажите название компании.",industry:"Выберите отрасль.",companySize:"Выберите размер компании.",locations:"Выберите модель присутствия.",role:"Выберите вашу роль.",requestArea:"Выберите основное направление.",stage:"Выберите текущую стадию.",objective:"Кратко опишите вашу цель.",sponsor:"Выберите статус поддержки руководства.",timing:"Выберите ожидаемые сроки.",name:"Укажите ваше имя.",email:"Укажите рабочий email.",validEmail:"Укажите корректный рабочий email."},
+      successRef:ref=>`Спасибо. Ваш запрос успешно отправлен.\n\nНомер заявки: ${ref}\n\nСохраните этот номер для следующего шага.`,success:"Спасибо. Ваш запрос успешно отправлен. Я изучу контекст и свяжусь с вами по следующему шагу.",error:"Не удалось отправить запрос. Попробуйте ещё раз или свяжитесь со мной по email."
     }
   };
 
-  const serviceAliases = {
-    "cio":"fractional-cio","fractionalcio":"fractional-cio","fractional_cio":"fractional-cio",
-    "healthcheck":"health-check","health_check":"health-check","it-health-check":"health-check",
-    "green-field":"greenfield","manufacturing":"greenfield","manufacturing-it":"greenfield",
-    "transformation-advisory":"transformation","digital-transformation":"transformation",
-    "crm-governance":"crm","crm-and-governance":"crm","ai-advisory":"ai","ai-playbook":"ai"
+  const serviceConfigs = {
+    "health-check": {
+      en:{type:"IT & BUSINESS SYSTEMS HEALTH CHECK",title:"Understand where your IT stands.",price:"FROM $1,500 · FIXED SCOPE",benefits:["Executive assessment","Current-state review","Risk map","Quick wins","Priority matrix","12-month roadmap","Executive recommendations"],requestAreaLabel:"What would you like reviewed?",requestAreas:["Full independent review","IT strategy and governance","IT costs and licensing","Cybersecurity and risk","Infrastructure and cloud","ERP / CRM landscape","Support model","Business continuity","Vendors and contracts"],stageLabel:"Primary reason for the review",stages:["Independent baseline assessment","Concerns about risks or costs","Preparation for transformation","Management or ownership change","Technology roadmap required","Not sure yet"]},
+      ru:{type:"IT & BUSINESS SYSTEMS HEALTH CHECK",title:"Поймите реальное состояние вашей IT-среды.",price:"ОТ $1,500 · ФИКСИРОВАННЫЙ ОБЪЁМ",benefits:["Оценка для руководства","Анализ текущего состояния","Карта рисков","Быстрые улучшения","Матрица приоритетов","План на 12 месяцев","Рекомендации для руководства"],requestAreaLabel:"Что вы хотели бы проверить?",requestAreas:["Полная независимая проверка","IT-стратегия и управление","IT-затраты и лицензии","Кибербезопасность и риски","Инфраструктура и облако","ERP / CRM ландшафт","Модель поддержки","Непрерывность бизнеса","Поставщики и контракты"],stageLabel:"Основная причина проверки",stages:["Независимая базовая оценка","Опасения по рискам или затратам","Подготовка к трансформации","Изменения в управлении или ответственности","Нужна технологическая дорожная карта","Пока не уверен"]}
+    },
+    "fractional-cio": {
+      en:{type:"FRACTIONAL CIO",title:"Executive IT leadership without the full-time overhead.",price:"MONTHLY ENGAGEMENT",benefits:["Executive IT leadership","Technology strategy","Budget and vendor control","IT team leadership","Project governance","Executive reporting","Technology roadmap"],requestAreaLabel:"Where do you need leadership support?",requestAreas:["IT strategy","Governance and operating model","Budget and cost control","Vendor management","IT team leadership","Cybersecurity and risk","ERP / CRM program","Executive reporting","Ongoing CIO support"],stageLabel:"Current IT leadership situation",stages:["No internal IT leadership","IT manager needs executive support","Temporary leadership gap","Transformation requires governance","Current model needs improvement","Not sure yet"]},
+      ru:{type:"FRACTIONAL CIO",title:"IT-руководство уровня CIO без необходимости полной штатной роли.",price:"ЕЖЕМЕСЯЧНОЕ ВЗАИМОДЕЙСТВИЕ",benefits:["IT-руководство на уровне бизнеса","Технологическая стратегия","Контроль бюджета и поставщиков","Управление IT-командой","Управление проектами","Отчётность для руководства","Технологическая дорожная карта"],requestAreaLabel:"Где вам нужна поддержка IT-руководителя?",requestAreas:["IT-стратегия","Управление и operating model","Бюджет и контроль затрат","Управление поставщиками","Руководство IT-командой","Кибербезопасность и риски","ERP / CRM программа","Отчётность для руководства","Постоянная поддержка CIO"],stageLabel:"Текущая ситуация с IT-руководством",stages:["Нет внутреннего IT-руководителя","IT-менеджеру нужна поддержка уровня руководства","Временный дефицит руководства","Трансформации требуется управление","Текущую модель нужно улучшить","Пока не уверен"]}
+    },
+    transformation: {
+      en:{type:"TRANSFORMATION ADVISORY",title:"Make complex transformation manageable.",price:"PROJECT-BASED",benefits:["ERP / CRM advisory","Microsoft 365","Power BI and analytics","AI enablement","Integration governance","Testing and readiness","Business adoption"],requestAreaLabel:"Primary system or transformation area",requestAreas:["Microsoft Dynamics 365","SAP","Oracle","1C","Salesforce","HubSpot","Microsoft 365","Power BI / Analytics","AI / Copilot","Data and integrations","Business processes","Multiple systems","Not decided yet"],stageLabel:"Current transformation stage",stages:["Exploring options","Business case","Planning","Implementation","Recovery / struggling project","Post-implementation improvement"]},
+      ru:{type:"TRANSFORMATION ADVISORY",title:"Сделайте сложную трансформацию управляемой.",price:"ПРОЕКТНЫЙ ФОРМАТ",benefits:["ERP / CRM консалтинг","Microsoft 365","Power BI и аналитика","Внедрение AI","Управление интеграциями","Тестирование и готовность","Адаптация бизнеса"],requestAreaLabel:"Основная система или направление трансформации",requestAreas:["Microsoft Dynamics 365","SAP","Oracle","1C","Salesforce","HubSpot","Microsoft 365","Power BI / Аналитика","AI / Copilot","Данные и интеграции","Бизнес-процессы","Несколько систем","Пока не определено"],stageLabel:"Текущая стадия трансформации",stages:["Изучение вариантов","Бизнес-кейс","Планирование","Внедрение","Восстановление / проблемный проект","Улучшения после внедрения"]}
+    },
+    greenfield: {
+      en:{type:"GREENFIELD & MANUFACTURING IT",title:"Technology leadership from design to operation.",price:"PROJECT-BASED",benefits:["Technology architecture","IT infrastructure","Manufacturing IT","Vendor selection","Implementation governance","Operational readiness","Commissioning support"],requestAreaLabel:"What are you building?",requestAreas:["Manufacturing facility","Warehouse / logistics facility","Office","Service center","Expansion of an existing site","Existing site modernization","Other operational environment"],stageLabel:"Current project stage",stages:["Concept","Design","Construction","Implementation","Commissioning","Operational / expansion"]},
+      ru:{type:"GREENFIELD & MANUFACTURING IT",title:"Технологическое руководство от проектирования до запуска.",price:"ПРОЕКТНЫЙ ФОРМАТ",benefits:["Технологическая архитектура","IT-инфраструктура","Производственное IT","Выбор поставщиков","Управление внедрением","Операционная готовность","Поддержка запуска"],requestAreaLabel:"Что вы строите или развиваете?",requestAreas:["Производственная площадка","Склад / логистический объект","Офис","Сервисный центр","Расширение существующей площадки","Модернизация существующей площадки","Другая операционная среда"],stageLabel:"Текущая стадия проекта",stages:["Концепция","Проектирование","Строительство","Внедрение","Пусконаладка","Эксплуатация / расширение"]}
+    },
+    crm: {
+      en:{type:"CRM & GOVERNANCE",title:"Turn CRM into a governed business process.",price:"PROJECT-BASED",benefits:["CRM governance","Lead qualification","Sales process design","Customer request governance","Ownership and accountability","Reporting and visibility","Business adoption"],requestAreaLabel:"Current CRM or customer platform",requestAreas:["Microsoft Dynamics 365","Salesforce","HubSpot","SAP","Oracle","1C","Custom CRM","Excel / fragmented tools","No CRM yet","Other","Not decided yet"],stageLabel:"Primary CRM challenge",stages:["Lead management","Sales process","Customer request management","Governance and ownership","Reporting and visibility","Data quality","User adoption","Integration with ERP or other systems"]},
+      ru:{type:"CRM & GOVERNANCE",title:"Превратите CRM в управляемый бизнес-процесс.",price:"ПРОЕКТНЫЙ ФОРМАТ",benefits:["Управление CRM","Квалификация лидов","Проектирование процесса продаж","Управление запросами клиентов","Ответственность и ownership","Отчётность и прозрачность","Адаптация бизнеса"],requestAreaLabel:"Текущая CRM или клиентская платформа",requestAreas:["Microsoft Dynamics 365","Salesforce","HubSpot","SAP","Oracle","1C","Собственная CRM","Excel / разрозненные инструменты","CRM пока нет","Другое","Пока не определено"],stageLabel:"Основная проблема CRM",stages:["Управление лидами","Процесс продаж","Управление запросами клиентов","Управление и ответственность","Отчётность и прозрачность","Качество данных","Принятие пользователями","Интеграция с ERP или другими системами"]}
+    },
+    ai: {
+      en:{type:"AI ADVISORY",title:"Move from AI interest to practical business value.",price:"PROJECT-BASED",benefits:["AI opportunity assessment","Business use cases","Microsoft Copilot readiness","Data and security review","Adoption roadmap","Governance principles","Practical implementation plan"],requestAreaLabel:"Primary AI area",requestAreas:["Microsoft 365 Copilot","AI strategy","Business process automation","Internal knowledge assistant","Customer service","Reporting and analytics","AI governance","Not sure yet"],stageLabel:"Current AI stage",stages:["Exploring opportunities","Identifying use cases","Preparing a pilot","Pilot in progress","Scaling adoption","Governance or security concerns"]},
+      ru:{type:"AI ADVISORY",title:"Перейдите от интереса к AI к практической бизнес-ценности.",price:"ПРОЕКТНЫЙ ФОРМАТ",benefits:["Оценка возможностей AI","Бизнес-сценарии","Готовность к Microsoft Copilot","Проверка данных и безопасности","Дорожная карта внедрения","Принципы управления","Практический план реализации"],requestAreaLabel:"Основное направление AI",requestAreas:["Microsoft 365 Copilot","AI-стратегия","Автоматизация бизнес-процессов","Внутренний ассистент знаний","Клиентский сервис","Отчётность и аналитика","Управление AI","Пока не уверен"],stageLabel:"Текущая стадия AI",stages:["Изучаем возможности","Определяем сценарии использования","Готовим пилот","Пилот идёт","Масштабируем внедрение","Вопросы управления или безопасности"]}
+    }
   };
 
+  const serviceAliases = {"cio":"fractional-cio","fractionalcio":"fractional-cio","fractional_cio":"fractional-cio","healthcheck":"health-check","health_check":"health-check","it-health-check":"health-check","green-field":"greenfield","manufacturing":"greenfield","manufacturing-it":"greenfield","transformation-advisory":"transformation","digital-transformation":"transformation","crm-governance":"crm","crm-and-governance":"crm","ai-advisory":"ai","ai-playbook":"ai"};
   const queryParams = new URLSearchParams(window.location.search);
   const requestedService = (queryParams.get("service") || "health-check").toLowerCase().trim();
   const selectedService = serviceAliases[requestedService] || requestedService;
   const resolvedService = serviceConfigs[selectedService] ? selectedService : "health-check";
-  const activeService = serviceConfigs[resolvedService];
+  let currentLanguage = queryParams.get("lang") === "ru" ? "ru" : "en";
 
-  function populateSelect(element, placeholder, options) {
-    if (!element) return;
-    element.innerHTML = "";
-    const first = document.createElement("option");
-    first.value = ""; first.textContent = placeholder; element.appendChild(first);
-    options.forEach(text => { const option = document.createElement("option"); option.value = text; option.textContent = text; element.appendChild(option); });
+  function setSelect(id, items){ const el=document.getElementById(id); const old=el.value; el.innerHTML=""; items.forEach((text,index)=>{const o=document.createElement("option");o.value=index===0?"":text;o.textContent=text;el.appendChild(o);}); if([...el.options].some(o=>o.value===old)) el.value=old; }
+  function setLabel(id,html){ const el=document.querySelector(`label[for="${id}"]`); if(el) el.innerHTML=html; }
+  function populateSelect(element, placeholder, options){ if(!element)return; element.innerHTML=""; const first=document.createElement("option");first.value="";first.textContent=placeholder;element.appendChild(first);options.forEach(text=>{const option=document.createElement("option");option.value=text;option.textContent=text;element.appendChild(option);}); }
+
+  function applyLanguage(){
+    const t=translations[currentLanguage]; const active=serviceConfigs[resolvedService][currentLanguage];
+    document.documentElement.lang=currentLanguage; document.title=currentLanguage==="ru"?"Консалтинг | Boris Golobokov":"Advisory | Boris Golobokov";
+    document.getElementById("back-link").textContent=t.back; document.getElementById("eyebrow").textContent=t.eyebrow; document.getElementById("hero-title").innerHTML=t.hero; document.getElementById("intro").textContent=t.intro; document.getElementById("assessment-label").textContent=t.assessmentLabel; document.getElementById("assessment-title").textContent=t.assessmentTitle; document.getElementById("assessment-description").textContent=t.assessmentDescription;
+    Object.entries(t.labels).forEach(([key,text])=>{const map={company:"company",industry:"industry",companySize:"company-size",locations:"locations",markets:"markets",role:"role",objective:"objective",sponsor:"sponsor-status",timing:"timing",name:"name",email:"email",phone:"phone"};setLabel(map[key],text);});
+    Object.entries(t.placeholders).forEach(([key,text])=>{const el=document.getElementById(key==="company"?"company":key==="markets"?"markets":key==="objective"?"objective":key);if(el)el.placeholder=text;});
+    setSelect("industry",t.staticSelects.industry);setSelect("company-size",t.staticSelects.companySize);setSelect("locations",t.staticSelects.locations);setSelect("role",t.staticSelects.role);setSelect("sponsor-status",t.staticSelects.sponsor);setSelect("timing",t.staticSelects.timing);
+    document.getElementById("details-label").textContent=t.detailsLabel;document.getElementById("details-title").textContent=t.detailsTitle;document.getElementById("details-description").textContent=t.detailsDescription;document.getElementById("submit-assessment").textContent=t.submit;document.getElementById("form-note").textContent=t.formNote;document.getElementById("next-title").textContent=t.nextTitle;t.next.forEach((x,i)=>document.getElementById(`next-${i+1}`).textContent=x);
+    document.getElementById("selected-service").value=resolvedService;document.getElementById("service-type").textContent=active.type;document.getElementById("service-title").textContent=active.title;document.getElementById("service-price").textContent=active.price;document.getElementById("service-benefits").innerHTML=active.benefits.map(x=>`<li>${x}</li>`).join("");document.getElementById("request-area-label").textContent=active.requestAreaLabel;document.getElementById("service-stage-label").textContent=active.stageLabel;populateSelect(document.getElementById("request-area"),t.selectOption,active.requestAreas);populateSelect(document.getElementById("service-stage"),t.selectOption,active.stages);
+    document.getElementById("lang-en").classList.toggle("active",currentLanguage==="en");document.getElementById("lang-ru").classList.toggle("active",currentLanguage==="ru");
+    const url=new URL(window.location.href); if(currentLanguage==="ru")url.searchParams.set("lang","ru");else url.searchParams.delete("lang"); history.replaceState({},"",url);
   }
 
-  function applyServiceConfiguration() {
-    document.getElementById("selected-service").value = resolvedService;
-    document.getElementById("service-type").textContent = activeService.type;
-    document.getElementById("service-title").textContent = activeService.title;
-    document.getElementById("service-price").textContent = activeService.price;
-    document.getElementById("service-benefits").innerHTML = activeService.benefits.map(x => `<li>${x}</li>`).join("");
-    document.getElementById("request-area-label").textContent = activeService.requestAreaLabel;
-    document.getElementById("service-stage-label").textContent = activeService.stageLabel;
-    populateSelect(document.getElementById("request-area"), "Select an option", activeService.requestAreas);
-    populateSelect(document.getElementById("service-stage"), "Select an option", activeService.stages);
-  }
-
-  function value(id) { const el = document.getElementById(id); return el ? el.value.trim() : ""; }
-  function validEmail(email) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); }
-
-  function validateAssessment() {
-    const required = [
-      ["company","Please enter your company name."],["industry","Please select your industry."],
-      ["company-size","Please select your company size."],["locations","Please select your operating model."],
-      ["role","Please select your role."],["request-area","Please select the primary area."],
-      ["service-stage","Please select the current stage."],["objective","Please briefly describe your objective."],
-      ["sponsor-status","Please select the executive sponsorship status."],["timing","Please select the expected timing."],
-      ["name","Please enter your name."],["email","Please enter your business email."]
-    ];
-    for (const [id, message] of required) {
-      const el = document.getElementById(id);
-      if (!el || !el.value.trim()) { alert(message); if (el) el.focus(); return false; }
-    }
-    if (!validEmail(value("email"))) { alert("Please enter a valid business email address."); document.getElementById("email").focus(); return false; }
-    return true;
-  }
-
-  function buildPayload() {
-    return {
-      _subject: `New Stage 1 Advisory Assessment — ${activeService.type}`,
-      assessment_stage: "Stage 1", language: document.documentElement.lang || "en",
-      service: resolvedService, service_name: activeService.type, engagement_model: activeService.price,
-      company: value("company"), industry: value("industry"), company_size: value("company-size"),
-      locations: value("locations"), countries_markets: value("markets") || "Not specified", respondent_role: value("role"),
-      request_area: value("request-area"), current_stage: value("service-stage"), objective: value("objective"),
-      executive_sponsorship: value("sponsor-status"), expected_timing: value("timing"),
-      name: value("name"), email: value("email"), phone: value("phone") || "Not specified",
-      source_page: window.location.href, submitted_at: new Date().toISOString()
-    };
-  }
-
-  function extractReferenceId(data) {
-    if (!data || typeof data !== "object") return "";
-    return data.referenceId || data.reference_id || data.reference || data.id || "";
-  }
-
-  async function submitAssessment() {
-    const button = document.getElementById("submit-assessment");
-    if (!button || !validateAssessment()) return;
-    const original = button.textContent;
-    button.disabled = true; button.textContent = "SENDING...";
-    try {
-      const response = await fetch("https://advisory-engine.priestik.workers.dev/stage1", {
-        method: "POST", headers: {"Content-Type":"application/json","Accept":"application/json"}, body: JSON.stringify(buildPayload())
-      });
-      let data = {};
-      const text = await response.text();
-      if (text) { try { data = JSON.parse(text); } catch { data = {}; } }
-      if (!response.ok) throw new Error(data.message || data.error || "Form submission failed.");
-      const ref = extractReferenceId(data);
-      button.textContent = ref ? `SENT · ${ref}` : "REQUEST SENT ✓";
-      alert(ref ? `Thank you. Your request has been submitted successfully.\n\nReference ID: ${ref}\n\nPlease keep this reference number for the next step.` : "Thank you. Your request has been submitted successfully. I will review your context and contact you shortly.");
-    } catch (error) {
-      console.error("Stage 1 submission error:", error);
-      button.disabled = false; button.textContent = original;
-      alert("The request could not be sent. Please try again or contact me directly by email.");
-    }
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    applyServiceConfiguration();
-    document.getElementById("submit-assessment").addEventListener("click", submitAssessment);
-    document.querySelectorAll("input,select,textarea").forEach(field => field.addEventListener("keydown", event => {
-      if (event.key === "Enter" && event.target.tagName !== "TEXTAREA") event.preventDefault();
-    }));
-  });
+  function changeLanguage(lang){ currentLanguage=lang; applyLanguage(); }
+  function value(id){const el=document.getElementById(id);return el?el.value.trim():"";}
+  function validEmail(email){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);}
+  function validateAssessment(){const v=translations[currentLanguage].validation;const required=[["company",v.company],["industry",v.industry],["company-size",v.companySize],["locations",v.locations],["role",v.role],["request-area",v.requestArea],["service-stage",v.stage],["objective",v.objective],["sponsor-status",v.sponsor],["timing",v.timing],["name",v.name],["email",v.email]];for(const[id,message]of required){const el=document.getElementById(id);if(!el||!el.value.trim()){alert(message);if(el)el.focus();return false;}}if(!validEmail(value("email"))){alert(v.validEmail);document.getElementById("email").focus();return false;}return true;}
+  function buildPayload(){const active=serviceConfigs[resolvedService][currentLanguage];return{_subject:`New Stage 1 Advisory Assessment — ${active.type}`,assessment_stage:"Stage 1",language:currentLanguage,service:resolvedService,service_name:active.type,engagement_model:active.price,company:value("company"),industry:value("industry"),company_size:value("company-size"),locations:value("locations"),countries_markets:value("markets")||"Not specified",respondent_role:value("role"),request_area:value("request-area"),current_stage:value("service-stage"),objective:value("objective"),executive_sponsorship:value("sponsor-status"),expected_timing:value("timing"),name:value("name"),email:value("email"),phone:value("phone")||"Not specified",source_page:window.location.href,submitted_at:new Date().toISOString()};}
+  function extractReferenceId(data){if(!data||typeof data!=="object")return"";return data.referenceId||data.reference_id||data.reference||data.id||"";}
+  async function submitAssessment(){const button=document.getElementById("submit-assessment");if(!button||!validateAssessment())return;const t=translations[currentLanguage];const original=button.textContent;button.disabled=true;button.textContent=t.sending;try{const response=await fetch("https://advisory-engine.priestik.workers.dev/stage1",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(buildPayload())});let data={};const text=await response.text();if(text){try{data=JSON.parse(text);}catch{data={};}}if(!response.ok)throw new Error(data.message||data.error||"Form submission failed.");const ref=extractReferenceId(data);button.textContent=ref?`${t.sent.replace(" ✓","")} · ${ref}`:t.sent;alert(ref?t.successRef(ref):t.success);}catch(error){console.error("Stage 1 submission error:",error);button.disabled=false;button.textContent=original;alert(t.error);}}
+  document.addEventListener("DOMContentLoaded",()=>{document.getElementById("lang-en").addEventListener("click",()=>changeLanguage("en"));document.getElementById("lang-ru").addEventListener("click",()=>changeLanguage("ru"));applyLanguage();document.getElementById("submit-assessment").addEventListener("click",submitAssessment);document.querySelectorAll("input,select,textarea").forEach(field=>field.addEventListener("keydown",event=>{if(event.key==="Enter"&&event.target.tagName!=="TEXTAREA")event.preventDefault();}));});
 </script>
 </body>
 </html>

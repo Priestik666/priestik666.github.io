@@ -116,10 +116,12 @@
       color:var(--white);
     }
 
-    .back{
-      color:var(--blue2) !important;
-      font-weight:700;
-    }
+    .back{color:var(--blue2) !important;font-weight:700;}
+    .nav-actions{display:flex;align-items:center;gap:18px}
+    .lang-switch{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:700;letter-spacing:.8px}
+    .lang-switch button{border:0;background:transparent;color:#64717e;cursor:pointer;font:inherit;padding:3px 1px}
+    .lang-switch button.active{color:var(--blue2)}
+    .lang-switch span{color:#3d5268}
 
     /* HERO */
 
@@ -563,11 +565,14 @@
         <span></span>
         <span></span>
       </button>
-      <div class="nav-links">
-        <a href="#capabilities" class="hide-mobile">Capabilities</a>
-        <a href="#experience" class="hide-mobile">Experience</a>
-        <a href="advisory.html">Advisory</a>
-        <a class="back" href="index.html">← Portfolio</a>
+      <div class="nav-actions">
+        <div class="lang-switch"><button id="lang-en" type="button">EN</button><span>|</span><button id="lang-ru" type="button">RU</button></div>
+        <div class="nav-links">
+          <a id="nav-capabilities" href="#capabilities" class="hide-mobile">Capabilities</a>
+          <a id="nav-experience" href="#experience" class="hide-mobile">Experience</a>
+          <a id="nav-advisory" href="advisory.html">Advisory</a>
+          <a id="nav-back" class="back" href="index.html">← Portfolio</a>
+        </div>
       </div>
     </div>
   </nav>
@@ -894,13 +899,46 @@
     </div>
   </footer>
 <script>
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
+const menuToggle=document.querySelector('.menu-toggle');
+const navLinks=document.querySelector('.nav-links');
+menuToggle.addEventListener('click',()=>{const isOpen=navLinks.classList.toggle('open');menuToggle.setAttribute('aria-expanded',isOpen)});
 
-  menuToggle.addEventListener('click', () => {
-    const isOpen = navLinks.classList.toggle('open');
-    menuToggle.setAttribute('aria-expanded', isOpen);
-  });
+const RU={
+  title:'Greenfield Manufacturing IT | Boris Golobokov',
+  metaDescription:'Опыт создания Greenfield Manufacturing IT: инфраструктура, связь, бизнес-системы, кибербезопасность, устойчивость и операционная готовность.',
+  nav:['Возможности','Опыт','Консалтинг','← Портфолио'],
+  hero:{eyebrow:'ПРОИЗВОДСТВО · ИНФРАСТРУКТУРА · БИЗНЕС-СИСТЕМЫ',title:'Greenfield<br>Manufacturing IT',copy:'От пустой площадки до безопасной, связанной и готовой к работе среды: инфраструктура, бизнес-системы, кибербезопасность и операционная готовность как часть производственной основы.',tags:['Инфраструктура и связь','Бизнес-системы','Кибербезопасность','Физическая безопасность','Операционная готовность','Устойчивость']},
+  captions:['Концептуальная визуализация. Технические детали намеренно обобщены.','Концептуальная визуализация на основе планирования Greenfield-инфраструктуры. Технические детали намеренно обобщены.'],
+  intro:{number:'КОНТЕКСТ',title:'IT становится частью производственной инфраструктуры.',lead:'Greenfield-проект быстро меняет роль IT. Связь перестаёт быть только офисной инфраструктурой. Бизнес-системы перестают быть изолированными приложениями. Безопасность, устойчивость и поддержка становятся частью операционной готовности.',muted:'Задача состоит в том, чтобы создавать цифровую основу одновременно с физической средой, производственными потребностями и operating model, а не пытаться добавлять технологии после завершения остальных работ.'},
+  capabilities:{eyebrow:'Что должно работать как единое целое',title:'Одна среда. Несколько дисциплин.',cards:[['Площадка и инфраструктура','СКС, оптическая магистраль, защита электропитания, размещение оборудования и физическая основа связанной производственной среды.'],['Связь и сеть','Корпоративная связь, коммутация, Wi-Fi и сетевая архитектура для надёжного доступа пользователей, систем и операционных сервисов.'],['Безопасность и доступ','Кибербезопасность, физический контроль доступа и видеонаблюдение как взаимосвязанные уровни общей операционной среды.'],['Бизнес-системы и рабочая среда','ERP, совместная работа, пользовательские рабочие места и бизнес-приложения, связанные с процессами, которые они должны поддерживать с первого дня.'],['Устойчивость','Защита электропитания, резервирование, непрерывность и операционные зависимости, продуманные до запуска, а не после первого серьёзного сбоя.'],['Операционная готовность','Ответственность, поддержка, документация, координация поставщиков и передача в эксплуатацию, обеспечивающие устойчивую работу после завершения проекта.']]},
+  principle:{eyebrow:'Принцип',quote:'Настоящая проверка запуска заключается не в том, установлены ли все системы. Она заключается в том, сможет ли <strong>бизнес продолжить работу, когда что-то пойдёт не так.</strong>'},
+  experience:{eyebrow:'Практический опыт',title:'От проектирования инфраструктуры до операционной среды.',paras:['Greenfield Manufacturing IT требует решений по физической инфраструктуре, связи, безопасности, бизнес-приложениям и поддержке задолго до первого обычного рабочего дня.','Мой опыт включает создание и реализацию цифровой основы производственной и офисной среды в Казахстане, включая инфраструктурные уровни, необходимые для подключения пользователей, систем и операционных сервисов.','Фокус был не на технологиях ради технологий, а на создании надёжной среды, способной поддержать бизнес при переходе площадки от проектной фазы к ежедневной эксплуатации.'],items:[['Физическая основа','Оптическая и кабельная инфраструктура, размещение оборудования, workplace connectivity и вспомогательные физические системы.'],['Связанная среда','Сетевая и беспроводная связь для пользователей, workplace services и зависимостей операционных технологий.'],['Уровни безопасности','Сетевая безопасность вместе с видеонаблюдением и контролем доступа как часть общей операционной среды.'],['Поддержка бизнеса','Бизнес-системы, совместная работа и workplace services, согласованные с операционными требованиями новой площадки.'],['Готовность и непрерывность','Модель поддержки, устойчивость, ответственность и переход от проектного внедрения к устойчивой эксплуатации.']]},
+  readiness:{eyebrow:'От проекта к эксплуатации',title:'Технологии полезны только тогда, когда организация готова ими пользоваться.',paras:['Greenfield-проекты формируют длинный список важных требований. Управленческая задача — определить зависимости, критичные для безопасной и надёжной работы с первого дня.','Для этого архитектуру, реализацию, поставщиков, поддержку и бизнес-приоритеты необходимо рассматривать как единую систему, а не как независимые направления.'],statement:'Инфраструктура становится устойчивостью.<br>Системы становятся операциями.<br>IT становится частью бизнеса.'},
+  insight:{eyebrow:'Отраслевая перспектива',title:'Чему Greenfield Manufacturing IT учит в выборе приоритетов',copy:'Практический взгляд на то, почему операционная готовность важнее простого завершения технологического чек-листа перед запуском.',pending:'LinkedIn · публикация 28 октября 2026'},
+  cta:{eyebrow:'GREENFIELD ADVISORY',title:'Планируете новую площадку или производственную среду?',copy:'Рассмотрите структурированный консалтинговый подход, охватывающий IT-инфраструктуру, бизнес-системы, безопасность, зависимости и операционную готовность.',button:'ОБСУДИТЬ GREENFIELD-ПРОЕКТ →'},
+  footer:['© Boris Golobokov','Люди · Системы · Инфраструктура · Реальный результат']
+};
+
+const originals=new Map();
+function remember(el){if(el&&!originals.has(el))originals.set(el,{html:el.innerHTML,text:el.textContent,href:el.getAttribute('href')})}
+function setText(el,value){if(!el)return;remember(el);el.textContent=value}
+function setHtml(el,value){if(!el)return;remember(el);el.innerHTML=value}
+function restore(){for(const[el,v]of originals){el.innerHTML=v.html;if(v.href!==null)el.setAttribute('href',v.href)}}
+function setList(selector,values,mode='text'){[...document.querySelectorAll(selector)].forEach((el,i)=>{if(values[i]!==undefined)(mode==='html'?setHtml:setText)(el,values[i])})}
+function applyRu(){
+  document.title=RU.title;const md=document.querySelector('meta[name="description"]');if(md)md.content=RU.metaDescription;
+  setList('.nav-links a',RU.nav);setText(document.querySelector('.hero .eyebrow'),RU.hero.eyebrow);setHtml(document.querySelector('.hero h1'),RU.hero.title);setText(document.querySelector('.hero-copy'),RU.hero.copy);setList('.hero-tags span',RU.hero.tags);setList('.caption',RU.captions);
+  setText(document.querySelector('.intro .section-number'),RU.intro.number);setText(document.querySelector('.intro h2'),RU.intro.title);setText(document.querySelector('.intro .lead'),RU.intro.lead);setText(document.querySelector('.intro .muted'),RU.intro.muted);
+  setText(document.querySelector('.capabilities .eyebrow'),RU.capabilities.eyebrow);setText(document.querySelector('.capabilities h2'),RU.capabilities.title);[...document.querySelectorAll('.capabilities .card')].forEach((c,i)=>{if(RU.capabilities.cards[i]){setText(c.querySelector('h3'),RU.capabilities.cards[i][0]);setText(c.querySelector('p'),RU.capabilities.cards[i][1])}});
+  setText(document.querySelector('.principle .eyebrow'),RU.principle.eyebrow);setHtml(document.querySelector('.quote'),RU.principle.quote);
+  setText(document.querySelector('.experience .eyebrow'),RU.experience.eyebrow);setText(document.querySelector('.experience h2'),RU.experience.title);setList('.experience-copy p',RU.experience.paras);[...document.querySelectorAll('.system-item')].forEach((x,i)=>{if(RU.experience.items[i]){setText(x.querySelector('h3'),RU.experience.items[i][0]);setText(x.querySelector('p'),RU.experience.items[i][1])}});
+  setText(document.querySelector('.readiness .eyebrow'),RU.readiness.eyebrow);setText(document.querySelector('.readiness h2'),RU.readiness.title);setList('.readiness-grid>div:first-child p',RU.readiness.paras);setHtml(document.querySelector('.statement'),RU.readiness.statement);
+  setText(document.querySelector('.insight .eyebrow'),RU.insight.eyebrow);setText(document.querySelector('.insight h2'),RU.insight.title);setText(document.querySelector('.insight-box p'),RU.insight.copy);setText(document.querySelector('.pending'),RU.insight.pending);
+  setText(document.querySelector('.cta .eyebrow'),RU.cta.eyebrow);setText(document.querySelector('.cta h2'),RU.cta.title);setText(document.querySelector('.cta p'),RU.cta.copy);setText(document.querySelector('.cta .button'),RU.cta.button);setList('.footer-inner>div',RU.footer);
+}
+let lang=new URLSearchParams(location.search).get('lang')==='ru'?'ru':'en';
+function apply(){restore();if(lang==='ru')applyRu();document.documentElement.lang=lang;document.getElementById('lang-en').classList.toggle('active',lang==='en');document.getElementById('lang-ru').classList.toggle('active',lang==='ru');const suffix=lang==='ru'?'?lang=ru':'';document.querySelector('.brand').href='index.html'+suffix;document.getElementById('nav-back').href='index.html'+suffix;document.getElementById('nav-advisory').href='advisory.html'+suffix;document.querySelector('.cta .button').href='advisory.html?service=greenfield'+(lang==='ru'?'&lang=ru':'')+'#assessment';const u=new URL(location.href);lang==='ru'?u.searchParams.set('lang','ru'):u.searchParams.delete('lang');history.replaceState({},'',u)}
+document.getElementById('lang-en').onclick=()=>{lang='en';apply()};document.getElementById('lang-ru').onclick=()=>{lang='ru';apply()};apply();
 </script>
 </body>
 </html>
